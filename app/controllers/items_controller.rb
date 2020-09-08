@@ -28,8 +28,8 @@ class ItemsController < ApplicationController
     @item.user = current_user
 
     respond_to do |format|
-      if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+      if @item.save!
+        format.html { redirect_to new_item_workshop_date_path(@item), notice: 'Item was successfully created.' }
         format.json { render :show, status: :created, location: @item }
       else
         format.html { render :new }
