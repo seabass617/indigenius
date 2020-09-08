@@ -1,0 +1,5 @@
+<% if @item.workshop?%>
+    <%= render 'workshop_form', workshop: @order_item %>
+<% else %>
+    <%= render 'product_form', product: @order_item %>
+<% end %>
