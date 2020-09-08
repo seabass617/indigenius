@@ -1,0 +1,15 @@
+
+<div class="container">
+<h3>Workshop Dates</h3>
+<% @workshop_dates.each do |workshop_date|%>
+  <p><%="#{workshop_date.start_date} to #{workshop_date.end_date}"%>
+  <button class="btn"><%= link_to 'Remove',  item_workshop_date_path(workshop_date.item.id,workshop_date.id), method: :delete %></button></p>
+
+<%end%>
+</div>
+
+<%= render 'form', workshop_date: @workshop_date %>
+
+<div class="container">
+<%= link_to "Done", items_path, class: "btn btn-primary" %>
+</div>

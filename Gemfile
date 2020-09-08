@@ -60,3 +60,9 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+# This gem is a port of Perl's Data::Faker library that generates fake data.
+gem 'faker'
+
+# Cloudinary gem for image upload
+gem 'cloudinary', '~> 1.16.0'
