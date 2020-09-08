@@ -1,5 +1,6 @@
 class WorkshopDatesController < ApplicationController
-  
+  #before_action :workshop_dates, only: [:new, :destroy]
+
   def index 
     @workshop_dates = WorkshopDate.all
   end 
@@ -8,14 +9,15 @@ class WorkshopDatesController < ApplicationController
     @item = Item.find(params[:item_id])
     @workshop_date = WorkshopDate.new
     @workshop_date.item = @item 
-    @workshop_dates = WorkshopDate.all
-  end 
+    @workshop_dates = WorkshopDate.where(item_id: params[:item_id])
+    
+  end
   
   def create
     @item = Item.find(params[:item_id])
     @workshop_date = WorkshopDate.new(workshop_date_params)
     @workshop_date.item = @item
-
+    
     if @workshop_date.save
     redirect_to new_item_workshop_date_path(@item), notice: 'Your dates were successfully created' # Am I actually redirecting anywhere?
     else
@@ -39,14 +41,21 @@ class WorkshopDatesController < ApplicationController
   end
 
   def destroy
+    @item = Item.find(params[:item_id])
+    @workshop_dates = WorkshopDate.where(item_id: params[:item_id])
     @workshop_date = WorkshopDate.find(params[:id])
     @workshop_date.destroy 
-    #redirect_to #where are you redirecting to?
-    # notice: "sucessfully destroyed"
+    render :new
+    
   end
 
   private
   def workshop_date_params
       params.require(:workshop_date).permit(:start_date, :end_date)
   end  
+
+  #def workshop_dates
+   # @workshop_dates = WorkshopDate.where(item_id: params[:item_id])
+  #end
+
 end
