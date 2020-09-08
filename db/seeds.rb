@@ -1,22 +1,15 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 require 'open-uri'
 require 'nokogiri'
 require 'faker'
 
-# p 'Destroying all users...'
-# User.destroy_all
-# p 'Destroying all items...'
-# Item.destroy_all
-# p 'Destroying all order...'
-# Order.destroy_all
-# p 'Destroying all reviews...'
-# Review.destroy_all
+p 'Destroying all order...'
+Order.destroy_all
+p 'Destroying all reviews...'
+Review.destroy_all
+p 'Destroying all items...'
+Item.destroy_all
+p 'Destroying all users...'
+User.destroy_all
 
 p '--------------------'
 
@@ -30,36 +23,116 @@ p 'Creating 05 new Users...'
   user.password = '123456'
   user.password_confirmation = '123456'
   user.save!
-  user.avatar.attach(io: open('https://source.unsplash.com/featured/?indigenous-people'))
+  user.avatar.attach(io: open('https://source.unsplash.com/featured/?indigenous-people'),
+                     filename: "#{user.first_name}_avatar.jpg")
 
-  p '#{user.first_name} created with email #{user.email}'
+  p "#{user.first_name} created with email #{user.email}"
 end
 
 p '--------------------'
 
-# p 'Creating new worskshops...'
+p 'Creating new worskshops...'
 
-# p 'MOROCCO'
+p 'Craft worskshops:'
 
-# new_workshop = Item.create!(
-#     user_id: User.all.sample.id,
-#     name: 'Pottery, discovery workshop in Marrakech',
-#     description: 'For children, adults, families, couples or groups, We accompany you the time of a discovery workshop earth matter to release your senses in an inspiring universe.',
-#     price: 3077,
-#     category: 'pottery'
-#     capacity: rand(10),
-#     workshop: true)
-# new_workshop.images.attach(io: open('https://media.tacdn.com/media/attractions-splice-spp-674x446/08/88/97/f9.jpg'), 
-#                             filename: 'workshop#{:id}_01.jpg')
-# new_workshop.images.attach(io: open('https://media.tacdn.com/media/attractions-splice-spp-674x446/08/88/9d/ea.jpg'), 
-#                             filename: 'workshop#{:id}_02.jpg')
-# new_workshop.images.attach(io: open('https://media.tacdn.com/media/attractions-splice-spp-674x446/08/88/ff/dc.jpg'), 
-#                             filename: 'workshop#{:id}_03.jpg')
+url = 'https://www.viator.com/en-CA/Marrakech-tours/Craft-Classes/d5408-g26051-c33939'
+html = Nokogiri::HTML(open(url).read)
+
+i = 0
+
+until i > 10
+  # scraping info
+  name = html.search("#productName#{i} .text-dark.highlight-able.card-link").text.strip
+  description = html.search("#productName#{i} .text-body.summary-text.mb-0").text.strip
+  price = html.search("#productName#{i} .h3.line-height-same.mb-0.price-font.text-md-right")[0].text.strip.tr('€.', '')
+  img = html.search("#productName#{i} .product-image.with-fallback.tb-b-to-g700-linear.scale-container.half-ease-in-out")
+  img.attribute("data-src").value
+
+  # creating workshop
+  new_workshop = Item.create!(
+    user_id: User.all.sample.id,
+    name: name,
+    description: description.tr("\n", ''),
+    price: price.tr('€.', ''),
+    category: 'craft',
+    capacity: rand(10),
+    workshop: true
+    )
+  new_workshop.images.attach(io: open("#{img.attribute("data-src").value}"), filename: "workshop#{:id}.jpg")
+
+  p "#{name} created"
+
+  i += 1
+end
+
+p 'Pottery worskshops:'
+
+url = 'https://www.viator.com/en-CA/Marrakech-tours/Pottery-Classes/d5408-g26051-c32012'
+html = Nokogiri::HTML(open(url).read)
+
+i = 0
+
+until i > 10 
+  # scraping info
+  name = html.search("#productName#{i} .text-dark.highlight-able.card-link").text.strip
+  description = html.search("#productName#{i} .text-body.summary-text.mb-0").text.strip
+  price = html.search("#productName#{i} .h3.line-height-same.mb-0.price-font.text-md-right")[0].text.strip.tr('€.', '')
+  img = html.search("#productName#{i} .product-image.with-fallback.tb-b-to-g700-linear.scale-container.half-ease-in-out")
+  img.attribute("data-src").value
+ 
+  # creating workshop
+  new_workshop = Item.create!(
+    user_id: User.all.sample.id,
+    name: name,
+    description: description.tr("\n", ''),
+    price: price.tr('€.', ''),
+    category: 'craft',
+    capacity: rand(10),
+    workshop: true
+    )
+  new_workshop.images.attach(io: open("#{img.attribute("data-src").value}"), filename: "workshop#{:id}.jpg")
+
+  p "#{name} created"
+
+  i += 1
+end
+
+p 'Cooking worskshops:'
+
+url = 'https://www.viator.com/en-CA/Marrakech-tours/Cooking-Classes/d5408-g6-c19'
+html = Nokogiri::HTML(open(url).read)
+
+i = 0
+
+until i > 10 
+  # scraping info
+  name = html.search("#productName#{i} .text-dark.highlight-able.card-link").text.strip
+  description = html.search("#productName#{i} .text-body.summary-text.mb-0").text.strip
+  price = html.search("#productName#{i} .h3.line-height-same.mb-0.price-font.text-md-right")[0].text.strip.tr('€.', '')
+  img = html.search("#productName#{i} .product-image.with-fallback.tb-b-to-g700-linear.scale-container.half-ease-in-out")
+  img.attribute("data-src").value
+ 
+  # creating workshop
+  new_workshop = Item.create!(
+    user_id: User.all.sample.id,
+    name: name,
+    description: description.tr("\n", ''),
+    price: price.tr('€.', ''),
+    category: 'craft',
+    capacity: rand(10),
+    workshop: true
+    )
+  new_workshop.images.attach(io: open("#{img.attribute("data-src").value}"), filename: "workshop#{:id}.jpg")
+
+  p "#{name} created"
+
+  i += 1
+end
+
+# p '--------------------'
+
+# # p 'Creating new products...'
 
 p '--------------------'
 
-# p 'Creating new products...'
-
-p '--------------------'
-
-p 'All set!'
+p 'All set! for now'
