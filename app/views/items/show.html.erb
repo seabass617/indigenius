@@ -1,0 +1,13 @@
+
+<div class="container">
+  <h1><%= @item.name %></h1>
+  <p><%= @item.description %></p>
+  <p><%= @item.price %></p>
+  <p><%= @item.capacity %></p>
+  <p><%= @item.category %></p>
+
+</div>
+
+<%= link_to 'Edit', edit_item_path(@item) %>
+<%= link_to "❌", delete_item_path(@item), method: :delete %>
+<%= link_to 'Back', items_path %>
