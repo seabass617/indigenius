@@ -1,0 +1,29 @@
+ <h1 class="text-center title">Here are your Indigenius Orders </h1>
+ 
+<%# orders container is going to hold all the orderss %>
+<div class="orders-container">
+ 
+  <%# render each order card %>
+  <% @orders.each do |order|%>
+    <%# this order container is going to be a flexbox with info on the left & image on the right %>
+    <div class="order-container"> 
+ 
+      <div class="order-info">
+        <h2> Order for <%= order.item.name%></h2>
+        <h3><%= order.item.description %></h3>
+        <h4>Status: <%= "#{order.status}" %></h4>
+        <h5> Total Price: <%= "#{order.price}" %> </h5>
+        <%# there will be an error below due to the path %>
+        <h6><%= link_to 'Cancel Order', order_path(order.id), method: :delete, data: { confirm: 'Are you certain you want to delete this item?'} %></h6>
+      </div>
+ 
+ 
+      <%= cl_image_tag order.item.photo.key %>
+
+    </div>
+ 
+  <%end%>  
+</div>
+
+
+<%= link_to "back", items_path, class: "btn" %>
