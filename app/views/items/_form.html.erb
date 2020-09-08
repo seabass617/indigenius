@@ -1,13 +1,16 @@
-
-<%= simple_form_for(@item) do |f| %>
-  <%= f.error_notification %>
-  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-
-  <div class="form-inputs">
-    <%= f.input :name %>
-  </div>
-
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+  <%= simple_form_for(@item) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  
+    <div class="form-inputs">
+      <%= f.input :name %>
+        <%= f.simple_fields_for :workshop_dates do |p| %>
+          <%= p.input :start_date, as: :date, html5: true %>
+          <%= p.input :end_date, as: :date, html5: true %>
+      <% end %>
+    </div>
+  
+    <div class="form-actions">
+      <%= f.button :submit %>
+    </div>
+  <% end %>

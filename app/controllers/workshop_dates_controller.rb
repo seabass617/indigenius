@@ -1,4 +1,7 @@
 class WorkshopDatesController < ApplicationController
+  def new
+  end 
+  
   def create
     @item = Item.find(params[:item_id])
     @workshop_date = WorkshopDate.new(workshop_date_params)
