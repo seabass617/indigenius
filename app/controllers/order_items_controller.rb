@@ -1,24 +1,30 @@
 class OrderItemsController < ApplicationController
+  before_action set_order_item, only: %i[edit update destroy]
+
+  def index
+  end
+
   def new
     @item = Item.find(params[:item_id])
-
-    if @item.workshop?
-      @workshop_date = WorkshopDate.find(params[:workshop_date_id])
-    else
-      @item
-    end
   end
 
   def create
+    @order_item = OrderItem.new(order_item_params)
   end
 
   def edit
-    @order_item = OrderItem.find(params[:id])
+  end
+
+  def update
   end
 
   def destroy
-    @order_item = OrderItem.find(params[:id])
     @order_item.destroy
+  end
+  private
+
+  def set_order_item
+    @order_item = OrderItem.find(params[:id])
   end
 
   def order_item_params
