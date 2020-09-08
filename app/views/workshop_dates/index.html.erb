@@ -2,8 +2,3 @@
 <% @workshop_dates.each do |workshop_date|%>
   <p><%="#{workshop_date.start_date} to #{workshop_date.end_date}"%></p>
 <%end%>
-
-<%= render 'form', workshop_date: @workshop_date %>
-
-
-<%= link_to "Done", items_path, class: "btn" %>
