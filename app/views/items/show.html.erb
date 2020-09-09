@@ -1,19 +1,19 @@
 
 <div class="container">
-  <h1><%= @item.name %></h1>
-  <p>Description: <%= @item.description %></p>
-  <p>Price: <%= @item.price %></p>
-  <p>Capacity: <%= @item.capacity %></p>
-  <p>Category: <%= @item.category %></p>
-  <p>Worshop Dates:</p> 
-  <% @item.workshop_dates.each do |workshop_date|%>
-    <p><%="#{workshop_date.start_date} to #{workshop_date.end_date}"%></p>
-  <%end%>
-  
-
-
+  <div class="indigenius-container">
+    <h1><%= @item.name %></h1>
+    <p>Description: <%= @item.description %></p>
+    <p>Price: <%= @item.price %></p>
+    <p>Capacity: <%= @item.capacity %></p>
+    <p>Category: <%= @item.category %></p>
+    <p>Worshop Dates:</p> 
+    <% @item.workshop_dates.each do |workshop_date|%>
+      <p><%="#{workshop_date.start_date} to #{workshop_date.end_date}"%></p>
+    <%end%>
+    <%= link_to 'Edit', edit_item_path(@item) %>
+    <%= link_to "❌", delete_item_path(@item), method: :delete %>
+    <%= link_to 'Back', items_path %>
+  </div>
 </div>
 
-<%= link_to 'Edit', edit_item_path(@item) %>
-<%= link_to "❌", delete_item_path(@item), method: :delete %>
-<%= link_to 'Back', items_path %>
+  
