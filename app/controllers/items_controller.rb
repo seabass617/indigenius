@@ -12,6 +12,10 @@ class ItemsController < ApplicationController
   def show
   end
 
+  def listings
+    @items = Item.where("user_id = ?", current_user.id )
+  end
+
   # GET /items/new
   def new
     @item = Item.new
@@ -49,8 +53,14 @@ class ItemsController < ApplicationController
   def update
     respond_to do |format|
       if @item.update(item_params)
-        format.html { redirect_to new_item_workshop_date_path(@item), notice: 'Item was successfully updated.' }
-        format.json { render :show, status: :ok, location: @item }
+
+        # if the item.workshop is true then redirect to the workshop date otherwise redirect to the workshop_date
+        if @item.workshop
+          format.html { redirect_to new_item_workshop_date_path(@item), notice: 'Item was successfully updated.' }
+          format.json { render :show, status: :created, location: @item }
+        else 
+          format.html { redirect_to items_path, notice: 'Item was successfully updated.' }
+        end
       else
         format.html { render :edit }
         format.json { render json: @item.errors, status: :unprocessable_entity }
@@ -63,7 +73,7 @@ class ItemsController < ApplicationController
   def destroy
     @item.destroy
     respond_to do |format|
-      format.html { redirect_to items_url, notice: 'Item was successfully destroyed.' }
+      format.html { redirect_to listings_url, notice: 'Item was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
