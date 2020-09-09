@@ -1,15 +1,24 @@
+<div class="pink-bg">
+  <div class="container">
+    <div class="row h-100 justify-content-center align-items-center">
+      <div class="col-xs-12 col-sm-10 col-sm-offset-10 col-md-8 col-md-offset-8 col-lg-6">
+        <div class="form-styling">
+          <h3>Workshop Dates</h3>
+          <% @workshop_dates.each do |workshop_date|%>
+            <p><%="#{workshop_date.start_date} to #{workshop_date.end_date}"%>
+            <button class="btn"><%= link_to 'Remove',  item_workshop_date_path(workshop_date.item.id,workshop_date.id), method: :delete %></button></p>
 
-<div class="container">
-<h3>Workshop Dates</h3>
-<% @workshop_dates.each do |workshop_date|%>
-  <p><%="#{workshop_date.start_date} to #{workshop_date.end_date}"%>
-  <button class="btn"><%= link_to 'Remove',  item_workshop_date_path(workshop_date.item.id,workshop_date.id), method: :delete %></button></p>
+          <%end%>
+          
 
-<%end%>
+          <%= render 'form', workshop_date: @workshop_date %>
+
+         
+          <%= link_to "Done", items_path, class: "btn btn-primary" %>
+
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<%= render 'form', workshop_date: @workshop_date %>
-
-<div class="container">
-<%= link_to "Done", items_path, class: "btn btn-primary" %>
-</div>
