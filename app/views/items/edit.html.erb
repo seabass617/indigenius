@@ -1,6 +1,16 @@
-<h1>Editing Item</h1>
 
-<%= render 'form', item: @item %>
+<div class="container">
+  <div class="row h-100 justify-content-center align-items-center">
+    <div class="col-xs-12 col-sm-10 col-sm-offset-10 col-md-8 col-md-offset-8 col-lg-6">
+      <div class="form-styling">
+        <h1>Editing Item</h1>
 
-<%= link_to 'Show', @item %> |
-<%= link_to 'Back', listings_path %>
+        <%= render 'form', item: @item %>
+
+        <%= link_to 'Show', @item %> |
+        <%= link_to 'Back', listings_path %>
+      </div> 
+    </div>
+  </div>
+</div>
+
