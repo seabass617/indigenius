@@ -12,6 +12,11 @@
     <tbody>
       <% @items.each do |item| %>
         <tr>
+          <td>
+            <% item.images.each do |image| %>
+                <%= image_tag(image) %>
+            <% end %> 
+          </td>
           <td><%= item.name %></td>
           <td><%= link_to 'Show', item %></td>
         </tr>
