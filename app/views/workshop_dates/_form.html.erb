@@ -1,4 +1,4 @@
-<div class="container">
+
   <%= simple_form_for([@item, @workshop_date], remote: true)  do |f| %>
   <%= f.error_notification %>
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
@@ -9,9 +9,9 @@
     <%= f.input :end_date, as: :date, html5: true %>
   </div>
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "button-square-green" %>
   </div>
 <% end %>
-</div>
+
 
 

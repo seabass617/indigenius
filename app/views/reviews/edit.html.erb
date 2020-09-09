@@ -1,6 +1,16 @@
-<h1>Editing Review</h1>
+<div class="pink-bg">
+  <div class="container">
+    <div class="row h-100 justify-content-center align-items-center">
+      <div class="col-xs-12 col-sm-10 col-sm-offset-10 col-md-8 col-md-offset-8 col-lg-6">
+        <div class="form-styling">
+          <h1>Editing Review</h1>
 
-<%= render 'form', review: @review %>
+          <%= render 'form', review: @review %>
 
-<%= link_to 'Show', @review %> |
-<%= link_to 'Back', item_reviews_path(@review.item) %>
+          <%= link_to 'Show', @review %> |
+          <%= link_to 'Back', item_reviews_path(@review.item) %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

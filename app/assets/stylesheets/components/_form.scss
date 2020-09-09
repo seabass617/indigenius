@@ -1,14 +1,9 @@
-.pink-bg {
-  background-color: #D9AE94;
-  width: 100%;
-  height: 100vh;
-}
-
 .form-styling {
   background: #F1DCA7;
   color: #997B66;
   padding: 10px 20px;
   margin-top: 50px;
+  margin-bottom: 50px;
   border-radius: 3px;
   box-shadow: 12px 21px 25px -4px rgba(30,30,60,0.25);
   h2 {
@@ -21,7 +16,7 @@
     width: 100%;
     margin-bottom: 20px
   }
-  input[type=email], input[type=password], input[type=checkbox] {
+  input {
     border: 1px solid #000000;
     background: #eedfba;
     box-sizing: border-box;
