@@ -1,17 +1,29 @@
 <%# this is the show page that a buyer will see when they click an item %>
 <div class="container">
-  <div class="indigenius-container">
-    <h1><%= @item.name %></h1>
-    <p>Description: <%= @item.description %></p>
-    <p>Price: <%= @item.price %></p>
-    <p>Capacity: <%= @item.capacity %></p>
-    <p>Category: <%= @item.category %></p>
+
+  <h1><%= @item.name %></h1>
+  <p>Description: <%= @item.description %></p>
+  <p>Price: <%= @item.price %></p>
+  <p>Capacity: <%= @item.capacity %></p>
+  <p>Category: <%= @item.category %></p>
+  <%if @item.workshop%>
     <p>Worshop Dates:</p> 
     <% @item.workshop_dates.each do |workshop_date|%>
-      <p><%="#{workshop_date.start_date} to #{workshop_date.end_date}"%></p>
+      <p><%="#{workshop_date.start_date} to #{workshop_date.end_date}"%>
+      <%= link_to 'Add workshop date to cart', "#" %></p>
     <%end%>
-    <%= link_to 'Edit', edit_item_path(@item) %>
-    <%= link_to "❌", delete_item_path(@item), method: :delete %>
-    <%= link_to 'Back', items_path %>
-  </div>
+  <%else%>
+    <%= link_to 'Add product to cart', "#" %>
+  <%end%>
+  
+  
+
+
 </div>
+<%= link_to 'Back', listings_path %>
+
+
+
+
+
+
