@@ -1,0 +1,42 @@
+.card-image {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  box-shadow: 12px 21px 25px -4px rgba(30,30,60,0.25);
+}
+
+a:link, a:active, a:hover, a:visited {
+  text-decoration: none;
+}
+
+.card {
+  background-color: #F1DCA7;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+.card-info {
+  display: flex;
+  justify-content: space-between;
+  height: 50px;
+  font-size: 11px;
+  color: #997B66;
+}
+
+.item-name {
+  width: 70%;
+}
+.item-user {
+  width: 30%;
+  text-align: right;
+}
