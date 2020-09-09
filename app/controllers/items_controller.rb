@@ -12,6 +12,10 @@ class ItemsController < ApplicationController
   def show
   end
 
+  def listings
+    @items = Items.where("user_id = ?", current_user.id )
+  end
+
   # GET /items/new
   def new
     @item = Item.new
