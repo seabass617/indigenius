@@ -1,5 +1,5 @@
 class WorkshopDatesController < ApplicationController
-  #before_action :workshop_dates, only: [:new, :destroy]
+  before_action :workshop_dates, only: [:new, :destroy]
 
   def index 
     @workshop_dates = WorkshopDate.all
@@ -9,7 +9,6 @@ class WorkshopDatesController < ApplicationController
     @item = Item.find(params[:item_id])
     @workshop_date = WorkshopDate.new
     @workshop_date.item = @item 
-    @workshop_dates = WorkshopDate.where(item_id: params[:item_id])
     
   end
   
@@ -19,9 +18,9 @@ class WorkshopDatesController < ApplicationController
     @workshop_date.item = @item
     
     if @workshop_date.save
-    redirect_to new_item_workshop_date_path(@item), notice: 'Your dates were successfully created' # Am I actually redirecting anywhere?
+    redirect_to new_item_workshop_date_path(@item), notice: 'Your dates were successfully created'
     else
-      render :new, notice: "workshop_date not saved!" # what should I render here if I am within the item new form?
+      render :new, notice: "workshop_date not saved!"
      
      end 
   end
@@ -42,7 +41,6 @@ class WorkshopDatesController < ApplicationController
 
   def destroy
     @item = Item.find(params[:item_id])
-    @workshop_dates = WorkshopDate.where(item_id: params[:item_id])
     @workshop_date = WorkshopDate.find(params[:id])
     @workshop_date.destroy 
     render :new
@@ -54,8 +52,8 @@ class WorkshopDatesController < ApplicationController
       params.require(:workshop_date).permit(:start_date, :end_date)
   end  
 
-  #def workshop_dates
-   # @workshop_dates = WorkshopDate.where(item_id: params[:item_id])
-  #end
+  def workshop_dates
+   @workshop_dates = WorkshopDate.where(item_id: params[:item_id])
+  end
 
 end
