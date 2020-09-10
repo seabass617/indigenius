@@ -6,6 +6,7 @@ footer {
   height: 10vh;
   font-size: 1rem;
   margin-bottom: 0px;
+  margin-top: 1rem;
   clear: both;
   position: relative;
   .container {
@@ -45,7 +46,7 @@ footer {
   opacity: 1;
 }
 
-.footer-show {
+.footer-fixed {
   position: fixed;
   bottom: 0;
 }

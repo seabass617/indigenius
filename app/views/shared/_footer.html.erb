@@ -1,6 +1,7 @@
 
-<% if ["Show", "Listings"].include?(yield(:title)) %>
-  <footer class="footer-show">
+<% if ["Listings"].include?(yield(:title)) %>
+
+  <footer class="footer-fixed">
     <div class="container">
       <div class="footer-items">
         <div class="footer-links">
@@ -14,7 +15,9 @@
       </div>
     </div>
   </footer>
+
 <% else %>
+
   <footer>
     <div class="container">
       <div class="footer-items">
