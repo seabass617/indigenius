@@ -3,22 +3,45 @@
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
   
     <div class="form-inputs">
-      <%= f.input :name %>
-      <%= f.input :description %>
-      <%= f.input :price %>
-      <%= f.input :category %>
-      <%if @item.workshop%>
-        <%= f.input :capacity %>
+      <%= f.input :name,
+                  required: true,
+                  autofocus: true,
+                  placeholder: "Item Name",
+                  input_html: { autocomplete: "name" } %>
+      <%= f.input :description,
+                  required: true,
+                  placeholder: "Item Description",
+                  input_html: { autocomplete: "description" } %>
+      <%= f.input :price,
+                  required: true,
+                  placeholder: "0,00",
+                  input_html: { autocomplete: "price" } %>
+      <%= f.input :category,
+                  required: true,
+                  placeholder: "Item Category",
+                  input_html: { autocomplete: "category" } %>
+
+      <%# <%= f.input :workshop, 
+                  required: true,
+                  label: "Workshop ou Product?",
+                  input_html: { onclick: "options()" } %>
+
+      <%if @item.workshop %>
+        <%= f.input :capacity,
+                    required: true,
+                    placeholder: "00",
+                    input_html: { autocomplete: "capacity" } %>
       <%else%>
-        <%= f.input :quantity %>
+        <%= f.input :quantity,
+                    required: true,
+                    placeholder: "00",
+                    input_html: { autocomplete: "quantity" } %>
       <%end%>
-      <%= f.input :workshop, label: "Workshop"%>
 
-
-
-
-
-
+      <%= f.input :images, 
+                  as: :file, 
+                  required: true,
+                  input_html: { multiple: true } %>
 
     </div>
   
@@ -26,7 +49,7 @@
       <%if @item.workshop%>
       <%= f.button :submit, "Edit Dates", class: "button-square-green" %>
       <%else%>
-      <%= f.button :submit, "Update Product", class: "button-square-green" %>
+      <%= f.button :submit, class: "button-square-green" %>
       <%end%>
     </div>
   <% end %>

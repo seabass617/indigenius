@@ -19,7 +19,7 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
-    @item = Item.new
+    @item = Item.new(workshop: params[:format])
   end
 
   # GET /items/1/edit
@@ -88,6 +88,7 @@ class ItemsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def item_params
-    params.require(:item).permit(:name, :description, :user_id, :price, :category, :capacity, :quantity, :workshop)
+    params.require(:item).permit(:name, :description, :user_id, :price, :category,
+                                 :capacity, :quantity, :workshop, images: [])
   end
 end
