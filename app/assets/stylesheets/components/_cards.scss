@@ -1,13 +1,12 @@
-<<<<<<< HEAD
+
 .cards-container {
-position: absolute;
+
 width: 344px;
 height: 504px;
-background: #F1DCA7;
+background-position: absolute;
 border-radius: 20px;
 }
 
-=======
 .cards {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -43,4 +42,4 @@ border-radius: 20px;
     grid-template-columns: repeat(4, 1fr);
   }
 }
->>>>>>> master
+
