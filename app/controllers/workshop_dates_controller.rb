@@ -18,7 +18,7 @@ class WorkshopDatesController < ApplicationController
     @workshop_date.item = @item
     
     if @workshop_date.save
-    redirect_to new_item_workshop_date_path(@item), notice: 'Your dates were successfully created'
+      redirect_to new_item_workshop_date_path(@item), notice: 'Your dates were successfully created'
     else
       render :new, notice: "workshop_date not saved!"
      

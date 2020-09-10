@@ -11,6 +11,7 @@ border-radius: 20px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-gap: 16px;
+  margin: 3rem 1rem;
 }
 
 @media (min-width: 100px) and (max-width: 575px) {

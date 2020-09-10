@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+    @order_item = OrderItem.new
   end
 
   def listings
@@ -59,7 +60,7 @@ class ItemsController < ApplicationController
           format.html { redirect_to new_item_workshop_date_path(@item), notice: 'Item was successfully updated.' }
           format.json { render :show, status: :created, location: @item }
         else 
-          format.html { redirect_to items_path, notice: 'Item was successfully updated.' }
+          format.html { redirect_to listings_path, notice: 'Item was successfully updated.' }
         end
       else
         format.html { render :edit }

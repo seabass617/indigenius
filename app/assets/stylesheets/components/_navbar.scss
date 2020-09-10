@@ -16,3 +16,24 @@
 .navbar-light .navbar-nav .nav-link{
   color: #f1dca7;
 }
+
+.dropdown-menu {
+  background-color: #F1DCA7;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.dropdown-item {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  color: #797D62;
+}
+
+.dropdown-item:hover {
+  background-color: #f0e2bf;
+}
+
+.dropdown-item:active {
+  background-color: #f0e2bf;
+}

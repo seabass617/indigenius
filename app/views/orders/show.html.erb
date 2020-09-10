@@ -1,0 +1,26 @@
+<div class="container">
+
+    <% if @order.nil? %>
+
+        <h1>Shopping Cart is Empty</h1>
+            
+    <% else %>
+        <h1>Shopping Cart</h1>
+            <% @order.order_items.each do |order_item| %>
+                <%= cl_image_tag order_item.item.images.first.key%>
+                <p>Name: <%= order_item.item.name %></p>
+                <p>Price per Unit: <%= price_mask_real(order_item.item.price) %></p>
+                <% if order_item.item.workshop%>
+                    <p>Dates: <%= order_item.workshop_date%></p>
+                <% else %>
+                    <p>Quantity: <%= order_item.quantity %></p>
+                <% end %>
+                <p>Total: <%= price_mask_real(order_item.price) %></p>
+            <% end %>
+
+            <p>Grand Total: <%= price_mask_real(@total_price) %></p>
+            <%= link_to 'Confirm Order', confirm_order_path, method: :patch %>
+    <% end %>    
+</div>
+
+<%= link_to 'Back to All Items', items_path %>
