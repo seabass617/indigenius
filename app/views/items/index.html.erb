@@ -1,22 +1,22 @@
 
 <div class="container">
-  <h1>All Items</h1>
-  <table>
-    <thead>
-      <tr>
-        <th><p>Name</p></th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
-  
-    <tbody>
+  <h1>Items</h1>
+    <div class="cards">
       <% @items.each do |item| %>
-        <tr>
-          <td><%= item.name %></td>
-          <td><%= link_to 'Show', item %></td>
-        </tr>
+        <%= link_to item do %>
+          <div class="card">
+            <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(item.images.first.key)%>)">
+            </div> 
+            <div class="card-info">
+              <div class="item-name">
+                <%= item.name %>
+              </div>
+              <div class="item-user">
+                <%= item.user.first_name %>
+              </div>
+            </div>
+          </div>
+        <% end %>  
       <% end %>
-    </tbody>
-  </table>
-
+    </div>
 </div>

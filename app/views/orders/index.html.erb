@@ -17,8 +17,8 @@
         <h6><%= link_to 'Cancel Order', order_path(order.id), method: :delete, data: { confirm: 'Are you certain you want to delete this item?'} %></h6>
       </div>
  
- 
-      <%= cl_image_tag order.item.photo.key %>
+  
+      <%= cl_image_tag order.item.images.key %>
 
     </div>
  
