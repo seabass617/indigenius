@@ -1,14 +1,20 @@
-.navbar-lewagon {
+.navbar-indigenius {
   justify-content: space-between;
-  background: transparent;
+  background: black
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-indigenius .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+.navbar-indigenius .navbar-brand img {
+  width: 200px;
+}
+ 
+// This islogo 
+
+.navbar-light .navbar-nav .nav-link{
+  color: #f1dca7;
 }
 
 .dropdown-menu {
