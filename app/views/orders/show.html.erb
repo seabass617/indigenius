@@ -1,0 +1,9 @@
+<h1>Order Show</h1>
+
+<% @order.order_items.each do |order_item| %>
+    <p><%= order_item.item.name %></p>
+<% end %>
+
+<%= link_to 'Confirm Order', confirm_order_path, method: :patch %>
+
+<%= link_to 'Back', items_path %>

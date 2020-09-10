@@ -1,3 +1,4 @@
-<%= simple_form_for product do |f| %>
+<%= simple_form_for [@item, product] do |f| %>
   <%= f.input :quantity, label: "Quantity" %>
+  <%= f.button :submit, 'add to cart' %>
 <% end %>
