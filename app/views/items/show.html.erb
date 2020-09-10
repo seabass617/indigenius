@@ -12,34 +12,10 @@
   <% @item.workshop_dates.each do |workshop_date|%>
     <p><%="#{workshop_date.start_date} to #{workshop_date.end_date}"%></p>
   <%end%>
-  
-  <div class="indigenius-container">
-    <h1><%= @item.name %></h1>
-    <p>Description: <%= @item.description %></p>
-    <p>Price: <%= @item.price %></p>
-    <p>Capacity: <%= @item.capacity %></p>
-    <p>Category: <%= @item.category %></p>
-    <%if @item.workshop%>
-      <p>Worshop Dates:</p> 
-      <% @item.workshop_dates.each do |workshop_date|%>
-        <p><%="#{workshop_date.start_date} to #{workshop_date.end_date}"%>
-        <%= link_to 'Add workshop date to cart', "#" %></p>
-      <%end%>
-    <%else%>
-      <%= link_to 'Add product to cart', "#" %>
-    <%end%>
-
-  </div>
-  
-    <%= link_to 'Back', items_path %>
-</div>
-
-
-
-
 
 <% if @item.workshop?%>
-  <%= link_to 'Book', new_item_order_item_path(@item) %>
+    <%= render 'order_items/workshop_form', workshop: @order_item %>
 <% else %>
-  <%= link_to 'Buy', new_item_order_item_path(@item) %>
+    <%= render 'order_items/product_form', product: @order_item %>
 <% end %>
+

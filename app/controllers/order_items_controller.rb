@@ -5,22 +5,18 @@ class OrderItemsController < ApplicationController
     @current_order_items = OrderItem.where(order_id: current_user.order.id) #review this!
   end
 
-  def new
-    @item = Item.find(params[:item_id])
-    @order_item = OrderItem.new
-  end
-
   def create
     @order = current_user.orders.find_or_create_by(status: 'pending')
     @item = Item.find(params[:item_id])
 
     @order_item = OrderItem.new(order_item_params)
+    @order_item.item = @item
     @order_item.order = @order
     @order_item.price = @item.price
     @order_item.save
-  end
 
-  def edit
+    # redirect_to items_path
+    redirect_to order_path(@order)
   end
 
   def update
@@ -37,6 +33,6 @@ class OrderItemsController < ApplicationController
   end
 
   def order_item_params
-    params.require(:order_item).permit(:workshop_date_id, :item_id, :quantity, :price, :order_id)
+    params.require(:order_item).permit(:workshop_date_id, :quantity)
   end
 end
