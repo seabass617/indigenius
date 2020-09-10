@@ -1,32 +1,55 @@
-<%# this is the show page that a buyer will see when they click an item %>
-<div class="container">
-  <h1><%= @item.name %></h1>
-  <% @item.images.each do |image| %>
-      <%= image_tag(image) %>
-  <% end %> 
-  <p>Description: <%= @item.description %></p>
-  <p>Price: <%= @item.price %></p>
-  <% if @item.workshop%>
-    <p>Capacity: <%= @item.capacity %></p>
-  <% else %>
-    <p>Quantity: <%= @item.quantity %></p>
-  <% end %>
-  <p>Category: <%= @item.category %></p>
+
+<% provide(:title, "Show") %>
+
+  <div class="indigenius-container">
+    <h1><%= @item.name %></h1>
+    
+    <div class="image-carousel">
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+      
+          <% @item.images.each do |image| %>
+          <div class="carousel-item active">
+            <img class="d-block w-100" src="<%= cl_image_path(image.key) %>" alt="First slide">
+          </div>
+          <% end %>
+      
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+
+      <p>Description: <%= @item.description %></p>
+      <p>Price: <%= price_mask_real(@item.price) %></p>
+      <% if @item.workshop%>
+        <p>Capacity: <%= @item.capacity %></p>
+      <% else %>
+        <p>Quantity: <%= @item.quantity %></p>
+      <% end %>
+      <p>Category: <%= @item.category %></p>
+
+      <% @item.workshop_dates.each do |workshop_date|%>
+        <p><%="#{workshop_date.start_date} to #{workshop_date.end_date}"%></p>
+      <%end%>
+
+      <% if @item.workshop?%>
+        <%= render 'order_items/workshop_form', workshop: @order_item %>
+      <% else %>
+        <%= render 'order_items/product_form', product: @order_item %>
+      <% end %>
   
-  <% @item.workshop_dates.each do |workshop_date|%>
-    <p><%="#{workshop_date.start_date} to #{workshop_date.end_date}"%></p>
-  <%end%>
-
-<% if @item.workshop?%>
-    <%= render 'order_items/workshop_form', workshop: @order_item %>
-<% else %>
-    <%= render 'order_items/product_form', product: @order_item %>
-<% end %>
-
+  </div>
+  
 <% if current_user.id == @item.user.id %>
   <%=link_to "Back to All Items", items_path%>
   <%=link_to "Back to My Listings", listings_path%> 
 <%else%>
   <%=link_to "Back to All Items", items_path%>  
 <%end%>
-
