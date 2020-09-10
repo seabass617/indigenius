@@ -1,10 +1,12 @@
-<%# this is the show page that a buyer will see when they click an item %>
 
 <% provide(:title, "Show") %>
 
 <div class="container">
   <div class="indigenius-container">
     <h1><%= @item.name %></h1>
+    <% @item.images.each do |image| %>
+      <%= image_tag(image) %>
+    <% end %> 
     <p>Description: <%= @item.description %></p>
     <p>Price: <%= price_mask_real(@item.price) %></p>
     <p>Capacity: <%= @item.capacity %></p>
@@ -13,11 +15,12 @@
       <p>Worshop Dates:</p> 
       <% @item.workshop_dates.each do |workshop_date|%>
         <p><%="#{workshop_date.start_date} to #{workshop_date.end_date}"%>
-        <%= link_to 'Add workshop date to cart', "#" %></p>
       <%end%>
-    <%else%>
-      <%= link_to 'Add product to cart', "#" %>
-    <%end%>
+    <% if @item.workshop?%>
+      <%= render 'order_items/workshop_form', workshop: @order_item %>
+    <% else %>
+      <%= render 'order_items/product_form', product: @order_item %>
+    <% end %>
 
   </div>
   
@@ -26,9 +29,3 @@
 
   <%= link_to 'Back', items_path %>
 </div>
-
-
-
-
-
-
