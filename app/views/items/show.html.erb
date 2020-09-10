@@ -1,21 +1,31 @@
-<%# this is the show page that a buyer will see when they click an item %>
+
+<% provide(:title, "Show") %>
+
 <div class="container">
-  <h1><%= @item.name %></h1>
-  <% @item.images.each do |image| %>
+  <div class="indigenius-container">
+    <h1><%= @item.name %></h1>
+    <% @item.images.each do |image| %>
       <%= image_tag(image) %>
-  <% end %> 
-  <p>Description: <%= @item.description %></p>
-  <p>Price: <%= @item.price %></p>
-  <p>Capacity: <%= @item.capacity %></p>
-  <p>Category: <%= @item.category %></p>
-  <p>Worshop Dates:</p> 
-  <% @item.workshop_dates.each do |workshop_date|%>
-    <p><%="#{workshop_date.start_date} to #{workshop_date.end_date}"%></p>
-  <%end%>
+    <% end %> 
+    <p>Description: <%= @item.description %></p>
+    <p>Price: <%= price_mask_real(@item.price) %></p>
+    <p>Capacity: <%= @item.capacity %></p>
+    <p>Category: <%= @item.category %></p>
+    <%if @item.workshop%>
+      <p>Worshop Dates:</p> 
+      <% @item.workshop_dates.each do |workshop_date|%>
+        <p><%="#{workshop_date.start_date} to #{workshop_date.end_date}"%>
+      <%end%>
+    <% if @item.workshop?%>
+      <%= render 'order_items/workshop_form', workshop: @order_item %>
+    <% else %>
+      <%= render 'order_items/product_form', product: @order_item %>
+    <% end %>
 
-<% if @item.workshop?%>
-    <%= render 'order_items/workshop_form', workshop: @order_item %>
-<% else %>
-    <%= render 'order_items/product_form', product: @order_item %>
-<% end %>
+  </div>
+  
+  
 
+
+  <%= link_to 'Back', items_path %>
+</div>

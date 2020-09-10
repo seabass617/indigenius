@@ -1,0 +1,35 @@
+
+<% if ["Show", "Listings"].include?(yield(:title)) %>
+  <footer class="footer-show">
+    <div class="container">
+      <div class="footer-items">
+        <div class="footer-links">
+          <a href="#">Legal things</a> |
+          <a href="#">🍪🍪 Policy</a> |
+          <a href="#">Work with us</a> |
+        </div>
+        <div class="footer-copyright">
+          This footer was copied with <i class="fas fa-heart"></i> from Le Wagon
+        </div>
+      </div>
+    </div>
+  </footer>
+<% else %>
+  <footer>
+    <div class="container">
+      <div class="footer-items">
+        <div class="footer-links">
+          <a href="#">Legal things</a> |
+          <a href="#">🍪🍪 Policy</a> |
+          <a href="#">Work with us</a> |
+        </div>
+        <div class="footer-copyright">
+          This footer was copied with <i class="fas fa-heart"></i> from Le Wagon
+        </div>
+      </div>
+    </div>
+  </footer>
+<% end %>
+
+
+
