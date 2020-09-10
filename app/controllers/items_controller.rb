@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+    @order_item = OrderItem.new
   end
 
   def listings
