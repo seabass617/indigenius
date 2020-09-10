@@ -16,8 +16,6 @@ class OrdersController < ApplicationController
 
 # completed and purchased button will be in the order items controller 
 
-
-
 def update 
     #only the seller can update in case of cancellation 
     #for both items

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :order_items, only: [ :index, :new, :create, :edit, :update, :destroy ]
+  resources :order_items, only: [ :destroy ]
   devise_for :users
   root to: "pages#home"
 
@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :items, except: :destroy do 
     resources :workshop_dates, only: [ :index, :new, :create, :edit, :update, :destroy ]
     resources :reviews, only: [:index, :new, :create]
+    resources :order_items, only: [ :new, :create, :edit, :update ]
   end 
   
   delete '/items/:id', to: 'items#destroy', as: 'delete_item'

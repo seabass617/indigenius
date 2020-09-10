@@ -1,6 +1,5 @@
 <%= simple_form_for workshop do |f| %>
   <%= f.association :workshop_date_id,
-                    input_html: { class: "beautiful-dropdown" },
                     collection: [ @item.workshop_dates ],
                     #label_method: add instance method later,
                     label: "Choose your date:"%>

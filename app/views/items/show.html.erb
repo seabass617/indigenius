@@ -1,6 +1,9 @@
 <%# this is the show page that a buyer will see when they click an item %>
 <div class="container">
   <h1><%= @item.name %></h1>
+  <% @item.images.each do |image| %>
+      <%= image_tag(image) %>
+  <% end %> 
   <p>Description: <%= @item.description %></p>
   <p>Price: <%= @item.price %></p>
   <p>Capacity: <%= @item.capacity %></p>
@@ -10,8 +13,6 @@
     <p><%="#{workshop_date.start_date} to #{workshop_date.end_date}"%></p>
   <%end%>
   
-
-
 </div>
 
 <%= link_to 'Edit', edit_item_path(@item) %>
@@ -19,4 +20,8 @@
 <%= link_to 'Back', listings_path %>
 
 
-
+<% if @item.workshop?%>
+  <%= link_to 'Book', new_item_order_item_path(@item) %>
+<% else %>
+  <%= link_to 'Buy', new_item_order_item_path(@item) %>
+<% end %>
