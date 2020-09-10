@@ -122,7 +122,7 @@ p ''
         description: description.tr("\n", ''),
         price: price.tr(' €.$BRL', ''),
         category: category[category_index],
-        capacity: rand(10),
+        quantity: rand(1..10),
         workshop: false
       )
       new_product.images.attach(io: open("#{img.attribute('src').value}"), filename: "workshop#{:id}.jpg")

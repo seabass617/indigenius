@@ -8,7 +8,7 @@
   <p>Price: <%= @item.price %></p>
   <p>Capacity: <%= @item.capacity %></p>
   <p>Category: <%= @item.category %></p>
-  <p>Worshop Dates:</p> 
+  
   <% @item.workshop_dates.each do |workshop_date|%>
     <p><%="#{workshop_date.start_date} to #{workshop_date.end_date}"%></p>
   <%end%>
@@ -18,4 +18,11 @@
 <% else %>
     <%= render 'order_items/product_form', product: @order_item %>
 <% end %>
+
+<% if current_user.id == @item.user.id %>
+  <%=link_to "Back to All Items", items_path%>
+  <%=link_to "Back to My Listings", listings_path%> 
+<%else%>
+  <%=link_to "Back to All Items", items_path%>  
+<%end%>
 
