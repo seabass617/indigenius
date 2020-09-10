@@ -1,9 +1,12 @@
 <%# this is the show page that a buyer will see when they click an item %>
+
+<% provide(:title, "Show") %>
+
 <div class="container">
   <div class="indigenius-container">
     <h1><%= @item.name %></h1>
     <p>Description: <%= @item.description %></p>
-    <p>Price: <%= @item.price %></p>
+    <p>Price: <%= price_mask_real(@item.price) %></p>
     <p>Capacity: <%= @item.capacity %></p>
     <p>Category: <%= @item.category %></p>
     <%if @item.workshop%>
