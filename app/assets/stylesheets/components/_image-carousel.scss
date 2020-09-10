@@ -1,0 +1,8 @@
+.image-carousel {
+  width: 70%;
+  margin: 2rem auto;
+  overflow: hidden;
+  img{
+    object-fit: cover;
+  }
+}
