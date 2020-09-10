@@ -6,7 +6,11 @@
   <% end %> 
   <p>Description: <%= @item.description %></p>
   <p>Price: <%= @item.price %></p>
-  <p>Capacity: <%= @item.capacity %></p>
+  <% if @item.workshop%>
+    <p>Capacity: <%= @item.capacity %></p>
+  <% else %>
+    <p>Quantity: <%= @item.quantity %></p>
+  <% end %>
   <p>Category: <%= @item.category %></p>
   
   <% @item.workshop_dates.each do |workshop_date|%>

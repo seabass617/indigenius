@@ -6,6 +6,7 @@ class OrdersController < ApplicationController
 
     def show
         @order = current_user.orders.find_by(status: 'pending')
+        @total_price = total_price(@order)
     end
 
     def confirm
@@ -20,31 +21,23 @@ class OrdersController < ApplicationController
         @order = current_user.orders.find_by(status: 'pending')
     end 
 
-def destroy
-    @order_items= OrderItem.find(params[:order_items]) 
-    @order = Order.new(order_params)
-    @order = @order_items
-    @order_items = @order.item_id
-    @order.item_id.destroy
-end
-
-# #def status
-#  # if  @order.current_user
-#    #@order.status = 'completed'
-# # 
-#    elsif destroy
-#     @order.status = 'cancelled'
+    def destroy
+        @order_items= OrderItem.find(params[:order_items]) 
+        @order = Order.new(order_params)
+        @order = @order_items
+        @order_items = @order.item_id
+        @order.item_id.destroy
+    end
   
-#     else pending
- 
-#         @order.status = 'pending'
-#  #clicks on btn  
-    
-# end     
 
-
-    def total_price
-       items.to_a.sum { |item| item.total_price }
+    def total_price(order)
+        #an if else to multiply products price by their quantity.
+        total_price = 0
+        order.order_items.each do |order_item|
+            total_price += order_item.price 
+        end 
+        
+        total_price
     end
 
     private 

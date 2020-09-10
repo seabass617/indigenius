@@ -1,9 +1,22 @@
-<h1>Order Show</h1>
+<div class="container">
+<h1>Shopping Cart</h1>
 
 <% @order.order_items.each do |order_item| %>
-    <p><%= order_item.item.name %></p>
-<% end %>
+    <%= cl_image_tag order_item.item.images.first.key%>
+    <p>Name: <%= order_item.item.name %></p>
+    <p>Price per Unit: <%= order_item.item.price %></p>
+    <%if order_item.item.workshop%>
+        <p>Dates: <%= order_item.workshop_date%></p>
+    <%else%>
+        <p>Quantity: <%= order_item.quantity %></p>
+    <%end%>
+    <p>Total: <%= order_item.price %></p>
 
-<%= link_to 'Confirm Order', confirm_order_path, method: :patch %>
+
+<% end %>
+    <p>Grand Total: <%= @total_price %></p>
+    <%= link_to 'Confirm Order', confirm_order_path, method: :patch %>
+    
+</div>
 
 <%= link_to 'Back', items_path %>
