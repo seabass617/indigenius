@@ -5,7 +5,7 @@ module ApplicationHelper
   end
 
   def price_mask_real(price)
-    number_to_currency(price, unit: 'R$', separator: ',', delimiter: '.')
+    number_to_currency(price/100, unit: '$', separator: ',', delimiter: '.')
   end
   
   def format_date(date)

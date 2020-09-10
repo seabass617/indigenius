@@ -6,7 +6,7 @@ class OrdersController < ApplicationController
 
     def show
         @order = current_user.orders.find_by(status: 'pending')
-        @total_price = total_price(@order)
+        @total_price = total_price(@order) unless @other.nil?
     end
 
     def confirm
