@@ -1,7 +1,6 @@
 
 <% provide(:title, "Show") %>
 
-<div class="container">
   <div class="indigenius-container">
     <h1><%= @item.name %></h1>
     
@@ -27,27 +26,30 @@
       </div>
     </div>
 
+      <p>Description: <%= @item.description %></p>
+      <p>Price: <%= price_mask_real(@item.price) %></p>
+      <% if @item.workshop%>
+        <p>Capacity: <%= @item.capacity %></p>
+      <% else %>
+        <p>Quantity: <%= @item.quantity %></p>
+      <% end %>
+      <p>Category: <%= @item.category %></p>
 
-    <p>Description: <%= @item.description %></p>
-    <p>Price: <%= price_mask_real(@item.price) %></p>
-    <p>Capacity: <%= @item.capacity %></p>
-    <p>Category: <%= @item.category %></p>
-    <%if @item.workshop%>
-      <p>Worshop Dates:</p> 
       <% @item.workshop_dates.each do |workshop_date|%>
-        <p><%="#{workshop_date.start_date} to #{workshop_date.end_date}"%>
+        <p><%="#{workshop_date.start_date} to #{workshop_date.end_date}"%></p>
       <%end%>
-    <% end %>
-    <% if @item.workshop?%>
-      <%= render 'order_items/workshop_form', workshop: @order_item %>
-    <% else %>
-      <%= render 'order_items/product_form', product: @order_item %>
-    <% end %>
 
+      <% if @item.workshop?%>
+        <%= render 'order_items/workshop_form', workshop: @order_item %>
+      <% else %>
+        <%= render 'order_items/product_form', product: @order_item %>
+      <% end %>
+  
   </div>
   
-  
-
-
-  <%= link_to 'Back', items_path %>
-</div>
+<% if current_user.id == @item.user.id %>
+  <%=link_to "Back to All Items", items_path%>
+  <%=link_to "Back to My Listings", listings_path%> 
+<%else%>
+  <%=link_to "Back to All Items", items_path%>  
+<%end%>

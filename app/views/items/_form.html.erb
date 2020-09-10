@@ -7,9 +7,12 @@
       <%= f.input :description %>
       <%= f.input :price %>
       <%= f.input :category %>
-      <%= f.input :capacity %>
-      <%= f.input :quantity %>
-      <%= f.input :workshop %>
+      <%if @item.workshop%>
+        <%= f.input :capacity %>
+      <%else%>
+        <%= f.input :quantity %>
+      <%end%>
+      <%= f.input :workshop, label: "Workshop"%>
 
 
 
@@ -20,6 +23,10 @@
     </div>
   
     <div class="form-actions">
-      <%= f.button :submit, class: "button-square-green" %>
+      <%if @item.workshop%>
+      <%= f.button :submit, "Edit Dates", class: "button-square-green" %>
+      <%else%>
+      <%= f.button :submit, "Update Product", class: "button-square-green" %>
+      <%end%>
     </div>
   <% end %>

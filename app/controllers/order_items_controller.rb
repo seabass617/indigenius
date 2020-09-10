@@ -12,7 +12,13 @@ class OrderItemsController < ApplicationController
     @order_item = OrderItem.new(order_item_params)
     @order_item.item = @item
     @order_item.order = @order
-    @order_item.price = @item.price
+
+    if @order_item.item.workshop
+      @order_item.price = @item.price
+    else
+      @order_item.price = @item.price * @order_item.quantity
+    end
+
     @order_item.save
 
     # redirect_to items_path
@@ -25,6 +31,8 @@ class OrderItemsController < ApplicationController
   def destroy
     @order_item.destroy
   end
+
+
 
   private
 
