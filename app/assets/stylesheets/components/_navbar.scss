@@ -24,7 +24,7 @@
 }
 
 .dropdown-item {
-  font-family: Roboto;
+  font-family: Bahnschrift;
   font-style: normal;
   font-weight: normal;
   color: #797D62;
@@ -36,4 +36,19 @@
 
 .dropdown-item:active {
   background-color: #f0e2bf;
+}
+
+
+.dropdown-menu-dropdown-menu-right{
+font-family:Bahnschrift;
+
+}
+
+
+.fas {
+  color: #d9ae94;
+  
+ width: 50px;
+  height: 20px;
+  font-size: 30px;;
 }
