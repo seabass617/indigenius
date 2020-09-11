@@ -9,6 +9,11 @@
             <%= f.error_notification %>
 
             <div class="form-inputs">
+              <%= f.input :email,
+                          required: true,
+                          autofocus: true,
+                          placeholder: "indigenius@gmail.com",
+                          input_html: { autocomplete: "email" }%>
               <%= f.input :first_name,
                           required: true,
                           placeholder: "iNDiGENiUs",
@@ -17,11 +22,6 @@
                           required: true,
                           placeholder: "iNDiGENiUs",
                           input_html: { autocomplete: "last_name" }%>
-              <%= f.input :email,
-                          required: true,
-                          autofocus: true,
-                          placeholder: "indigenius@gmail.com",
-                          input_html: { autocomplete: "email" }%>
               <%= f.input :password,
                           required: true,
                           placeholder: "******",
@@ -31,6 +31,10 @@
                           placeholder: "******",
                           required: true,
                           input_html: { autocomplete: "new-password" } %>
+              <%= f.input :about,
+                          placeholder: "Tell the world a little about yourself",
+                          required: false,
+                          input_html: { autocomplete: "about" } %>
               <%= f.input :avatar, as: :file %>
             </div>
 
