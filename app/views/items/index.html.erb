@@ -1,13 +1,11 @@
-<% provide(:title, "Items") %>
-
-
 <div class="container">
-  <h1>Items</h1>
     <div class="cards">
       <% @items.each do |item| %>
         <%= link_to item do %>
           <div class="card">
-            <div class="card-image" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path(item.images.first.key)%>)">
+            <div class="card-image" 
+                  style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                  url(<%= cl_image_path(item.images.first.key)%>)">
             </div> 
             <div class="card-info">
               <div class="item-name">

@@ -1,0 +1,38 @@
+<% if orders.empty? %>
+    <table>
+        <thead>
+        <tr>
+            <th colspan="5">No orders</th>
+        </tr>
+        </thead>
+    </table>
+<% else %>
+    <table>
+        <thead>
+        <tr>
+            <th>Order ID</th>
+            <th>Final Price</th>
+            <th>Status</th>
+            <th colspan="2">Actions</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <% orders.each do |order| %>
+            <tr>
+            <td><%= order.id %></td>
+            <td><%= price_mask_real(order.total_price) %></td>
+            <td><%= order.status %></td>
+                <% if order.status == 'pending' %>
+                    <td><%= link_to 'Confirm', confirm_order_path(order), method: :patch  %></td>
+                <% end %>
+                <% unless order.status == 'cancelled' %>
+                    <td><%= link_to 'Cancell', cancell_order_path(order),
+                        method: :put, 
+                        data: { confirm: 'Are you sure?' } %></td>
+                <% end %>
+            </tr>
+        <% end %> 
+        </tbody>
+    </table>
+<% end %>

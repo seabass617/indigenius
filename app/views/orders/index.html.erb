@@ -1,11 +1,16 @@
- <h1 class="text-center title">Here are your Indigenius Orders </h1>
- 
-<div class="container">
- 
-  <% @orders.each do |order|%>
-     <p>ID: <%= "#{order.id}" %></p>
-     <p>Status: <%= "#{order.status}" %></p>
-  <%end%>  
+<div class="indigenius-container">
+
+  <h1>Here are your Indigenius Orders</h1>
+
+  <h2>Pending Orders</h2>
+  <%= render 'orders_display', orders: @order_pending %>
+
+  <h2>Confirmed Orders</h2>
+  <%= render 'orders_display', orders: @order_confirmed %>
+
+  <h2>Cancelled Orders</h2>
+  <%= render 'orders_display', orders: @order_cancelled%>
+
 </div>
 
 <%= link_to "back", items_path %>
