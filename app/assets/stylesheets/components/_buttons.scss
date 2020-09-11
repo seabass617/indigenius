@@ -7,8 +7,9 @@
   font-weight: normal;
   line-height:17px;
   color: #F1DCA7;
-  letter-spacing: 2px
+  letter-spacing: 1px
 }
+
 
 .search-form-control {
   position: relative;
@@ -25,11 +26,12 @@
 }
 
 .search-form-control .form-control {
-  height: 3.5rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  border: 1px solid #997b66;
-  background-color: #d9ae94;
-  border-radius: 10px;
+ height: 1.5cm;
+    width: px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    border: 3px solid #997b66;
+    background-color: #d9ae94;
+    border-radius: 10px;
 }
 
 .search-form-control .form-control:focus {
