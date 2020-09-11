@@ -1,4 +1,4 @@
-<%# <% provide(:title, "Listings") %>
+<% provide(:title, "Listings") %>
 
 <div class="indigenius-container">
 
@@ -6,10 +6,10 @@
 
   <h2>Worskshops</h2>
   <%= render 'listing_display', items: @workshops %>
-  <%= link_to 'Add New Worshop', new_item_path(true) %>
+  <%= link_to 'Add New Worshop', new_item_path(true), class: "link" %>
 
   <h2>Products</h2>
   <%= render 'listing_display', items: @products %>
-  <%= link_to 'Add New Product', new_item_path(false) %>
+  <%= link_to 'Add New Product', new_item_path(false), class: "link" %>
 
 </div>

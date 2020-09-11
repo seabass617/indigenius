@@ -1,0 +1,23 @@
+.link {
+  color: #929272;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.link:hover{
+  color: #b3b38a;
+}
+
+.link-black-bg {
+  color: #d6c69f;
+  display: block;
+  padding: 0.5rem 1rem;
+}
+
+.link-black-bg:hover {
+  color: #D9AE94;
+}
+
+.link-black-bg:active {
+  color: #d6c69f;
+}

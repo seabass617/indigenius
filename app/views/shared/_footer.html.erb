@@ -1,5 +1,5 @@
 
-<% if ["Listings"].include?(yield(:title)) %>
+<% if ["Listings", "orders"].include?(yield(:title)) %>
 
   <footer class="footer-fixed">
     <div class="container">
@@ -10,7 +10,7 @@
           <a href="#">Work with us</a> |
         </div>
         <div class="footer-copyright">
-          This footer was copied with <i class="fas fa-heart"></i> from Le Wagon
+          <%= link_to "FAQ", "#", class:"footer-links" %>
         </div>
       </div>
     </div>
@@ -27,7 +27,7 @@
           <a href="#">Work with us</a> |
         </div>
         <div class="footer-copyright">
-          This footer was copied with <i class="fas fa-heart"></i> from Le Wagon
+          <%= link_to "FAQ", "#", class:"footer-links link" %>
         </div>
       </div>
     </div>
