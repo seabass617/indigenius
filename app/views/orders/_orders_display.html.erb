@@ -28,18 +28,18 @@
                     <% if order.status == 'pending' %>
                         <%= link_to 'Confirm', confirm_order_path(order), method: :patch  %>
                     <% elsif order.status == 'confirmed' %>
-                        <%= link_to 'Cancell', cancell_order_path(order),
+                        <%= link_to 'cancel', cancel_order_path(order),
                             method: :put, 
                             data: { confirm: 'Are you sure?' } %>
                     <% else %>
-                        <p>No Actions Available</p>
+                        No Actions Available
                     <% end %>
                 </td>
                 <td>
                     <% if order.status == 'confirmed' %>
                         <%= link_to 'Review', new_review_path(order.id) %>
                     <% else %>
-                        <p>No Review Available</p>
+                        No Review Available
                     <% end %>
                 </td>   
             </tr>
