@@ -1,6 +1,7 @@
 .form-styling {
   background: #F1DCA7;
   color: #997B66;
+  font-family: $indi-font;
   padding: 10px 20px;
   margin-top: 50px;
   margin-bottom: 50px;
@@ -11,10 +12,12 @@
     font-weight: bold;
     margin-bottom: 30px;
     text-align: center;
+    font-family: $indi-font;
   }
   .btn {
     width: 100%;
-    margin-bottom: 20px
+    margin-bottom: 20px;
+    font-family: $indi-font;
   
   }
   input {
@@ -23,5 +26,6 @@
     box-sizing: border-box;
     border-radius: 10px;
     font-weight: 100;
+    font-family: $indi-font;
   }
 }

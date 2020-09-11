@@ -13,8 +13,10 @@
  
 // This islogo 
 
+
 .navbar-light .navbar-nav .nav-link{
   color: #f1dca7;
+
 }
 
 .dropdown-menu {
@@ -24,7 +26,7 @@
 }
 
 .dropdown-item {
-  font-family: Bahnschrift;
+  font-family: $indi-font;
   font-style: normal;
   font-weight: normal;
   color: #797D62;
@@ -40,15 +42,14 @@
 
 
 .dropdown-menu-dropdown-menu-right{
-font-family:Bahnschrift;
+  font-family: $indi-font;
 
 }
 
 
 .fas {
-  color: #d9ae94;
-  
- width: 50px;
+  color: #d9ae94; 
+  width: 50px;
   height: 20px;
   font-size: 30px;;
 }
