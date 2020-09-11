@@ -11,7 +11,7 @@
                 <p>Name: <%= order_item.item.name %></p>
                 <p>Price per Unit: <%= price_mask_real(order_item.item.price) %></p>
                 <% if order_item.item.workshop%>
-                    <p>Dates: <%= order_item.workshop_date%></p>
+                    <p>Dates: <%= order_item.workshop_date%></p>    
                 <% else %>
                     <p>Quantity: <%= order_item.quantity %></p>
                 <% end %>
@@ -19,7 +19,7 @@
             <% end %>
 
             <p>Grand Total: <%= price_mask_real(@total_price) %></p>
-            <%= link_to 'Confirm Order', confirm_order_path, method: :patch %>
+            <%= link_to 'Confirm Order', confirm_order_path(@order), method: :patch  %>
     <% end %>    
 </div>
 

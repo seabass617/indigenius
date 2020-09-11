@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   devise_for :users
   root to: "pages#home"
 
@@ -15,10 +15,11 @@ Rails.application.routes.draw do
     resources :reviews, only: [:index, :new, :create]
     resources :order_items, only: [ :create, :update ]
   end
-  
+
   resources :order_items, only: [ :destroy ]
 
   patch '/orders/:id', to: 'orders#confirm', as: 'confirm_order'
-  
+  put '/orders/:id', to: 'orders#cancell', as: 'cancell_order'
+
   delete '/items/:id', to: 'items#destroy', as: 'delete_item'
 end

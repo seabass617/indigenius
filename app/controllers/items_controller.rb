@@ -40,7 +40,7 @@ class ItemsController < ApplicationController
           format.html { redirect_to new_item_workshop_date_path(@item), notice: 'Item was successfully created.' }
           format.json { render :show, status: :created, location: @item }
         else 
-          format.html { redirect_to items_path, notice: 'Item was successfully created.' }
+          format.html { redirect_to listings_path, notice: 'Item was successfully created.' }
         end
       else
         format.html { render :new }
