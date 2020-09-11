@@ -12,13 +12,13 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to "Home", '/', class: "nav-link" %>
+          <%= link_to "Home", '/', class: "link-black-bg" %>
         </li>
         <li class="nav-item">
-          <%= link_to "All Workshops", items_path(true), class: "nav-link" %>
+          <%= link_to "All Workshops", items_path(true), class: "link-black-bg" %>
         </li>
         <li class="nav-item">
-          <%= link_to "All Products", items_path(false), class: "nav-link" %>
+          <%= link_to "All Products", items_path(false), class: "link-black-bg" %>
         </li>
         <li class="nav-item">
            <%= link_to order_path("shopping cart") do %>
