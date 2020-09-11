@@ -21,11 +21,13 @@
           <%= link_to "All Products", items_path(false), class: "nav-link" %>
         </li>
         <li class="nav-item">
-           <i class="fas fa-shopping-cart", order_path('shopping_cart'), class: "nav-link" ></i
+           <%= link_to order_path("shopping cart") do %>
+            <i class="fas fa-shopping-cart nav-link"></i>
+          <%end%>
         </li>
-        <li class="nav-item">
-          <i class="fas fa-globe"></i>"></i>
-        </li>
+        <%# <li class="nav-item"> %>
+          <%# <i class="fas fa-globe"></i>"></i> %>
+        <%# </li> %>
         <li class="nav-item dropdown">
           <% if current_user.avatar.attached? %>
             <%= cl_image_tag current_user.avatar.key, class: "avatar-bordered dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
@@ -35,8 +37,9 @@
           <% end %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             
-            <%= link_to "Sell your products", orders_path, class: "nav-link" %>
+            <%# <%= link_to "Sell your products", orders_path, class: "nav-link" %>
             <%= link_to "My Listings", listings_path, class: "dropdown-item" %>
+            <%= link_to "My Orders", orders_path, class: "dropdown-item" %>
             <%= link_to "View profile", users_show_path, class: "dropdown-item" %>
             <%= link_to "Edit Account", edit_user_registration_path(current_user), class: "dropdown-item" %>
             
