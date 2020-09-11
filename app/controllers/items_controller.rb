@@ -15,6 +15,7 @@ class ItemsController < ApplicationController
   # GET /items/1.json
   def show
     @order_item = OrderItem.new
+    @reviews = Review.where(item_id: @item.id)
   end
 
   def listings

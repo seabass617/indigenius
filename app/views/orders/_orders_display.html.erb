@@ -13,24 +13,35 @@
             <th>Order ID</th>
             <th>Final Price</th>
             <th>Status</th>
-            <th colspan="2">Actions</th>
+            <th>Actions</th>
+            <th>Review</th>
         </tr>
         </thead>
 
         <tbody>
         <% orders.each do |order| %>
             <tr>
-            <td><%= order.id %></td>
-            <td><%= price_mask_real(order.total_price) %></td>
-            <td><%= order.status %></td>
-                <% if order.status == 'pending' %>
-                    <td><%= link_to 'Confirm', confirm_order_path(order), method: :patch  %></td>
-                <% end %>
-                <% unless order.status == 'cancelled' %>
-                    <td><%= link_to 'Cancell', cancell_order_path(order),
-                        method: :put, 
-                        data: { confirm: 'Are you sure?' } %></td>
-                <% end %>
+                <td><%= order.id %></td>
+                <td><%= price_mask_real(order.total_price) %></td>
+                <td><%= order.status %></td>
+                <td>
+                    <% if order.status == 'pending' %>
+                        <%= link_to 'Confirm', confirm_order_path(order), method: :patch  %>
+                    <% elsif order.status == 'confirmed' %>
+                        <%= link_to 'Cancell', cancell_order_path(order),
+                            method: :put, 
+                            data: { confirm: 'Are you sure?' } %>
+                    <% else %>
+                        <p>No Actions Available</p>
+                    <% end %>
+                </td>
+                <td>
+                    <% if order.status == 'confirmed' %>
+                        <%= link_to 'Review', new_review_path(order.id) %>
+                    <% else %>
+                        <p>No Review Available</p>
+                    <% end %>
+                </td>   
             </tr>
         <% end %> 
         </tbody>

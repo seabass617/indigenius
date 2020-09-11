@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   get 'listings', to: 'items#listings'
 
   resources :reviews
-  resources :reviews, only: %i[show destroy edit update]
 
   resources :items, except: :destroy do
     resources :workshop_dates, only: %i[index new create edit update destroy]

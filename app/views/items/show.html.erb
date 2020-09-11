@@ -1,10 +1,9 @@
-
 <%# <% provide(:title, "Show") %>
-
 <div class="container">
+
   <div class="indigenius-container">
     <h1><%= @item.name %></h1>
-    
+      
     <div class="image-carousel">
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
@@ -27,32 +26,44 @@
       </div>
     </div>
 
-      <p>Description: <%= @item.description %></p>
-      <p>Price: <%= price_mask_real(@item.price) %></p>
-      <% if @item.workshop%>
-        <p>Capacity: <%= @item.capacity %></p>
-      <% else %>
-        <p>Quantity: <%= @item.quantity %></p>
-      <% end %>
-      <p>Category: <%= @item.category %></p>
+    <p>Description: <%= @item.description %></p>
+    <p>Price: <%= price_mask_real(@item.price) %></p>
+    <% if @item.workshop%>
+      <p>Capacity: <%= @item.capacity %></p>
+    <% else %>
+      <p>Quantity: <%= @item.quantity %></p>
+    <% end %>
+    <p>Category: <%= @item.category %></p>
 
-      <% @item.workshop_dates.each do |workshop_date|%>
-        <p><%="#{workshop_date.start_date} to #{workshop_date.end_date}"%></p>
-      <%end%>
+    <% @item.workshop_dates.each do |workshop_date|%>
+      <p><%="#{workshop_date.start_date} to #{workshop_date.end_date}"%></p>
+    <%end%>
 
-      <% if @item.workshop?%>
-        <%= render 'order_items/workshop_form', workshop: @order_item %>
-      <% else %>
-        <%= render 'order_items/product_form', product: @order_item %>
-      <% end %>
-  
+    <% if @item.workshop?%>
+      <%= render 'order_items/workshop_form', workshop: @order_item %>
+    <% else %>
+      <%= render 'order_items/product_form', product: @order_item %>
+    <% end %>
+    <br>
+    
+    <div style="border-top: 1px solid black;">
+    <% if @reviews.empty? %>
+        <p>No reviews available for this item</p>
+    <% else %>
+        <% @reviews.each do |review| %>
+            <% review.rating.times do %>
+              ⭐
+            <% end %>
+            <p><%= review.content %></p>
+        <% end %>
+    <% end %>
+</div>
   </div>
   
-<% if current_user.id == @item.user.id %>
-  <%=link_to "Back to All Items", items_path%>
-  <%=link_to "Back to My Listings", listings_path%> 
-<%else%>
-  <%=link_to "Back to All Items", items_path%>  
-<%end%>
+  <% if current_user.id == @item.user.id %>
+    <%=link_to "Back to My Listings", listings_path%> 
+  <%else%>
+    <%=link_to "Back to All Items", items_path%>  
+  <%end%>
 
 </div>

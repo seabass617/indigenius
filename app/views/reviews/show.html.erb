@@ -1,7 +1,0 @@
-<p id="notice"><%= notice %></p>
-<% @review.rating.times do %>
-⭐
-<% end %>
-<%= @review.content %>
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', item_reviews_path(@review.item) %>
