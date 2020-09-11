@@ -1,14 +1,19 @@
-<% @order.order_items.each do |order_item| %>
-  <div style="display: flex;">
-    <div >
-      <p><%= order_item.item.name %></p>
-      <%= cl_image_tag(order_item.item.images.first.key,
-          width: 100, height: 100, crop: :fill)%>
-    </div>
-    <div>
-      <%= render 'form', review: @review, item: order_item.item %>
-    </div>
-  </div>
-<% end %>
 
-<%= link_to 'Back to All Orders', orders_path %>
+<div class="container">
+  <div class="indigenius-container">
+    <% @order.order_items.each do |order_item| %>
+      <div style="display: flex;">
+        <div >
+          <p><%= order_item.item.name %></p>
+          <%= cl_image_tag(order_item.item.images.first.key,
+              width: 100, height: 100, crop: :fill)%>
+        </div>
+        <div>
+          <%= render 'form', review: @review, item: order_item.item %>
+        </div>
+      </div>
+    <% end %>
+    
+    <%= link_to 'Back to All Orders', orders_path %>
+  </div>
+</div>
