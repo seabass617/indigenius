@@ -8,6 +8,6 @@ $headers-font: "Nunito", "Helvetica", "sans-serif";
 // To use a font file (.woff) uncomment following lines
 @font-face {
    font-family: "BAHNSCHRIFT";
-   src: font-url('BAHNSCHRIFT.ttf');
+   src: font-url('BAHNSCHRIFT.TTF') format("truetype");
 }
- $indi-font: "BAHNSCHIFT";
+ $indi-font: "BAHNSCHRIFT";

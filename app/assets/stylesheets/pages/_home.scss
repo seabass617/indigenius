@@ -1,6 +1,6 @@
 // Specific CSS for your home-page
 body {
-  background-color: #34100e;
+  background-color: $brown-black;
   text-align: center;
   font-family: $indi-font;
 }
@@ -19,7 +19,7 @@ body {
 
 .grid{
   display: grid;
-  background-color: #34100e;
+  background-color: $brown-black;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   margin-top: 2cm;
 
@@ -48,7 +48,7 @@ body {
 
 .grid-ecom {
   display: grid;
-  background-color:#34100e;
+  background-color: none;
   grid-template-columns: 1fr 1fr 1fr;
    margin: 1cm;
    padding: 2cm; 
