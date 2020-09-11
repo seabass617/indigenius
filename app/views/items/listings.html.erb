@@ -1,28 +1,15 @@
-<% provide(:title, "Listings") %>
-<div class="container">
-  <div class="indigenius-container">
-    <h1> Your Items</h1>
-    <table>
-      <thead>
-        <tr>
-          <th><p>Name</p></th>
-          <th colspan="3"></th>
-        </tr>
-      </thead>
-    
-      <tbody>
-        <% @items.each do |item| %>
-          <tr>
-            <td><%= item.name %></td>
-            <td><%= link_to 'Show', item %></td>
-            <td><%= link_to 'Edit', edit_item_path(item) %></td>
-            <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <%= link_to 'New Worshop', new_item_path(true) %>
-    <%= link_to 'New Product', new_item_path(false) %>
-  </div>
-</div>
+<%# <% provide(:title, "Listings") %>
 
+<div class="indigenius-container">
+
+  <h1>Here are your Items</h1>
+
+  <h2>Worskshops</h2>
+  <%= render 'listing_display', items: @workshops %>
+  <%= link_to 'Add New Worshop', new_item_path(true) %>
+
+  <h2>Products</h2>
+  <%= render 'listing_display', items: @products %>
+  <%= link_to 'Add New Product', new_item_path(false) %>
+
+</div>

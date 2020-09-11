@@ -1,10 +1,14 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: %i[show edit update destroy]
 
   # GET /items
   # GET /items.json
   def index
-    @items = Item.where(workshop: params[:format])
+    if params[:format].nil?
+      @items = Item.all
+    else
+      @items = Item.where(workshop: params[:format])
+    end
   end
 
   # GET /items/1
@@ -14,7 +18,9 @@ class ItemsController < ApplicationController
   end
 
   def listings
-    @items = Item.where("user_id = ?", current_user.id )
+    @items = Item.where('user_id = ?', current_user.id)
+    @workshops = @items.where(workshop: true)
+    @products = @items.where(workshop: false)
   end
 
   # GET /items/new
