@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
     redirect_to orders_path
   end
 
-  def cancell
+  def cancel
     @order = current_user.orders.find(params[:id])
     @order.status = 'cancelled'
     @order.save

@@ -1,0 +1,23 @@
+table {
+    width: 100%;
+    text-align: center;
+    vertical-align: center;
+  }
+
+th {
+    background-color: $brown;
+    color: $light_yellow;
+    margin-bottom: 0px !important;
+  }
+
+td {
+    padding: 5px;
+  }
+
+tr:hover {
+    background-color: $pink;
+}
+
+#name {
+    width: 700px;
+}
