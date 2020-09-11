@@ -61,9 +61,9 @@
   </div>
   
   <% if current_user.id == @item.user.id %>
-    <%=link_to "Back to My Listings", listings_path%> 
+    <%=link_to "Back to My Listings", listings_path, class: "link"%> 
   <%else%>
-    <%=link_to "Back to All Items", items_path%>  
+    <%=link_to "Back to All Items", items_path, class: "link"%>  
   <%end%>
 
 </div>
