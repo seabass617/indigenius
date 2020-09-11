@@ -1,3 +1,5 @@
+<% provide(:title, "orders") %>
+
 <div class="container">
 
     <% if @order.nil? %>
@@ -23,4 +25,4 @@
     <% end %>    
 </div>
 
-<%= link_to 'Choose more Items', items_path %>
+<%= link_to 'Choose more Items', items_path, class: "link" %>
