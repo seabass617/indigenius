@@ -1,6 +1,9 @@
 class OrdersController < ApplicationController
   def index
     @orders = Order.where('user_id = ?', current_user.id)
+    @order_pending = @orders.where(status: 'pending')
+    @order_confirmed = @orders.where(status: 'confirmed')
+    @order_cancelled = @orders.where(status: 'cancelled')
   end
 
   def show
