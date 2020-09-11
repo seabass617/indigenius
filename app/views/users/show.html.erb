@@ -1,6 +1,5 @@
 Hi! I'm <%= @user.first_name %> <%= @user.last_name %>.</h1>
 
-<%# @user.bio %>
-
+<%= @user.about %>
+ 
 <%= cl_image_tag(@user.avatar.key) %>
-

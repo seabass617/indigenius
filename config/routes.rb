@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
   devise_for :users
-  get 'user/show'
+  get 'users/show'
 
   get 'listings', to: 'items#listings'
 
