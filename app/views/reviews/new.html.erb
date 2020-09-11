@@ -1,16 +1,14 @@
-
-<div class="pink-bg">
-  <div class="container">
-    <div class="row h-100 justify-content-center align-items-center">
-      <div class="col-xs-12 col-sm-10 col-sm-offset-10 col-md-8 col-md-offset-8 col-lg-6">
-        <div class="form-styling">
-          <h1>New Review</h1>
-
-          <%= render 'form', review: @review %>
-
-          <%= link_to 'Back', item_reviews_path %>
-        </div>
-      </div>
+<% @order.order_items.each do |order_item| %>
+  <div style="display: flex;">
+    <div >
+      <p><%= order_item.item.name %></p>
+      <%= cl_image_tag(order_item.item.images.first.key,
+          width: 100, height: 100, crop: :fill)%>
+    </div>
+    <div>
+      <%= render 'form', review: @review, item: order_item.item %>
     </div>
   </div>
-</div>
+<% end %>
+
+<%= link_to 'Back to All Orders', orders_path %>
