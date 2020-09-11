@@ -1,23 +1,21 @@
 Rails.application.routes.draw do
-
+  root to: 'pages#home'
   devise_for :users
-  root to: "pages#home"
+  get 'user/show'
 
   get 'listings', to: 'items#listings'
 
   resources :reviews
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :reviews, only: [:show, :destroy, :edit, :update]
-  resources :orders, only: [:index, :show]
+  resources :reviews, only: %i[show destroy edit update]
 
-  resources :items, except: :destroy do 
-    resources :workshop_dates, only: [ :index, :new, :create, :edit, :update, :destroy ]
-    resources :reviews, only: [:index, :new, :create]
-    resources :order_items, only: [ :create, :update ]
+  resources :items, except: :destroy do
+    resources :workshop_dates, only: %i[index new create edit update destroy]
+    resources :reviews, only: %i[index new create]
+    resources :order_items, only: %i[create update]
   end
+  resources :order_items, only: [:destroy]
 
-  resources :order_items, only: [ :destroy ]
-
+  resources :orders, only: %i[index show]
   patch '/orders/:id', to: 'orders#confirm', as: 'confirm_order'
   put '/orders/:id', to: 'orders#cancell', as: 'cancell_order'
 
