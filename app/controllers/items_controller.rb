@@ -1,10 +1,14 @@
 class ItemsController < ApplicationController
-  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_item, only: %i[show edit update destroy]
 
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    if params[:format].nil?
+      @items = Item.all
+    else
+      @items = Item.where(workshop: params[:format])
+    end
   end
 
   # GET /items/1
@@ -14,12 +18,14 @@ class ItemsController < ApplicationController
   end
 
   def listings
-    @items = Item.where("user_id = ?", current_user.id )
+    @items = Item.where('user_id = ?', current_user.id)
+    @workshops = @items.where(workshop: true)
+    @products = @items.where(workshop: false)
   end
 
   # GET /items/new
   def new
-    @item = Item.new
+    @item = Item.new(workshop: params[:format])
   end
 
   # GET /items/1/edit
@@ -40,7 +46,7 @@ class ItemsController < ApplicationController
           format.html { redirect_to new_item_workshop_date_path(@item), notice: 'Item was successfully created.' }
           format.json { render :show, status: :created, location: @item }
         else 
-          format.html { redirect_to items_path, notice: 'Item was successfully created.' }
+          format.html { redirect_to listings_path, notice: 'Item was successfully created.' }
         end
       else
         format.html { render :new }
@@ -88,6 +94,7 @@ class ItemsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def item_params
-    params.require(:item).permit(:name, :description, :user_id, :price, :category, :capacity, :quantity, :workshop)
+    params.require(:item).permit(:name, :description, :user_id, :price, :category,
+                                 :capacity, :quantity, :workshop, images: [])
   end
 end

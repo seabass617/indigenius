@@ -2,7 +2,7 @@ class OrderItemsController < ApplicationController
   before_action :set_order_item, only: %i[edit update destroy]
 
   def index
-    @current_order_items = OrderItem.where(order_id: current_user.order.id) #review this!
+    @current_order_items = OrderItem.where(order_id: current_user.order.id)
   end
 
   def create
@@ -12,17 +12,18 @@ class OrderItemsController < ApplicationController
     @order_item = OrderItem.new(order_item_params)
     @order_item.item = @item
     @order_item.order = @order
-
-    if @order_item.item.workshop
-      @order_item.price = @item.price
-    else
-      @order_item.price = @item.price * @order_item.quantity
-    end
-
+    @order_item.price = order_item_price(@item)
     @order_item.save
 
-    # redirect_to items_path
     redirect_to order_path(@order)
+  end
+
+  def order_item_price(item)
+    if item.workshop
+      @item.price
+    else
+      @item.price * @order_item.quantity
+    end
   end
 
   def update
@@ -31,8 +32,6 @@ class OrderItemsController < ApplicationController
   def destroy
     @order_item.destroy
   end
-
-
 
   private
 

@@ -1,4 +1,6 @@
 <%= simple_form_for [@item, product] do |f| %>
-  <%= f.input :quantity, label: "Quantity" %>
+  <%= f.input :quantity,
+               collection: (1..@item.quantity),
+               label: "Choose quantity"%>
   <%= f.button :submit, 'Add to cart' %>
 <% end %>
