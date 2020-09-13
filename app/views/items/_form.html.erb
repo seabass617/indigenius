@@ -38,10 +38,12 @@
                     input_html: { autocomplete: "quantity" } %>
       <%end%>
 
-      <%= f.input :images, 
+      <%# <%= f.input :images, 
                   as: :file, 
                   required: true,
-                  input_html: { multiple: true } %>
+                  input_html: { multiple: true } %> 
+      <%= f.input :images, as: :file, required: true, input_html: { multiple: true, class: 'd-none', id: 'photo-input'}, label_html: { class: 'upload-photo'}, label: '📷 Upload photos' %>
+      <%= image_tag "", width: 250, class: "hidden", id: "photo-preview" %>
 
     </div>
   

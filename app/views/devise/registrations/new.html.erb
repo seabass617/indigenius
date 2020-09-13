@@ -35,7 +35,8 @@
                           placeholder: "Tell the world a little about yourself",
                           required: false,
                           input_html: { autocomplete: "about" } %>
-              <%= f.input :avatar, as: :file %>
+              <%= f.input :avatar, as: :file, input_html: { class: 'd-none', id: 'photo-input'}, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
+              <%= image_tag "", width: 250, class: "hidden", id: "photo-preview" %>
             </div>
 
             <div class="form-actions">
