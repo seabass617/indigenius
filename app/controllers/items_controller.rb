@@ -22,6 +22,8 @@ class ItemsController < ApplicationController
     end
   end
 
+  #test comment pls delete
+
 
   # GET /items/1
   # GET /items/1.json
