@@ -10,8 +10,10 @@ require("channels")
 import 'bootstrap';
 
 import { initStarRating } from '../plugins/init_star_rating';
+import { previewImageOnFileSelect } from "../components/photo_preview";
 
 initStarRating();
+previewImageOnFileSelect();
 
 
 // Uncomment to copy all static images under ../images to the output folder and reference
