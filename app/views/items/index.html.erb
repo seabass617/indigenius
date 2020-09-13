@@ -1,3 +1,26 @@
+<%# Search Bar %>
+<div class="container">
+  <%= form_tag items_path(@item_type), method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find an item"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+
+</div>
+
+
+
+
+
+
+
+
+
+<%# cards %>
+
 <div class="container">
     <div class="cards">
       <% @items.each do |item| %>
