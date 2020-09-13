@@ -1,4 +1,11 @@
 // Specific CSS for your home-page
+html {
+  min-height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+
 body {
   background-color: $brown-black;
   text-align: center;

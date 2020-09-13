@@ -6,9 +6,10 @@ footer {
   height: 10vh;
   font-size: 1rem;
   margin-bottom: 0px;
-  margin-top: 1rem;
+  padding-top: 2rem;
   clear: both;
-  position: relative;
+  position: absolute;
+  bottom: 0;
   .container {
     height: 100%;
   }
