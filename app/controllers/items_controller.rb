@@ -3,13 +3,25 @@ class ItemsController < ApplicationController
 
   # GET /items
   # GET /items.json
+
   def index
     if params[:format].nil?
       @items = Item.all
     else
-      @items = Item.where(workshop: params[:format])
+      if params[:query].present?
+        # if we do have a query, make the search 
+        @items = Item.search_by_name_category_and_description(params[:query])
+        # instance variable tracking where or not this is a workshop
+        @item_type = params[:format]
+      else 
+        # otherwise, show all the items (workshops or products)
+        @items = Item.where(workshop: params[:format])
+        # instance variable tracking where or not this is a workshop
+        @item_type = params[:format]
+      end 
     end
   end
+
 
   # GET /items/1
   # GET /items/1.json
