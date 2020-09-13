@@ -7,6 +7,7 @@ footer {
   font-size: 1rem;
   margin-bottom: 0px;
   padding-top: 2rem;
+  margin-top: 1rem;
   clear: both;
   position: absolute;
   bottom: 0;
@@ -48,10 +49,6 @@ footer {
   opacity: 1;
 }
 
-.footer-fixed {
-  position: fixed;
-  bottom: 0;
-}
 
 @media (min-width: 100px) and (max-width: 575px) {
   footer {
