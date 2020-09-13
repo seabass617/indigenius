@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
     @workshops = @items.where(workshop: true)
     @products = @items.where(workshop: false)
   end
-
+#test comment 
   # GET /items/new
   def new
     @item = Item.new(workshop: params[:format])
