@@ -41,6 +41,7 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new(workshop: params[:format])
+    # @workshop_date = WorkshopDate.new(item_id: @item.id)
   end
 
   # GET /items/1/edit
@@ -52,7 +53,8 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user = current_user
-
+    # @item.save!
+    # redirect_to listings_path, notice: 'Item was successfully created.'
     respond_to do |format|
       if @item.save!
 

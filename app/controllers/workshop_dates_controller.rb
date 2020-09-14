@@ -7,6 +7,7 @@ class WorkshopDatesController < ApplicationController
 
   def new
     @item = Item.find(params[:item_id])
+    @workshop_dates = WorkshopDate.where(item_id: @item)
     @workshop_date = WorkshopDate.new
     @workshop_date.item = @item
   end
