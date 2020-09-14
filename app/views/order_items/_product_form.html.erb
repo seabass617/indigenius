@@ -2,5 +2,5 @@
   <%= f.input :quantity,
                collection: (1..@item.quantity),
                label: "Choose quantity"%>
-  <%= f.button :submit, 'Add to cart' %>
+  <%= f.button :submit, 'Add to cart', class: 'indi-btn' %>
 <% end %>
