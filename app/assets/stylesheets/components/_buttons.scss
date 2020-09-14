@@ -7,31 +7,3 @@
   padding: 5px 10px;
   width: 100%;
 }
-
-.search-form-control {
-  position: relative;
-  margin: 2cm;
-}
-
-.search-form-control .btn {
-  position: absolute;
-  top: 8px;
-  bottom: 8px;
-  right: 15px;
-
-}
-
-.search-form-control .form-control {
- height: 1.5cm;
-    width: px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-    border: 3px solid #997b66;
-    background-color: #d9ae94;
-    border-radius: 10px;
-}
-
-.search-form-control .form-control:focus {
-  border: 3px solid #9b9b7a;
-  outline: none !important;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-}
