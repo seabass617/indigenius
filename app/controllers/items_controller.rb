@@ -5,8 +5,14 @@ class ItemsController < ApplicationController
   # GET /items.json
 
   def index
+    # If Params format is nil, it means that we are coming from the homepage search
+    # and want to search through both products and workshops
     if params[:format].nil?
-      @items = Item.all
+      if params[:query].present?
+        @items = Item.search_by_name_category_and_description(params[:query])
+      else
+        @items = Item.all
+      end 
     else
       if params[:query].present?
         # if we do have a query, make the search 
