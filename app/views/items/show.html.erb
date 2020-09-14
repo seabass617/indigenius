@@ -32,7 +32,7 @@
     </div>
 
     <p>Description: <%= @item.description %></p>
-    <p>Price: <%= price_mask_real(@item.price) %></p>
+    <p>Price: <%= humanized_money_with_symbol(@item.price) %></p>
     <% if @item.workshop%>
       <p>Capacity: <%= @item.capacity %></p>
     <% else %>
@@ -62,13 +62,15 @@
             <p><%= review.content %></p>
         <% end %>
     <% end %>
-</div>
+    <% if current_user.id == @item.user.id %>
+      <%=link_to "Back to My Listings", listings_path, class: "link"%> 
+    <%else%>
+      <%=link_to "Back to Items", :back %>  
+    <%end%>
+  
+    </div>
   </div>
   
-  <% if current_user.id == @item.user.id %>
-    <%=link_to "Back to My Listings", listings_path, class: "link"%> 
-  <%else%>
-    <%=link_to "Back to All Items", items_path, class: "link"%>  
-  <%end%>
+  
 
 </div>
