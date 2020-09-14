@@ -8,27 +8,37 @@ class ItemsController < ApplicationController
     # If Params format is nil, it means that we are coming from the homepage search
     # and want to search through both products and workshops
     if params[:format].nil?
+    
+
+
+
       if params[:query].present?
         @items = Item.search_by_name_category_and_description(params[:query])
       else
         @items = Item.all
       end 
     else
-      if params[:query].present?
-        # if we do have a query, make the search 
-        @items = Item.search_by_name_category_and_description(params[:query])
-        # instance variable tracking where or not this is a workshop
-        @item_type = params[:format]
-      else 
-        # otherwise, show all the items (workshops or products)
-        @items = Item.where(workshop: params[:format])
-        # instance variable tracking where or not this is a workshop
-        @item_type = params[:format]
-      end 
-    end
+
+
+      if params[:format]
+        if params[:query].present?
+          # if we do have a query, make the search 
+          @items = Item.where(workshop: params[:format]).search_by_name_category_and_description(params[:query])
+          # @items_filtered = @items.select 
+          # instance variable tracking where or not this is a workshop
+          @item_type = params[:format]
+        else 
+          # otherwise, show all the items (workshops or products)
+          @items = Item.where(workshop: params[:format])
+          # instance variable tracking where or not this is a workshop
+          @item_type = params[:format]
+        end 
+      end
+    end 
+
   end
 
-  #test comment pls delete
+
 
 
   # GET /items/1
