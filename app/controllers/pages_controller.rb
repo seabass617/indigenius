@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    
+    @items = Item.all
      @markers = Item.geocoded.map do |item|
       {
         lat: item.latitude,
