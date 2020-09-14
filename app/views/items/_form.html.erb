@@ -1,4 +1,4 @@
-  <%= simple_form_for(@item) do |f| %>
+  <%= simple_form_for item do |f| %>
     <%= f.error_notification %>
     <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
   
@@ -49,9 +49,13 @@
   
     <div class="form-actions">
       <%if @item.workshop%>
-      <%= f.button :submit, "Edit Dates", class: "button-square-green" %>
+        <%= f.hidden_field :workshop, value: true %>
+        <%# <%= render 'workshop_dates/form', workshop_date: @workshop_date%>
+        <%= f.button :submit, "Save and Edit Dates", class: "button-square-green" %>
       <%else%>
-      <%= f.button :submit, class: "button-square-green" %>
+        <%= f.hidden_field :workshop, value: false %> 
+        <%= f.button :submit, class: "button-square-green" %>
       <%end%>
     </div>
+
   <% end %>
