@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   end
   resources :order_items, only: [:destroy]
 
-  resources :orders, only: %i[index show]
+  resources :orders, only: %i[index show] do
+    resources :payments, only: :new
+  end
   patch '/orders/:id', to: 'orders#confirm', as: 'confirm_order'
   put '/orders/:id', to: 'orders#cancel', as: 'cancel_order'
 

@@ -5,24 +5,49 @@ class ItemsController < ApplicationController
   # GET /items.json
 
   def index
+    # If Params format is nil, it means that we are coming from the homepage search
+    # and want to search through both products and workshops
     if params[:format].nil?
-      @items = Item.all
-    else
       if params[:query].present?
-        # if we do have a query, make the search 
         @items = Item.search_by_name_category_and_description(params[:query])
-        # instance variable tracking where or not this is a workshop
-        @item_type = params[:format]
-      else 
-        # otherwise, show all the items (workshops or products)
-        @items = Item.where(workshop: params[:format])
-        # instance variable tracking where or not this is a workshop
-        @item_type = params[:format]
+        
+        @markers = @items.geocoded.map do |item|
+         {
+          lat: item.latitude,
+          lng: item.longitude
+          
+         }
+        end
+      else
+        @items = Item.all
       end 
-    end
+    else
+      if params[:format]
+        if params[:query].present?
+          # if we do have a query, make the search 
+          @items = Item.where(workshop: params[:format]).search_by_name_category_and_description(params[:query])
+          
+            @markers = @items.geocoded.map do |item|
+            {
+            lat: item.latitude,
+            lng: item.longitude
+          
+            }
+            end
+          # instance variable tracking where or not this is a workshop
+          @item_type = params[:format]
+        else 
+          # otherwise, show all the items (workshops or products)
+          @items = Item.where(workshop: params[:format])
+          # instance variable tracking where or not this is a workshop
+          @item_type = params[:format]
+        end 
+      end
+    end 
+
   end
 
-  #test comment pls delete
+
 
 
   # GET /items/1
@@ -41,6 +66,7 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new(workshop: params[:format])
+    # @workshop_date = WorkshopDate.new(item_id: @item.id)
   end
 
   # GET /items/1/edit
@@ -52,7 +78,8 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user = current_user
-
+    # @item.save!
+    # redirect_to listings_path, notice: 'Item was successfully created.'
     respond_to do |format|
       if @item.save!
 

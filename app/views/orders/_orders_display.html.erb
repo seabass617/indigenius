@@ -22,7 +22,7 @@
         <% orders.each do |order| %>
             <tr>
                 <td><%= order.id %></td>
-                <td><%= price_mask_real(order.total_price) %></td>
+                <td><%= humanized_money_with_symbol(order.total_price) %></td>
                 <td><%= order.status %></td>
                 <td>
                     <% if order.status == 'pending' %>

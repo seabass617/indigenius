@@ -13,17 +13,17 @@
                 <% @order.order_items.each do |order_item| %>
                     <%= cl_image_tag order_item.item.images.first.key%>
                     <p>Name: <%= order_item.item.name %></p>
-                    <p>Price per Unit: <%= price_mask_real(order_item.item.price) %></p>
+                    <p>Price per Unit: <%= humanized_money_with_symbol(order_item.item.price) %></p>
                     <% if order_item.item.workshop%>
                         <p>Dates: <%= order_item.workshop_date%></p>    
                     <% else %>
                         <p>Quantity: <%= order_item.quantity %></p>
                     <% end %>
-                    <p>Total: <%= price_mask_real(order_item.price) %></p>
+                    <p>Total: <%= humanized_money_with_symbol(order_item.price) %></p>
                 <% end %>
     
-                <p>Grand Total: <%= price_mask_real(@total_price) %></p>
-                <%= link_to 'Confirm Order', confirm_order_path(@order), method: :patch, class: "btn btn-square" %>
+                <p>Grand Total: <%= humanized_money_with_symbol(@total_price) %></p>
+                <%= link_to 'Payment', confirm_order_path(@order), method: :patch, class: "btn btn-square" %>
         <% end %>    
         <%= link_to 'Choose more Items', items_path, class: "link btn btn-square" %>
     </div>

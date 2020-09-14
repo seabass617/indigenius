@@ -1,3 +1,3 @@
 <% @current_order_items.each do |order_item| %>
-    <p> <%# how to display the item name? %> - <%= order_item.price %> </p>
+    <p> <%# how to display the item name? %> - <%= humanized_money_with_symbol(order_item.price) %> </p>
 <% end %>
