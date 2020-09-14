@@ -1,23 +1,12 @@
 a {
-  color: #929272;
+  color: $dark_green;
   text-decoration: none;
-  font-weight: 500;
 }
 
 a:hover{
-  color: #b3b38a;
+  color: $light_green;
 }
 
-.link-black-bg {
-  color: #d6c69f;
-  display: block;
-  padding: 0.5rem 1rem;
-}
-
-.link-black-bg:hover {
-  color: #D9AE94;
-}
-
-.link-black-bg:active {
-  color: #d6c69f;
+a:active{
+  color: $brown;
 }

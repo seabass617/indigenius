@@ -23,9 +23,9 @@
                 <% end %>
     
                 <p>Grand Total: <%= humanized_money_with_symbol(@total_price) %></p>
-                <%= link_to 'Payment', confirm_order_path(@order), method: :patch, class: "btn btn-square" %>
+                <%= link_to 'Payment', confirm_order_path(@order), method: :patch, class: "indi-btn" %>
         <% end %>    
-        <%= link_to 'Choose more Items', items_path, class: "link btn btn-square" %>
+        <%= link_to 'Choose more Items', items_path, class: "indi-btn" %>
     </div>
     
     
