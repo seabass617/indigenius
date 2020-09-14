@@ -6,7 +6,9 @@ class Item < ApplicationRecord
   has_many :orders, through: :order_items
   has_many_attached :images
   accepts_nested_attributes_for :workshop_dates
-
+  geocoded_by :address
+  after_validation :geocode, if: :will_save_change_to_address?
+  
   include PgSearch::Model
   pg_search_scope :search_by_name_category_and_description,
     against: [ :name,:category, :description ],

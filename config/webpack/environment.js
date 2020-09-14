@@ -12,4 +12,10 @@ environment.plugins.prepend('Provide',
   })
 )
 
+//this line is to fix a weird bug on Saraah's map 
+//https://github.com/mapbox/mapbox-gl-js/issues/8574 
+//https://github.com/mapbox/mapbox-gl-js/issues/3422 
+environment.loaders.delete('nodeModules')
+
+//
 module.exports = environment
