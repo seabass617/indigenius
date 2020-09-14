@@ -16,16 +16,14 @@ body {
   font-family: $indi-font;
 }
 
-
-.banner {
-  width: 100%;
-  margin: 0 auto;
-  align-content: center;
-}
-
-
-.banner_img{
-  width: 100%;
+#arrow {
+  position: fixed;
+  text-align: end;
+  bottom: 0px;
+  right: 20px ;
+  padding: 20px;
+  color: $dark_yellow;
+  font-size: 20px;
 }
 
 .grid{
