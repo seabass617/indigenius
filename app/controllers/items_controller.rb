@@ -10,6 +10,14 @@ class ItemsController < ApplicationController
     if params[:format].nil?
       if params[:query].present?
         @items = Item.search_by_name_category_and_description(params[:query])
+        
+        @markers = @items.geocoded.map do |item|
+         {
+          lat: item.latitude,
+          lng: item.longitude
+          
+         }
+        end
       else
         @items = Item.all
       end 
@@ -18,7 +26,14 @@ class ItemsController < ApplicationController
         if params[:query].present?
           # if we do have a query, make the search 
           @items = Item.where(workshop: params[:format]).search_by_name_category_and_description(params[:query])
-          # @items_filtered = @items.select 
+          
+            @markers = @items.geocoded.map do |item|
+            {
+            lat: item.latitude,
+            lng: item.longitude
+          
+            }
+            end
           # instance variable tracking where or not this is a workshop
           @item_type = params[:format]
         else 
@@ -51,6 +66,7 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new(workshop: params[:format])
+    # @workshop_date = WorkshopDate.new(item_id: @item.id)
   end
 
   # GET /items/1/edit
@@ -62,7 +78,8 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user = current_user
-
+    # @item.save!
+    # redirect_to listings_path, notice: 'Item was successfully created.'
     respond_to do |format|
       if @item.save!
 
