@@ -1,20 +1,16 @@
-.btn {
-  background: #9b9b7a !important;
+.indi-btn {
+  background: $dark_green !important;
   border-radius: 10px;
   font-size: 17px;
-  font-family: $indi-font;
-  font-style: normal;
-  font-weight: normal;
-  line-height:17px;
-  color: #F1DCA7;
-  letter-spacing: 1px
+  color: $light_yellow;
+  letter-spacing: 1px;
+  padding: 5px 10px;
+  width: 100%;
 }
-
 
 .search-form-control {
   position: relative;
   margin: 2cm;
-
 }
 
 .search-form-control .btn {
