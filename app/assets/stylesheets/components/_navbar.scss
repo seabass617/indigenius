@@ -1,3 +1,37 @@
+#navbar-brand {
+  color: $light-yellow;
+  text-align: left;
+  font-size: 40px;
+  line-height: 1;
+  margin: 20px;
+}
+
+.navbar {
+  color: $dark_green;
+}
+
+.navbar-collapse {
+  background-color: $pink;
+  border-radius: 30px;
+  padding: 5px;
+}
+
+.navbar-nav{
+  align-items: center;
+}
+
+.nav-item a {
+  padding: 0px 10px;
+}
+
+.nav-item a:hover {
+  color: $brown-black;
+}
+
+.nav-item a:active {
+  color: $orange;
+}
+
 .navbar-indigenius {
   justify-content: space-between;
   background: transparent;
@@ -11,45 +45,23 @@
   width: 200px;
 }
  
-// This islogo 
-
-
-.navbar-light .navbar-nav .nav-link{
-  color: #f1dca7;
-
-}
-
 .dropdown-menu {
-  background-color: #F1DCA7;
-  border-radius: 20px;
+  background-color: $light-yellow;
+  border-radius: 10px;
+  border: 0px;
   overflow: hidden;
+  opacity: 80%;
+  margin-top: 10px;
 }
 
 .dropdown-item {
-  font-family: $indi-font;
-  font-style: normal;
-  font-weight: normal;
-  color: #797D62;
+  color: $dark_green;
 }
 
 .dropdown-item:hover {
-  background-color: #f0e2bf;
+  background-color: $pink;
 }
 
 .dropdown-item:active {
-  background-color: #f0e2bf;
-}
-
-
-.dropdown-menu-dropdown-menu-right{
-  font-family: $indi-font;
-
-}
-
-
-.fas {
-  color: #d9ae94; 
-  width: 50px;
-  height: 20px;
-  font-size: 30px;
+  color: $orange;
 }

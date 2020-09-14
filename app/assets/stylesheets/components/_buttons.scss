@@ -1,41 +1,28 @@
-.btn {
-  background: #9b9b7a !important;
+.indi-btn {
+  background: $light_green !important;
   border-radius: 10px;
   font-size: 17px;
-  font-family: $indi-font;
-  font-style: normal;
-  font-weight: normal;
-  line-height:17px;
-  color: #F1DCA7;
-  letter-spacing: 1px
+  color: $light_yellow;
+  letter-spacing: 1px;
+  padding: 5px 10px;
+  width: 100%;
+  box-shadow: 0 2px $brown;
 }
 
-
-.search-form-control {
-  position: relative;
-  margin: 2cm;
-
+.indi-btn:active {
+  background-color: $dark_green !important;
+  box-shadow: 0 1px $brown-black;
+  transform: translateY(2px);
 }
 
-.search-form-control .btn {
-  position: absolute;
-  top: 8px;
-  bottom: 8px;
-  right: 15px;
-
-}
-
-.search-form-control .form-control {
- height: 1.5cm;
-    width: px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-    border: 3px solid #997b66;
-    background-color: #d9ae94;
-    border-radius: 10px;
-}
-
-.search-form-control .form-control:focus {
-  border: 3px solid #9b9b7a;
-  outline: none !important;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+.indi-navegation {
+  background: $pink !important;
+  border-radius: 10px;
+  font-size: 17px;
+  color: $light_yellow;
+  letter-spacing: 1px;
+  padding: 10px 15px;
+  width: 100%;
+  box-shadow: 0 2px $brown;
+  margin-bottom: 100pxx;
 }

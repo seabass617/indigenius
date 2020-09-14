@@ -1,9 +1,8 @@
 
-
 footer {
-  background-color: #F1DCA7;
+  background-color: $pink;
   width: 100%;
-  height: 10vh;
+  height: 6vh;
   font-size: 1rem;
   margin-bottom: 0px;
   padding-top: 2rem;
@@ -14,9 +13,6 @@ footer {
   .container {
     height: 100%;
   }
-  .fa-heart {
-  color: #D23333;
-}
 }
 
 .footer-items {
@@ -38,10 +34,9 @@ footer {
   align-items: center;
 }
 .footer-links a {
-  color: black;
-  opacity: 0.15;
+  color: $brown;
+  opacity: 0.4;
   text-decoration: none;
-  font-family: $indi-font;
   font-size: 1rem;
   padding: 0px 10px;
 }
