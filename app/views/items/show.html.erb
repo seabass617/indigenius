@@ -32,7 +32,7 @@
     </div>
 
     <p>Description: <%= @item.description %></p>
-    <p>Price: <%= price_mask_real(@item.price) %></p>
+    <p>Price: <%= humanized_money_with_symbol(@item.price) %></p>
     <% if @item.workshop%>
       <p>Capacity: <%= @item.capacity %></p>
     <% else %>
