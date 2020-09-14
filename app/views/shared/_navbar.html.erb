@@ -1,29 +1,26 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-indigenius">
-  <%= link_to "#", class: "navbar-brand" do %>
-    <%== image_tag "genius.png"  %>
-    <% end %>
-
+  <%= link_to '/', id: "navbar-brand" do %>
+    <%# <%= image_tag "genius.png"  %>
+    <span>i N D i</span><br><span>G E N i U s</span>
+  <% end %>
+  
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to "Home", '/', class: "link-black-bg" %>
+          <%= link_to "Workshops", items_path(true) %>
         </li>
         <li class="nav-item">
-          <%= link_to "All Workshops", items_path(true), class: "link-black-bg" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "All Products", items_path(false), class: "link-black-bg" %>
+          <%= link_to "Products", items_path(false) %>
         </li>
         <li class="nav-item">
            <%= link_to order_path("shopping cart") do %>
-            <i class=" fas fa-shopping-cart nav-link"></i>
-          <%end%>
+            <i class="fas fa-shopping-cart"></i>
+           <% end %>
         </li>
         <%# <li class="nav-item"> %>
           <%# <i class="fas fa-globe"></i>"></i> %>
@@ -42,8 +39,7 @@
             <%= link_to "My Orders", orders_path, class: "dropdown-item" %>
             <%= link_to "View profile", users_show_path, class: "dropdown-item" %>
             <%= link_to "Edit Account", edit_user_registration_path(current_user), class: "dropdown-item" %>
-            
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
       <% else %>
