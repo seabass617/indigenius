@@ -7,5 +7,10 @@ class Item < ApplicationRecord
   has_many_attached :images
   accepts_nested_attributes_for :workshop_dates
 
-  attr_accessor :additional_params
+  include PgSearch::Model
+  pg_search_scope :search_by_name_category_and_description,
+    against: [ :name,:category, :description ],
+    using: {
+      tsearch: { prefix: true } 
+    }
 end
