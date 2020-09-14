@@ -13,17 +13,6 @@
     </div>
   <% end %>
 
-<<<<<<< HEAD
-</div>
-=======
-
-
-
-
-
-
-
->>>>>>> c02905955f64c67fdab5d2e536f131bff732abb9
 
 <%# cards %>
 
@@ -34,6 +23,7 @@
           <div class="card">
             <div class="card-image" 
                   style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+                  url(<%= cl_image_path(item.images.first.key) %>);
                   ">
             </div> 
             <div class="card-info">
