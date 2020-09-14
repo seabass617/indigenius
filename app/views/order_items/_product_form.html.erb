@@ -1,6 +1,6 @@
 <%= simple_form_for [@item, product] do |f| %>
   <%= f.input :quantity,
-               collection: (1..@item.quantity),
-               label: "Choose quantity"%>
+              input_html: { min: '0', max: @item.quantity, step: 'any' },
+              label: "Choose quantity" %>
   <%= f.button :submit, 'Add to cart' %>
 <% end %>
