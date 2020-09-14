@@ -69,3 +69,8 @@ gem 'faker'
 
 # Cloudinary gem for image upload
 gem 'cloudinary', '~> 1.16.0'
+
+
+#money-rails for stripe
+gem 'money-rails'
+gem 'stripe'

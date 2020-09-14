@@ -17,10 +17,32 @@ class OrdersController < ApplicationController
 
   def confirm
     @order = current_user.orders.find(params[:id])
-    @order.status = 'confirmed'
+    @order.status = 'pending'
     @order.save
 
-    redirect_to orders_path
+    images = []
+    @order.order_items.each do |order_item|
+      order_item.item.images.each do |image|
+        images << image.key
+      end
+    end
+    session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      line_items: [{
+        name: @order.user.email,
+        images: [images],
+        amount: @order.total_price_cents,
+        currency: 'usd',
+        quantity: 1
+      }],
+      success_url: orders_url(@order),
+      cancel_url: order_url(@order)
+    )
+
+    @order.update(checkout_session_id: session.id)
+    redirect_to new_order_payment_path(@order)
+    @order.status = "confirmed"
+    @order.save
   end
 
   def cancel

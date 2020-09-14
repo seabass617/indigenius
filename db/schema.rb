@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_11_092217) do
+ActiveRecord::Schema.define(version: 2020_09_14_170910) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,13 +40,13 @@ ActiveRecord::Schema.define(version: 2020_09_11_092217) do
     t.bigint "user_id", null: false
     t.string "name"
     t.text "description"
-    t.float "price"
     t.string "category"
     t.integer "capacity"
     t.integer "quantity"
     t.boolean "workshop"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "price_cents", default: 0, null: false
     t.index ["user_id"], name: "index_items_on_user_id"
   end
 
@@ -54,10 +54,10 @@ ActiveRecord::Schema.define(version: 2020_09_11_092217) do
     t.bigint "workshop_date_id"
     t.bigint "item_id", null: false
     t.integer "quantity"
-    t.float "price"
     t.bigint "order_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "price_cents", default: 0, null: false
     t.index ["item_id"], name: "index_order_items_on_item_id"
     t.index ["order_id"], name: "index_order_items_on_order_id"
     t.index ["workshop_date_id"], name: "index_order_items_on_workshop_date_id"
@@ -66,9 +66,10 @@ ActiveRecord::Schema.define(version: 2020_09_11_092217) do
   create_table "orders", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "status"
-    t.float "total_price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "total_price_cents", default: 0, null: false
+    t.string "checkout_session_id"
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
