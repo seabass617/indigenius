@@ -8,11 +8,12 @@ class ItemsController < ApplicationController
     if params[:format].nil?
       @items = Item.all
        @markers = @items.geocoded.map do |item|
-      {
-        lat: item.latitude,
-        lng: item.longitude
-      }
-    end
+          {
+          lat: item.latitude,
+          lng: item.longitude
+          
+          }
+       end
     else
       if params[:query].present?
         # if we do have a query, make the search 
