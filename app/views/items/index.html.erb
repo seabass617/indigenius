@@ -1,15 +1,17 @@
 <%# Search Bar %>
-<div class="container">
-  <%= form_tag items_path(@item_type), method: :get do %>
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find an item"
-    %>
-    <%= submit_tag "Search", class: "btn btn-primary" %>
+<%= form_tag items_path(@item_type), method: :get do %>
+    <div class="search-form-control form-group">
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find an item"
+      %>
+      <%# <%= submit_tag "Search", class: "btn indi-btn" %>
+      <button name="button" type="submit" class="btn indi-btn">
+        <i class="fas fa-search"></i> Search
+      </button>
+    </div>
   <% end %>
-
-</div>
 
 
 

@@ -2,5 +2,5 @@
   <%= f.input :quantity,
               input_html: { min: '0', max: @item.quantity, step: 'any' },
               label: "Choose quantity" %>
-  <%= f.button :submit, 'Add to cart' %>
+  <%= f.button :submit, 'Add to cart', class: 'indi-btn' %>
 <% end %>

@@ -51,10 +51,10 @@
       <%if @item.workshop%>
         <%= f.hidden_field :workshop, value: true %>
         <%# <%= render 'workshop_dates/form', workshop_date: @workshop_date%>
-        <%= f.button :submit, "Save and Edit Dates", class: "button-square-green" %>
+        <%= f.button :submit, "Save and Edit Dates", class: "indi-btn" %>
       <%else%>
         <%= f.hidden_field :workshop, value: false %> 
-        <%= f.button :submit, class: "button-square-green" %>
+        <%= f.button :submit, class: "indi-btn" %>
       <%end%>
     </div>
 
