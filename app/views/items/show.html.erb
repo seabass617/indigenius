@@ -1,8 +1,11 @@
-
-<div class="container">
-
   <div class="indigenius-container">
-    <h1><%= @item.name %></h1>
+
+    <div .>
+     <h1><%= @item.name %></h1>
+    <p>Description: <%= @item.description %></p>
+    <p>Price: <%= humanized_money_with_symbol(@item.price) %></p>
+
+    </div>
       
     <div class="image-carousel">
       <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -31,8 +34,6 @@
       </div>
     </div>
 
-    <p>Description: <%= @item.description %></p>
-    <p>Price: <%= humanized_money_with_symbol(@item.price) %></p>
     <% if @item.workshop%>
       <p>Capacity: <%= @item.capacity %></p>
     <% else %>
@@ -71,6 +72,3 @@
     </div>
   </div>
   
-  
-
-</div>
