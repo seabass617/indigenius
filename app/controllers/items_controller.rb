@@ -54,6 +54,7 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+    @items = Item.find(params[:id])
     @order_item = OrderItem.new
     @reviews = Review.where(item_id: @item.id)
   end
