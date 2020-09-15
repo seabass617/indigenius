@@ -1,7 +1,8 @@
-<%= simple_form_for [ @item, workshop ] do |f| %>
+<%= simple_form_for [ item, workshop ] do |f| %>
   <%= f.association :workshop_date,
-                    collection: @item.workshop_dates,
+                    collection: item.workshop_dates,
                     label_method: :formated_string,
-                    label: "Choose your date:"%>
-  <%= f.button :submit, 'Book Workshop', class: 'indi-btn' %>
+                    label: "Choose your date:",
+                    class: 'indi-options' %>
+  <%= f.button :submit, 'Add to cart', class: 'indi-btn' %>
 <% end %>

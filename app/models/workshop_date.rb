@@ -3,7 +3,7 @@ class WorkshopDate < ApplicationRecord
   has_many :order_items
 
   def formated_string
-    "#{start_date} - #{end_date}"
+    "#{start_date} to #{end_date}"
   end
   
 end

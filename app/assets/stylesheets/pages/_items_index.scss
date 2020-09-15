@@ -1,0 +1,62 @@
+.items-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 15px;
+}
+
+.items-card {
+    background-color: $off-white;
+    border-radius: 2px;
+    transition: all 0.5s ease;
+    box-shadow: 0px 10px 15px -2px rgba(30,30,60,0.25);
+}
+
+.pink {
+    border-top: 10px solid $pink;
+
+    h6 {
+        color: $pink;
+        text-align: right;
+    }
+}
+
+.yellow {
+    border-top: 10px solid $dark_yellow;
+
+    h6 {
+        color: $dark_yellow;
+        text-align: right;
+    }
+}
+
+.items-card:hover {
+    opacity: 80%;
+    transform: scale(.95);
+}
+
+.items-card-image {
+    background-size: cover;
+    background-position: center;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.items-card-info {
+    color: $brown;
+    text-align: center;
+    padding: 5px;
+    height: 110px;
+    position : relative;
+
+    p {
+        position: absolute;
+        margin: 0px;
+        // top: 50%;
+        // bottom: 50%;
+        left: 0;
+        right: 0;
+        padding: 5px;
+    }
+}
