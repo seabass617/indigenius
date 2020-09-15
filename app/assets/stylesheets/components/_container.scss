@@ -37,11 +37,35 @@
   background-repeat: no-repeat;
 }
 
-.item-home-container {
+.workshop-home-container {
   margin-right: 50px; 
   margin-left: 50px;
   width: 100%;
   background-color: rgba(155, 155, 122,0.7);
   font-family: $indi-font;
-
+  display:flex;
+  justify-content: flex-end;
+  height: 60%;
 }
+
+.workshop-home-blurb{ 
+  background: $brown-black;
+  color: $off-white;  
+}
+
+.product-home-container {
+  margin-right: 50px; 
+  margin-left: 50px;
+  width: 100%;
+  background-color: rgba(155, 155, 122,0.7);
+  font-family: $indi-font;
+  display:flex;
+  justify-content: flex-start;
+  height: 60%;
+}
+
+.product-home-blurb {
+  background: $brown-black;
+  color: $off-white;
+}
+
