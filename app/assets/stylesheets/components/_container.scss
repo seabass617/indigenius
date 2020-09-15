@@ -10,3 +10,38 @@
   // margin-bottom: 3rem; <<--- This is fucking up with the margin
   padding-bottom: 3rem;
 }
+
+
+// homepage containers
+
+.home-container{
+  background-color: rgba(155, 155, 122,0.7);
+  padding-top: 20px;
+  font-family: $indi-font;
+}
+
+.window { 
+  align-items: center;
+  display: flex;
+}
+
+.word-background {
+  background-image: url('background.png');
+  background-size: contain;
+  // opacity: 50%;
+}
+
+.amazonian-background { 
+  background-image: url('amazonian_flute.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.item-home-container {
+  margin-right: 50px; 
+  margin-left: 50px;
+  width: 100%;
+  background-color: rgba(155, 155, 122,0.7);
+  font-family: $indi-font;
+
+}
