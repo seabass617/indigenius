@@ -7,11 +7,16 @@
       <p><%= @item.description %></p>
           
       <% if @item.workshop%>
-        <p>Capacity: <%= @item.capacity %></p>
+        <p><strong>Capacity:</strong> <%= @item.capacity %> participants.</p>
       <% else %>
-        <p>Quantity: <%= @item.quantity %></p>
+        <p><strong>Quantity:</strong> <%= @item.quantity %> items left.</p>
       <% end %>
-      <p>Category: <%= @item.category %></p>
+      <p><strong>Category:</strong> <%= @item.category.capitalize %>.</p>
+
+      <div class='indi-price '>
+        <strong>Price:</strong><br>
+        <%= humanized_money_with_symbol(@item.price) %>
+      </div> 
 
       <div class="indi-reviews">
         <% if @reviews.empty? %>
@@ -28,7 +33,7 @@
             <% end %>
         <% end %>
       </div>
-
+      
       <% if current_user.id == @item.user.id %>
         <%=link_to "Back to My Listings", listings_path, class: "indi-navegation"%> 
       <%else%>
@@ -38,8 +43,6 @@
     </div>
 
     <div class="indi-images">
-
-      <div class='indi-price'>Price: <%= humanized_money_with_symbol(@item.price) %></div> 
 
       <div class="image-carousel">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -69,17 +72,19 @@
       </div> 
 
 
-      <% @item.workshop_dates.each do |workshop_date|%>
-        <p><%="#{workshop_date.start_date} to #{workshop_date.end_date}"%></p>
-      <%end%>
+      <%# @item.workshop_dates.each do |workshop_date|%>
+        <%# <p><%="#{workshop_date.start_date} to #{workshop_date.end_date}"</p> %>
+      <%#end%>
 
-      <% if @item.workshop?%>
-        <%= render 'order_items/workshop_form', workshop: @order_item %>
-      <% else %>
-        <%= render 'order_items/product_form', product: @order_item %>
-      <% end %>
-      <br>
-    
+      <div class="item-actions">
+        <% if @item.workshop %>
+          <%= render 'order_items/workshop_form', workshop: @order_item %>
+        <% else %>
+          <%= render 'order_items/product_form', product: @order_item %>
+        <% end %>
+        <br>
+      </div>
+
     </div>
 
 
