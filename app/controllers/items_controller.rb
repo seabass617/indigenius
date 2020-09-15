@@ -42,6 +42,14 @@ class ItemsController < ApplicationController
           @items = Item.where(workshop: params[:format]).order('name ASC')
           # instance variable tracking where or not this is a workshop
           @item_type = params[:format]
+          @markers = @items.geocoded.map do |item|
+            {
+            lat: item.latitude,
+            lng: item.longitude,
+            infoWindow: render_to_string(partial: "info_window", locals: { item: item })
+          
+            }
+          end
         end 
       end
     end 
@@ -139,6 +147,6 @@ class ItemsController < ApplicationController
   # Only allow a list of trusted parameters through.
   def item_params
     params.require(:item).permit(:name, :description, :user_id, :price, :category,
-                                 :capacity, :quantity, :workshop, images: [])
+                                 :address, :capacity, :quantity, :workshop, images: [])
   end
 end

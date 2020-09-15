@@ -1,81 +1,72 @@
-<i id="arrow" class="fas fa-chevron-down"></i>
-
-<div class="banner">
-  <%= image_tag 'indibanner_front.png', class: "banner_img" %>
+<%# --------------------------------------- %>
+<%# first page showing call to action %>
+<%# --------------------------------------- %>
+<div class="window vh-100 amazonian-background">
+  <div class="container home-container text-light ml-5 ">
+    <h1>Indigenius is a global community changing the way indigenous cultures are preserved and how artisans are paid for their product</h1>
+  </div>
 </div>
-
-<div class="home-body">
-
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
+<%# -----------------end------------------- %>
 
 
-
-  <div class="container mt-3">
-    <%= form_tag items_path(), method: :get do %>
-      <div class="search-form-control form-group">
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Search through our databse"
-        %>
-        <button name="button" type="submit" class="btn indi-btn">
-          <i class="fas fa-search"></i> Search
-        </button>
-      </div>
-    <% end %>
+<%# --------------------------------------- %>
+<%# Second page showing Workshops & Products %>
+<%# --------------------------------------- %>
+<div class="items-window">
+  <div class="workshop-home-container">
+    <div class="workshop-image">
+    </div>
+    <div class="workshop-home-blurb">
+      <h1>Workshops</h1>
+      <p> Get hands on instruction from an
+      indigenous artisan, learning their
+      craft in a space generating the cross
+      pollenation of cultures.</p>
+      <p> Our workshops are organzied by NGO 
+      and the artisans themselves. All materials
+      are provided.</p>
+      <p> Explore all of our available workshops below</p>
+      <%=link_to "Browse Workshops", items_path(true), class: "browse" %>
+    </div>
   </div>
 
+  <div class="product-home-container">
+    <div class="product-home-blurb">
+      <h1>Products</h1>
+      <p> Purchase products that have been
+      hand made by qualified local indigenous
+      artisans.</p>
+      <p> 100% of proceeds go to the artisans,
+      where money is redistributed throught the
+      community.</p>
+      <p> Explore all of our available products below</p>
+      <%=link_to "Browse Products", items_path(false), class: "browse" %>
+    </div>
+    <div class="product-image">
+    </div>
+  </div>
+
+</div>            
+<%# -----------------end------------------- %>
+
+<%# --------------------------------------- %>
+<%# Third page displaying the map %>
+<%# --------------------------------------- %>
+<div class="window vh-100 word-background">
+  <div class="container home-container">
+    <h1>Explore our locations</h1>
+  </div>
 </div>
-      
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+<%# -----------------end------------------- %>
+
+<%# --------------------------------------- %>
+<%# Last page with a call to action for vendors%>
+<%# --------------------------------------- %>
+<div class="window vh-100">
+  <div class="container home-container">
+    <h1>Do you have a product or workshop you are trying to sell?</h1>
+    <p>Join the largest global community of ethically produced indigenous savuios faire</p>
+  </div>
 </div>
+
+<%# -----------------end------------------- %>
