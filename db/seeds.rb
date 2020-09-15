@@ -59,7 +59,7 @@ p ''
     # scraping info
     name = workshop.search("#productName#{i} .text-dark.highlight-able.card-link").text.strip
     description = workshop.search("#productName#{i} .text-body.summary-text.mb-0").text.strip
-    price = workshop.search("#productName#{i} .h3.line-height-same.mb-0.price-font.text-md-right")[0].text.strip.tr('€.US$CA', '')
+    price = workshop.search("#productName#{i} .h3.line-height-same.mb-0.price-font.text-md-right")[0].text.strip.tr('€.USD$CA', '')
     img = workshop.search("#productName#{i} .product-image.with-fallback.tb-b-to-g700-linear.scale-container.half-ease-in-out")
     
     # creating workshop
