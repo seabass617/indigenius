@@ -59,7 +59,7 @@ p ''
     # scraping info
     name = workshop.search("#productName#{i} .text-dark.highlight-able.card-link").text.strip
     description = workshop.search("#productName#{i} .text-body.summary-text.mb-0").text.strip
-    price = workshop.search("#productName#{i} .h3.line-height-same.mb-0.price-font.text-md-right")[0].text.strip.tr('€.US$CA', '')
+    price = workshop.search("#productName#{i} .h3.line-height-same.mb-0.price-font.text-md-right")[0].text.strip.tr('€.USD$CA', '')
     img = workshop.search("#productName#{i} .product-image.with-fallback.tb-b-to-g700-linear.scale-container.half-ease-in-out")
     
     # creating workshop
@@ -115,12 +115,12 @@ p ''
       price = product.search('.wt-text-title-03.wt-mr-xs-2').text.strip
       img = product.search('.wt-max-width-full.wt-horizontal-center.wt-vertical-center.carousel-image.wt-rounded')
 
-      # creating products
+      # creating products ('€.USD$CA', '')
       new_product = Item.create!(
         user_id: User.all.sample.id,
         name: name,
         description: description.tr("\n", ''),
-        price: price.tr(' €.$BRL', ''),
+        price: price.tr(' USD$CA€.$BRL', ''),
         category: category[category_index],
         quantity: rand(1..10),
         workshop: false

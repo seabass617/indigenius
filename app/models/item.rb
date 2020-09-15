@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   has_many :orders, through: :order_items, dependent: :destroy
   has_many_attached :images
   accepts_nested_attributes_for :workshop_dates
-  monetize :price_cents
+  #monetize :price_cents
 
   geocoded_by :address
   after_validation :geocode, if: :will_save_change_to_address?
