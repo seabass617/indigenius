@@ -66,7 +66,7 @@ p ''
       user_id: User.all.sample.id,
       name: name,
       description: description.tr("\n", ''),
-      price: price.to_i,
+      price_cents: price,
       category: category[category_index],
       capacity: rand(1..10),
       workshop: true
@@ -119,7 +119,7 @@ p ''
         user_id: User.all.sample.id,
         name: name,
         description: description.tr("\n", ''),
-        price: price.tr(' USD$CA€.$BRL', '').to_i,
+        price_cents: price.tr(' USD$CA€.$BRL', ''),
         category: category[category_index],
         quantity: rand(1..10),
         workshop: false
