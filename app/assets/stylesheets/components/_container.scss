@@ -27,6 +27,10 @@
   display: flex;
 }
 
+.item-window { 
+  height: auto;
+  width: 100%;
+}
 .word-background {
   background-image: url('background.png');
   background-size: contain;
@@ -47,18 +51,21 @@
   font-family: $indi-font;
   display:flex;
   justify-content: center;
-  height: 60%;
+  height: 550px;
   padding: 20px;
   margin: 0 auto;
+  margin-top: 250px;
+  margin-bottom: 300px;
 }
 
 .workshop-home-blurb{ 
   background: $brown-black;
   color: $off-white;  
-  width: 50%;
+  width: 40%;
   font-size: 20px;
   padding: 20px 40px;
   margin-left: 30px;
+  height: auto;
 }
 
 .workshop-home-blurb p {
@@ -68,8 +75,10 @@
 .workshop-image {
   background-image: url('Product 1.jpg');
   background-size: cover;
-  width: 50%; 
-  height: auto;
+  width: 600px; 
+  height: 800px;
+  position: relative;
+  top: -100px;
 }
 
 .product-home-container {
@@ -80,9 +89,10 @@
   font-family: $indi-font;
   display:flex;
   justify-content: center;
-  height: 60%;
+  height: auto;
   padding: 20px;
   margin: 0 auto; 
+  margin-bottom: 200px;
 }
 
 .product-home-blurb {
