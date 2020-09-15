@@ -119,7 +119,7 @@ p ''
         user_id: User.all.sample.id,
         name: name,
         description: description.tr("\n", ''),
-        price: price.tr(' USD$CA€.$BRL', ''),
+        price: price.tr(' USD$CA€.$BRL', '').to_i,
         category: category[category_index],
         quantity: rand(1..10),
         workshop: false
