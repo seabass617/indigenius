@@ -9,7 +9,7 @@ class ItemsController < ApplicationController
     # and want to search through both products and workshops
     if params[:format].nil?
       if params[:query].present?
-        @items = Item.search_by_name_category_and_description(params[:query])
+        @items = Item.search_by_name_category_and_description(params[:query]).order('name ASC')
         
         @markers = @items.geocoded.map do |item|
          {
@@ -20,13 +20,13 @@ class ItemsController < ApplicationController
          }
         end
       else
-        @items = Item.all
+        @items = Item.all.order('name ASC')
       end 
     else
       if params[:format]
         if params[:query].present?
           # if we do have a query, make the search 
-          @items = Item.where(workshop: params[:format]).search_by_name_category_and_description(params[:query])
+          @items = Item.where(workshop: params[:format]).search_by_name_category_and_description(params[:query]).order('name ASC')
           
             @markers = @items.geocoded.map do |item|
             {
@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
           @item_type = params[:format]
         else 
           # otherwise, show all the items (workshops or products)
-          @items = Item.where(workshop: params[:format])
+          @items = Item.where(workshop: params[:format]).order('name ASC')
           # instance variable tracking where or not this is a workshop
           @item_type = params[:format]
         end 

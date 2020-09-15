@@ -9,8 +9,14 @@
   box-shadow: 0 2px $brown;
 }
 
+.indi-btn:hover {
+  background-color: $dark_green !important;
+  color: $light_yellow;
+}
+
 .indi-btn:active {
   background-color: $dark_green !important;
+  color: $dark_yellow;
   box-shadow: 0 1px $brown-black;
   transform: translateY(2px);
 }
