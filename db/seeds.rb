@@ -115,12 +115,12 @@ p ''
       price = product.search('.wt-text-title-03.wt-mr-xs-2').text.strip
       img = product.search('.wt-max-width-full.wt-horizontal-center.wt-vertical-center.carousel-image.wt-rounded')
 
-      # creating products
+      # creating products ('€.USD$CA', '')
       new_product = Item.create!(
         user_id: User.all.sample.id,
         name: name,
         description: description.tr("\n", ''),
-        price: price.tr(' €.$BRL', ''),
+        price: price.tr(' USD$CA€.$BRL', ''),
         category: category[category_index],
         quantity: rand(1..10),
         workshop: false
