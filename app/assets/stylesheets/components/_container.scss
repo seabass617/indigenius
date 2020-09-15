@@ -10,3 +10,113 @@
   // margin-bottom: 3rem; <<--- This is fucking up with the margin
   padding-bottom: 3rem;
 }
+
+
+// homepage containers
+
+.home-container{
+  background-color: rgba(155, 155, 122,0.7);
+  padding-top: 20px;
+  font-family: $indi-font;
+  border-radius: 10px;
+  margin-bottom: 100px;
+}
+
+.window { 
+  align-items: center;
+  display: flex;
+}
+
+.item-window { 
+  height: auto;
+  width: 100%;
+}
+.word-background {
+  background-image: url('background.png');
+  background-size: contain;
+  // opacity: 50%;
+}
+
+.amazonian-background { 
+  background-image: url('amazonian_flute.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.workshop-home-container {
+  margin-right: 50px; 
+  margin-left: 50px;
+  width: 80%;
+  background-color: rgba(155, 155, 122,0.7);
+  font-family: $indi-font;
+  display:flex;
+  justify-content: center;
+  height: 550px;
+  padding: 20px;
+  margin: 0 auto;
+  margin-top: 250px;
+  margin-bottom: 300px;
+}
+
+.workshop-home-blurb{ 
+  background: $brown-black;
+  color: $off-white;  
+  width: 40%;
+  font-size: 20px;
+  padding: 20px 40px;
+  margin-left: 30px;
+  height: auto;
+}
+
+.workshop-home-blurb p {
+  text-align: left;
+}
+
+.workshop-image {
+  background-image: url('Product 1.jpg');
+  background-size: cover;
+  width: 600px; 
+  height: 800px;
+  position: relative;
+  top: -100px;
+}
+
+.product-home-container {
+  margin-right: 50px; 
+  margin-left: 50px;
+  width: 80%;
+  background-color: rgba(155, 155, 122,0.7);
+  font-family: $indi-font;
+  display:flex;
+  justify-content: center;
+  height: auto;
+  padding: 20px;
+  margin: 0 auto; 
+  margin-bottom: 200px;
+}
+
+.product-home-blurb {
+  background: $brown-black;
+  color: $off-white;  
+  width: 50%;
+  font-size: 20px;
+  padding: 20px 40px;
+  margin-right: 30px;
+}
+
+.product-image {
+  background-image: url('wayuu_bag.jpg');
+  background-size: cover;
+  width: 50%; 
+  height: auto;
+}
+
+.browse {
+  padding: 10px 20px;
+  background: none;
+  border: 3px solid white;
+  border-radius: 15px;
+  width: 60%;
+  margin: 0 auto;
+  color: white;
+}
