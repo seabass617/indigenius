@@ -1,34 +1,63 @@
+<div class="indigenius-container">
 
-<%# provide(:title, "orders") %>
+    <div class="cart">
 
-<div class="container">
-    <div class="indigenius-container">
-    
         <% if @order.nil? %>
-    
+
             <h1>Shopping Cart is Empty</h1>
                 
         <% else %>
             <h1>Shopping Cart</h1>
-                <% @order.order_items.each do |order_item| %>
+
+                
+            <% @order_items.each do |order_item| %>
+
+                <div class="cart-item">
+
                     <%= cl_image_tag order_item.item.images.first.key%>
-                    <p>Name: <%= order_item.item.name %></p>
-                    <p>Price per Unit: <%= humanized_money_with_symbol(order_item.item.price) %></p>
-                    <% if order_item.item.workshop%>
-                        <p>Dates: <%= order_item.workshop_date%></p>    
-                    <% else %>
-                        <p>Quantity: <%= order_item.quantity %></p>
-                    <% end %>
-                    <p>Total: <%= humanized_money_with_symbol(order_item.price) %></p>
-                <% end %>
-    
-                <p>Grand Total: <%= humanized_money_with_symbol(@total_price) %></p>
-                <%= link_to 'Payment', confirm_order_path(@order), method: :patch, class: "indi-btn" %>
+
+                    <div class="info">
+                        <p><strong><%= order_item.item.name %></strong></p>
+
+                        <div class="price">
+                            <p><strong>Price per Unit: </strong> <%= humanized_money_with_symbol(order_item.item.price) %></p>
+                            <p class="sub-total"><strong>SubTotal: </strong> <%= humanized_money_with_symbol(order_item.price) %></p>
+                        </div>
+                        
+                        <% if order_item.item.workshop %>
+                            <% if order_item.workshop_date.nil? %>
+                                No dates
+                            <% else %>
+                                <p><strong>Selected Dates:</strong> <%= order_item.workshop_date.start_date %>
+                                    to <%= order_item.workshop_date.end_date %></p>    
+                            <% end %>
+                        <% else %>
+                            <p><strong>Selected Quantity:</strong> <%= order_item.quantity %></p>
+                        <% end %>
+
+                        <%= link_to 'Remove', order_item, method: :delete, data: { confirm: 'Are you sure?' } %>
+                        
+                        <div>
+                            <% if order_item.item.workshop %>
+                                <%= render 'order_items/workshop_form', workshop: order_item, item: order_item.item %>
+                            <% else %>
+                                <%= render 'order_items/product_form', product: order_item, item: order_item.item %>
+                            <% end %>
+                            <br>
+                        </div>
+
+                    </div>
+                </div>
+
+            <% end %>  
+
+            <p class = 'total-price '>Total: <%= humanized_money_with_symbol(@total_price) %></p>
+              
+
+            <%= link_to 'Payment', confirm_order_path(@order), method: :patch, class: "indi-btn" %>
+            <%= link_to 'Choose more Items', items_path, class: "indi-btn" %>
+       
         <% end %>    
-        <%= link_to 'Choose more Items', items_path, class: "indi-btn" %>
+
     </div>
-    
-    
-
 </div>
-

@@ -23,6 +23,7 @@
             <p>No reviews available for this item</p>
         <% else %>
             <% @reviews.each do |review| %>
+              <div class="indi-review">
                 <%= cl_image_tag(review.user.avatar.key) %>
                 <div>
                   <p><%= review.content %></p>
@@ -30,6 +31,7 @@
                     ⭐
                   <% end %>
                 </div>
+              </div>
             <% end %>
         <% end %>
       </div>
@@ -78,9 +80,9 @@
 
       <div class="item-actions">
         <% if @item.workshop %>
-          <%= render 'order_items/workshop_form', workshop: @order_item %>
+          <%= render 'order_items/workshop_form', workshop: @order_item, item: @item %>
         <% else %>
-          <%= render 'order_items/product_form', product: @order_item %>
+          <%= render 'order_items/product_form', product: @order_item, item: @item %>
         <% end %>
         <br>
       </div>

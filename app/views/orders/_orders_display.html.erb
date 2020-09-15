@@ -23,12 +23,15 @@
             <tr>
                 <td><%= order.id %></td>
                 <td><%= humanized_money_with_symbol(order.total_price) %></td>
-                <td><%= order.status %></td>
+                <td><%= order.status.capitalize %></td>
                 <td>
                     <% if order.status == 'pending' %>
                         <%= link_to 'Confirm', confirm_order_path(order), method: :patch  %>
+                        <%= link_to 'Cancel', cancel_order_path(order),
+                            method: :put, 
+                            data: { confirm: 'Are you sure?' } %>
                     <% elsif order.status == 'confirmed' %>
-                        <%= link_to 'cancel', cancel_order_path(order),
+                        <%= link_to 'Cancel', cancel_order_path(order),
                             method: :put, 
                             data: { confirm: 'Are you sure?' } %>
                     <% else %>

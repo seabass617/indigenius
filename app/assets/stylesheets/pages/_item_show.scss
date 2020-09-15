@@ -23,7 +23,7 @@
     border-top: 2px solid $light_yellow;
     padding: 10px;
     margin-bottom: 20px;
-    display: flex;
+    // display: flex;
     align-items: center;
     
     img {
@@ -37,6 +37,11 @@
     p {
         line-height: 1;
         margin: 0px;
+    }
+
+    .indi-review {
+        display: flex;
+        align-items: center;
     }
 }
 

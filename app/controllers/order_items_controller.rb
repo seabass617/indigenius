@@ -27,10 +27,19 @@ class OrderItemsController < ApplicationController
   end
 
   def update
+    @order = current_user.orders.find_by(status: 'pending')
+    @item = Item.find(params[:item_id])
+    @order_item.update(order_item_params)
+    @order_item.price = order_item_price(@item)
+    @order_item.save
+    redirect_to order_path(@order)
   end
 
   def destroy
+    @order = current_user.orders.find_by(status: 'pending')
     @order_item.destroy
+    flash[:notice] = "#{@order_item.item.name} was removed from shopping cart."
+    redirect_to order_path(@order)
   end
 
   private
