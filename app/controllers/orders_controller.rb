@@ -7,9 +7,10 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @items = Item.all
     @order = current_user.orders.find_by(status: 'pending')
-    @order_items = OrderItem.where(order_id: @order.id)
     unless @order.nil?
+      @order_items = OrderItem.where(order_id: @order.id)
       @total_price = total_price(@order.order_items)
       @order.total_price = @total_price
       @order.save
