@@ -1,5 +1,4 @@
 import curDot from "cursor-dot";
-import { nodeName } from "jquery";
 
 //colors
 // $dark_green: #797D62;
