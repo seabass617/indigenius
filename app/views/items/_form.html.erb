@@ -12,7 +12,7 @@
                   required: true,
                   placeholder: "Item Description",
                   input_html: { autocomplete: "description" } %>
-      <%= f.input :price,
+      <%# f.input :price,
                   required: true,
                   placeholder: "0,00",
                   input_html: { autocomplete: "price" } %>
@@ -21,10 +21,12 @@
                   placeholder: "Item Category",
                   input_html: { autocomplete: "category" } %>
 
-      <%# <%= f.input :workshop, 
-                  required: true,
-                  label: "Workshop ou Product?",
-                  input_html: { onclick: "options()" } %>
+      <%= f.input :address,
+                    required: true,
+                    placeholder: "Item Address",
+                    input_html: { autocomplete: "address" } %>
+
+    
 
       <%if @item.workshop %>
         <%= f.input :capacity,

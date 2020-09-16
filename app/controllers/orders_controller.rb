@@ -8,8 +8,9 @@ class OrdersController < ApplicationController
 
   def show
     @order = current_user.orders.find_by(status: 'pending')
+    @order_items = OrderItem.where(order_id: @order.id)
     unless @order.nil?
-      @total_price = total_price(@order.order_items) 
+      @total_price = total_price(@order.order_items)
       @order.total_price = @total_price
       @order.save
     end
@@ -49,7 +50,7 @@ class OrdersController < ApplicationController
     @order = current_user.orders.find(params[:id])
     @order.status = 'cancelled'
     @order.save
-
+    flash[:notice] = "Order ##{@order.id} was cancelled."
     redirect_to orders_path
   end
 

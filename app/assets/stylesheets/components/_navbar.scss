@@ -8,6 +8,7 @@
 
 .navbar {
   color: $dark_green;
+  background-color: $off-white;
 }
 
 .navbar-collapse {
@@ -34,7 +35,9 @@
 
 .navbar-indigenius {
   justify-content: space-between;
+  // background: $off-white;
   background: transparent;
+  border-bottom: 2px solid $brown-black;
 }
 
 .navbar-indigenius .navbar-collapse {

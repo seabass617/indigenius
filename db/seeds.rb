@@ -142,9 +142,9 @@ p '-----------------------------------------------------------------------------
       price = product.search('#shipping-variant-div > div > div.wt-grid.wt-mb-xs-3 > div:nth-child(3) > div > p > span.currency-value').text.strip
       imgs = product.search("#listing-right-column > div > div.body-wrap.wt-body-max-width.wt-display-flex-md.wt-flex-direction-column-xs > div.image-col.wt-order-xs-1.wt-mb-lg-6 > div > div > div > div > div.image-carousel-container.wt-position-relative.flex-xs-6.order-xs-2.show-scrollable-thumbnails > ul > li img")
       # address = product.search("#listing-right-column > div > div.body-wrap.wt-body-max-width.wt-display-flex-md.wt-flex-direction-column-xs > div.listing-info.info-col.description-right.wt-order-xs-5 > div > div:nth-child(3) > div.wt-text-caption.wt-text-gray.wt-mt-md-3 > div").text.strip
-
       
       # creating products
+
       new_product = Item.create!(
         user_id: User.all.sample.id,
         name: name,

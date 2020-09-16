@@ -1,0 +1,31 @@
+.cart {
+    color: $brown;
+    display: block;
+
+    img {
+        width: 100px;
+        height: 100px;
+        margin: 10px ;
+        border-radius: 5px;
+    }
+}
+
+.cart-item {
+    display: flex;
+    text-align: left;
+
+    .info {
+        line-height: 1;
+        width: 100%;
+    }
+
+    .price {
+        display: flex;
+        justify-content: space-between;
+
+        .sub-total {
+            color: $dark_green;
+            background-color: $pink;
+        }
+    }
+}
