@@ -20,6 +20,14 @@ document.addEventListener('turbolinks:load', () => {
     initStarRating();
     previewImageOnFileSelect();
     initMapbox();
+
+    document.querySelectorAll('.edit-shopping-cart').forEach((element) => {
+        element.addEventListener('click', (event) => {
+            event.preventDefault();
+            document.getElementById(`form-${element.id}`).classList.toggle("edit-cart-hide");
+        })
+    });
+
 })
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
@@ -27,9 +35,3 @@ document.addEventListener('turbolinks:load', () => {
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
-
-
-//Edit Shopping cart
-$(document).on("click","#edit-cart-button",function(){
-    $('#edit-cart').show();
-  });

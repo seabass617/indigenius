@@ -54,15 +54,19 @@
                                                 method: :delete, data: { confirm: 'Are you sure?' }, 
                                                 class: 'indi-navegation' %> 
                             or
-                            <%= link_to "Edit", "", id: "edit-cart-button", class: 'indi-navegation' %> 
+                            <%= link_to "Edit", "", id: order_item.id, class: 'edit-shopping-cart indi-navegation' %> 
                             item
 
-                            <div id ='edit-cart'>
-                                <% if order_item.item.workshop %>
-                                    <%= render 'order_items/workshop_form', workshop: order_item, item: order_item.item %>
-                                <% else %>
-                                    <%= render 'order_items/product_form', product: order_item, item: order_item.item %>
-                                <% end %>
+                            <div class = 'edit-cart-hide' id = "form-<%= order_item.id %>" >
+                                <%# <div class="cart-form-style"> %>
+                                    <% if order_item.item.workshop %>
+                                        <br>
+                                        <%= render 'order_items/workshop_form', workshop: order_item, item: order_item.item %>
+                                    <% else %> 
+                                        <br>                             
+                                        <%= render 'order_items/product_form', product: order_item, item: order_item.item %>
+                                    <% end %>
+                                <%# </div> %>
                             </div>
                         </div>
                     </div>
