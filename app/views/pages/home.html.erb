@@ -78,7 +78,8 @@
 <%# --------------------------------------- %>
 <%# Third page displaying the map %>
 <%# --------------------------------------- %>
-<div class="window vh-100 word-background">
+<div class="map-window word-background">
+  <div class="map-title">Explore our locations</div>
   <div id="map"
      style="width: 80%; height: 600px;"
      data-markers="<%= @markers.to_json %>"
@@ -90,7 +91,7 @@
 <%# --------------------------------------- %>
 <%# Last page with a call to action for vendors%>
 <%# --------------------------------------- %>
-<div class="window vh-100">
+<div class="map-window vh-100">
   <div class="container home-container">
     <h1>Do you have a product or workshop you are trying to sell?</h1>
     <p>Join the largest global community of ethically produced indigenous savuios faire</p>
