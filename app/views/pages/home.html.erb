@@ -44,32 +44,53 @@
     </div>
     <div class="workshop-home-blurb">
       <h1>Workshops</h1>
+      <br>
       <p> Get hands on instruction from an
-      indigenous artisan, learning their
+      Indigenous artisan, learning their
       craft in a space generating the cross
       pollenation of cultures.</p>
       <p> Our workshops are organzied by NGO 
-      and the artisans themselves. All materials
-      are provided.</p>
+      and the artisans themselves..</p>
+      <p> All materials are provided.</p>
       <p> Explore all of our available workshops below</p>
+      <br>
       <%=link_to "Browse Workshops", items_path(true), class: "browse" %>
+
+      <a href="#" class="button instagram"><span class="gradient"></span>Browse Workshops</a>
     </div>
   </div>
 
   <div class="product-home-container">
     <div class="product-home-blurb">
       <h1>Products</h1>
-      <p> Purchase products that have been
-      hand made by qualified local indigenous
+      <br>
+      <p> Purchase products that have been handmade by local Indigenous
       artisans.</p>
+      <br>
       <p> 100% of proceeds go to the artisans,
-      where money is redistributed throught the
+      where money is redistributed through the
       community.</p>
+      <br>
       <p> Explore all of our available products below</p>
+      <br>
       <%=link_to "Browse Products", items_path(false), class: "browse" %>
     </div>
-    <div class="product-image">
-    </div>
+  
+    
+    <figure class="icon-cards mt-3">
+      <div class="icon-cards__content">
+        <div class="icon-cards__item d-flex align-items-center justify-content-center">
+          <div class="product-image" style = " background-image: url(<%=image_path 'cameroonbag.jpg' %>)" ></div>
+        </div>  
+        <div class="icon-cards__item d-flex align-items-center justify-content-center">
+
+          <div class="product-image" style = " background-image: url(<%=image_path 'massai.jpg' %>)" ></div>
+        </div>   
+        <div class="icon-cards__item d-flex align-items-center justify-content-center">
+          <div class="product-image"></div>
+        </div>     
+      </div>
+    </figure>
   </div>
 
 </div>            
@@ -85,6 +106,7 @@
      data-markers="<%= @markers.to_json %>" 
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
 </div>
+
 </div>
 <%# -----------------end------------------- %>
 
@@ -94,16 +116,10 @@
 <div class="map-window vh-100">
   <div class="container home-container">
     <h1>Do you have a product or workshop you are trying to sell?</h1>
-    <p>Join the largest global community of ethically produced indigenous savuios faire</p>
+    <p>Join the largest global community of ethically produced indigenous savoir faire</p>
   </div>
 </div>
 
 <%# -----------------end------------------- %>
 
-
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
 

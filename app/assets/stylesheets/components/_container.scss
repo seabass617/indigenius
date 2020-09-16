@@ -50,8 +50,9 @@
 }
 
 .workshop-home-blurb{ 
-  background: $brown-black;
-  color: $off-white;  
+  align-items: center;
+  background: #f1dca7;
+  color: #997b66;  
   width: 40%;
   font-size: 20px;
   padding: 20px 40px;
@@ -60,7 +61,7 @@
 }
 
 .workshop-home-blurb p {
-  text-align: left;
+  text-align: center;
 }
 
 .workshop-image {
@@ -73,22 +74,23 @@
 }
 
 .product-home-container {
-  margin-right: 50px; 
+   margin-right: 50px; 
   margin-left: 50px;
   width: 80%;
   background-color: rgba(155, 155, 122,0.7);
   font-family: $indi-font;
   display:flex;
   justify-content: center;
-  height: auto;
+  height: 550px;
   padding: 20px;
-  margin: 0 auto; 
-  margin-bottom: 200px;
+  margin: 0 auto;
+  margin-top: 250px;
+  margin-bottom: 300px;
 }
 
 .product-home-blurb {
-  background: $brown-black;
-  color: $off-white;  
+  background: #f1dca7;
+  color: #997b66;  
   width: 50%;
   font-size: 20px;
   padding: 20px 40px;
@@ -96,18 +98,24 @@
 }
 
 .product-image {
-  background-image: url('wayuu_bag.jpg');
+  background-image: url('Vase.jpg');
   background-size: cover;
-  width: 50%; 
-  height: auto;
+   width: 600px; 
+  height: 800px;
+  position: relative;
+  top: -100px;
+
 }
 
 .browse {
-  padding: 10px 20px;
-  background: none;
-  border: 3px solid white;
-  border-radius: 15px;
+  font-size: 18px;
+  font-weight: lighter;
+  padding: 15px 20px;
+  background: #997b66;;
+  border: 2px solid #997b66;
+  border-radius: 20px;
   width: 60%;
-  margin: 0 auto;
-  color: white;
+  margin-top: 2px;
+  color: #f1dca7;
+  
 }
