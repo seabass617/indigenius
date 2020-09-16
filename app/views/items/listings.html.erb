@@ -1,13 +1,12 @@
-<% provide(:title, "Listings") %>
+<div class="indigenius-container">
 
-<div class="container" style="margin-bottom: 50px;">
-  <div class="indigenius-container">
-    <h1>Here are your Items</h1>
+  <div class="listing">
+    <h3>Here are your Items</h3>
     <br>
     <h2>Worskshops</h2>
     <%= render 'listing_display', items: @workshops %>
     <br>
-    <%= link_to 'Add New Worshop', new_item_path(true), class: "btn" %>
+    <%= link_to 'Add New Worshop', new_item_path(true), class: "" %>
     <br>
     <br>
     <h2>Products</h2>
@@ -15,4 +14,5 @@
     <br>
     <%= link_to 'Add New Product', new_item_path(false), class: "btn" %>
   </div>
+
 </div>

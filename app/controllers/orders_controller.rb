@@ -7,9 +7,10 @@ class OrdersController < ApplicationController
   end
 
   def show
+    @items = Item.all
     @order = current_user.orders.find_by(status: 'pending')
-    @order_items = OrderItem.where(order_id: @order.id)
     unless @order.nil?
+      @order_items = OrderItem.where(order_id: @order.id)
       @total_price = total_price(@order.order_items)
       @order.total_price = @total_price
       @order.save
@@ -30,7 +31,7 @@ class OrdersController < ApplicationController
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: [{
-        name: @order.user.email,
+        name: @order.user.first_name,
         images: [images],
         amount: @order.total_price_cents,
         currency: 'usd',
