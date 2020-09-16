@@ -27,3 +27,9 @@ document.addEventListener('turbolinks:load', () => {
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+
+//Edit Shopping cart
+$(document).on("click","#edit-cart-button",function(){
+    $('#edit-cart').show();
+  });

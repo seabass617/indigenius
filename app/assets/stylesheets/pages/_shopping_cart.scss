@@ -27,27 +27,49 @@
 
 .cart-item {
     display: flex;
+    align-content: center;
     text-align: left;
+    margin: auto 350px;
+    border-bottom: 1px dashed $brown;
     
     img {
-        width: 100px;
+        width:100px;
         height: 100px;
+        background-size: cover;
         margin: 10px ;
         border-radius: 5px;
     }
 
     .info {
-        line-height: 1;
-        width: 100%;
-    }
-
-    .price {
         display: flex;
         justify-content: space-between;
+        line-height: 1;
+        width: 100%;
+        margin: 10px ;
+    }
+}
 
-        .sub-total {
-            color: $dark_green;
-            background-color: $pink;
-        }
+.sub-total {
+    color: $dark_green;
+    background-color: $pink;
+    width: 150px;
+    padding: 5px;
+    text-align: center;
+}
+
+#edit-cart {
+    display: none;
+    width: 20%;
+    margin-left: 80%;
+    padding: 0px;
+}
+
+.cart-actions{
+    display: flex;
+    justify-content: flex-end;
+    
+    .btn {
+        width: 200px !important;
+        margin-left: 10px;
     }
 }
