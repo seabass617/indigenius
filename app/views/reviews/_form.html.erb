@@ -5,7 +5,7 @@
   <div class="form-inputs">
     <%= f.input :content %>
     <%= f.input :rating, 
-                collection: (1..5).to_a, 
+                collection: (1..5).to_a, class: "review_ratings", 
                 label: "Rate your experience" %>
   </div>
 
