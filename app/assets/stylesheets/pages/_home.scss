@@ -1,5 +1,4 @@
 // Specific CSS for your home-page
-
 html {
   min-height: 100%;
   width: 100%;
@@ -12,16 +11,9 @@ html {
 }
 
 body {
-  background-color: $off-white;
-  // background-color: #f1dca7;
+  background-color: #fff4e0;
   text-align: center;
   font-family: $indi-font;
-}
-
-.home-body{
-  background-image: url('backgound.png');
-  background-size: contain;
-  opacity: 50%;
 }
 
 #arrow {
@@ -40,6 +32,9 @@ body {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   margin-top: 2cm;
 
+
+
+  
 }
 
 .grid_item {
@@ -88,3 +83,4 @@ body {
   h1, h2, h3, h4, h5, h6 {
     font-family: $indi-font;
   }
+
