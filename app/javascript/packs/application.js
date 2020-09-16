@@ -11,23 +11,22 @@ import 'bootstrap';
 
 import { initStarRating } from '../plugins/init_star_rating';
 import { previewImageOnFileSelect } from "../components/photo_preview";
-
-
-
 import { initMapbox } from '../plugins/init_mapbox';
+import { curDot }  from '../plugins/curDot'
 
 document.addEventListener('turbolinks:load', () => {
     initStarRating();
     previewImageOnFileSelect();
     initMapbox();
-
+    curDot();
+    
+    // shopping-cart edit button
     document.querySelectorAll('.edit-shopping-cart').forEach((element) => {
         element.addEventListener('click', (event) => {
             event.preventDefault();
             document.getElementById(`form-${element.id}`).classList.toggle("edit-cart-hide");
         })
     });
-
 })
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
