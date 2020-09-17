@@ -1,18 +1,29 @@
 <div class="indigenius-container">
 
   <div class="listing">
+
     <h3>Here are your Items</h3>
-    <br>
-    <h2>Worskshops</h2>
-    <%= render 'listing_display', items: @workshops %>
-    <br>
-    <%= link_to 'Add New Worshop', new_item_path(true), class: "" %>
-    <br>
-    <br>
-    <h2>Products</h2>
-    <%= render 'listing_display', items: @products %>
-    <br>
-    <%= link_to 'Add New Product', new_item_path(false), class: "btn" %>
-  </div>
+
+    <div class="listing-items">
+  
+      <div class="listing-workshops">
+        <div class="listing-header">
+          <h4>Worskshops</h4>
+          <span><%= link_to 'Add New Worshop', new_item_path(true), class: "indi-navegation" %></span>
+        </div>
+        <%= render 'listing_display', items: @workshops %>
+      </div>
+
+      <div class="listing-products">
+        <div class="listing-header">
+          <h4>Products</h4>
+          <span><%= link_to 'Add New Product', new_item_path(false), class: "indi-navegation" %></span>
+        </div>
+        <%= render 'listing_display', items: @products %>
+      </div>
+
+    </div>
+
+   </div>
 
 </div>

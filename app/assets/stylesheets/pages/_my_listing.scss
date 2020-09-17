@@ -1,6 +1,5 @@
 .listing {
     color: $brown;
-    display: block;
     text-align: center;
     padding-top: 50px;
     width: 100%;
@@ -10,4 +9,32 @@
         border-bottom: 1px solid $light_yellow;
         padding-bottom: 10px;
     }
+}
+
+.listing-items {
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid $light_yellow;
+    
+    h4 {
+        color: $dark-green;
+        font-weight: bolder;
+    }
+}
+
+.listing-workshops {
+    padding: 0 30px;
+    border-right: 1px solid $light_yellow;
+    border-left: 1px solid $light_yellow;
+}
+
+.listing-products {
+    padding: 0 30px;
+    border-right: 1px solid $light_yellow;
+}
+
+.listing-header {
+    display: flex;
+    justify-content: space-between;
 }
