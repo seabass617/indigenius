@@ -1,62 +1,60 @@
-
-
 <div class="container">
   <%# Search Bar %>
   <%= form_tag items_path(@item_type), method: :get do %>
-      <div class="search-form-control form-group">
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Find an item"
-        %>
-        <%# <%= submit_tag "Search", class: "btn indi-btn" %>
-        <button name="button" type="submit" class="btn indi-btn">
-          <i class="fas fa-search"></i> Search
-        </button>
-      </div>
+  <div class="search-form-control form-group">
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Find an item"
+      %>
+    <%# <%= submit_tag "Search", class: "btn indi-btn" %>
+    <button name="button" type="submit" class="btn indi-btn">
+    <i class="fas fa-search"></i> Search
+    </button>
+  </div>
   <% end %>
 </div>
-
-<div class="grid-map-container">
-  <%# Items Cards %>
+<div class= "main-container">
+<%# Items Cards %>
   <div class="items-cards">
     <% @items.each do |item| %>
-      <%= link_to item do %>
-        
-        <% if item.workshop %>
-          <div class="items-card pink">
-              <% if item.images.attached? %>
-                <div class="items-card-image" style="background-image: url(<%= cl_image_path(item.images.first.key)%>);">
-              <% else %>
-                <div class="items-card-image" style="background-image: url('')">
-              <% end %>
-                <span class="workshop-tag">Workshop</span>
-            </div> 
-            <div class="items-card-info">
-                <p><%= item.name %></p>
-            </div>
-          </div>
+    <%= link_to item do %>
+    <% if item.workshop %>
+    <div class="items-card pink">
+      <% if item.images.attached? %>
+      <div class="items-card-image" style="background-image: url(<%= cl_image_path(item.images.first.key)%>);">
         <% else %>
-          <div class="items-card yellow">
-            <% if item.images.attached? %>
-              <div class="items-card-image" style="background-image: url(<%= cl_image_path(item.images.first.key) %>);">
-            <% else %>
-              <div class="items-card-image" style="background-image: url('')">
+        <div class="items-card-image" style="background-image: url('')">
+          <% end %>
+          <span class="workshop-tag">Workshop</span>
+        </div>
+        <div class="items-card-info">
+          <p><%= item.name %></p>
+        </div>
+      </div>
+      <% else %>
+      <div class="items-card yellow">
+        <% if item.images.attached? %>
+        <div class="items-card-image" style="background-image: url(<%= cl_image_path(item.images.first.key) %>);">
+          <% else %>
+          <div class="items-card-image" style="background-image: url('')">
             <% end %>
             <span class="product-tag">Product</span>
-            </div> 
-            <div class="items-card-info">
-                <p><%= item.name %><p>
-            </div>
           </div>
+          <div class="items-card-info">
+            <p><%= item.name %>
+            <p>
+          </div>
+        </div>
         <% end %> 
-      <% end %>  
-    <% end %>
-  </div>
-    
-  <div class="map-items-index" id="map"
-  style="width: 36%; height: 100vh;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+        <% end %>  
+        <% end %>
+      </div>
+      <div class="map-items-index" id="map"
+        style="width: 36%; height: 100vh;"
+        data-markers="<%= @markers.to_json %>"
+        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+      </div>
+    </div>
   </div>
 </div>
