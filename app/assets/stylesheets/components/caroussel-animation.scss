@@ -4,7 +4,7 @@
     height: 500px;
 
    
-  margin: 5px;
+  margin-top: 15px;
   color: white;
     perspective: 1000px;
   transform-origin: center;
@@ -37,22 +37,22 @@
         height: 40vw;
     max-width: 380px;
     max-height: 250px;
-    box-shadow: 0 5px 20px rgba(0,0,0,.1);
+    box-shadow: 0 0px 0px rgba(0,0,0,.1);
         border-radius: 6px;
     transform-origin: center;
 
         &:nth-child(1) {
-            background: #FDD94F;
+            background: #transparent;
             transform: rotateY(0) translateZ(35vw);
         }
 
         &:nth-child(2) {
-            background: #F87949;
+            background: #transparent;
             transform: rotateY(120deg) translateZ(35vw);
         }
 
         &:nth-child(3) {
-            background: #FBAB48;
+            background: #transparent;
             transform: rotateY(240deg) translateZ(35vw);
         }
     }
