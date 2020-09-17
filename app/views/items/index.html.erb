@@ -1,6 +1,6 @@
 
 
-<div class="container">
+<div class="container mt-4">
   <%# Search Bar %>
   <%= form_tag items_path(@item_type), method: :get do %>
       <div class="search-form-control form-group">
@@ -10,7 +10,7 @@
           placeholder: "Find an item"
         %>
         <%# <%= submit_tag "Search", class: "btn indi-btn" %>
-        <button name="button" type="submit" class="btn btn-search">
+        <button name="button" type="submit" class="btn search-btn">
           <i class="fas fa-search"></i> Search
         </button>
       </div>
