@@ -1,4 +1,3 @@
-// Specific CSS for your home-page
 html {
   min-height: 100%;
   width: 100%;
@@ -25,47 +24,6 @@ body {
   color: $dark_yellow;
   font-size: 20px;
 }
-
-.grid{
-  display: grid;
-  background-color: $brown-black;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  margin-top: 2cm;
-
-
-
-  
-}
-
-.grid_item {
-  background-color: rgba(0, 0, 0, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  border-radius: 5px;
-  font-size: 20px;
-  //text-align: center;
-  width: 100%;
-  height: 300px;
-  color: #f1dca7;
-
-}
-
-.grid_item > * {
-  text-align: center;
-  padding-top: 50%;
-
-}
-
-.grid-ecom {
-  display: grid;
-  background-color: none;
-  grid-template-columns: 1fr 1fr 1fr;
-   margin: 1cm;
-   padding: 2cm; 
-  align-content: center;
-  
-
-  }
-
 
 .card_img {
 
