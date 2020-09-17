@@ -1,29 +1,35 @@
 #navbar-brand {
   color: $light-yellow;
   text-align: left;
-  font-size: 40px;
+  font-size: 45px;
   line-height: 1;
-  margin: 20px;
+  margin: 19px;
+  margin-left: 5%;
 }
 
 .navbar {
   color: $dark_green;
-  background-color: $off-white;
+  background-color: transparent;
   margin-bottom: 2rem;
 }
 
 .navbar-collapse {
-  background-color: $pink;
+  background-color: transparent;
   border-radius: 30px;
   padding: 5px;
 }
 
 .navbar-nav{
   align-items: center;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .nav-item a {
   padding: 0px 10px;
+  font-size: 1.6rem;
+  color: $pink;
 }
 
 .nav-item a:hover {
@@ -37,12 +43,14 @@
 .navbar-indigenius {
   justify-content: space-between;
   // background: $off-white;
-  background: transparent;
+  background-color: transparent;
   border-bottom: 2px solid $brown-black;
 }
 
 .navbar-indigenius .navbar-collapse {
   flex-grow: 0;
+  margin-right: 5%;
+  width: 27rem;
 }
 
 .navbar-indigenius .navbar-brand img {
