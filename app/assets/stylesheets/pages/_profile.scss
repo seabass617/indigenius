@@ -10,7 +10,11 @@
   display: flex; 
   justify-content:center;
   padding: 10px; 
-  width: 50%;
+  width: 70%;
+  border-top: 1px dashed #997B66;
+  border-bottom: 1px dashed #997B66;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .profile-content {
@@ -31,13 +35,14 @@
 }
 
 .profile-title {
-  border-bottom: 1px solid $brown;
+  border-bottom: 1px solid $yellow;
   margin: 0 auto;
   margin-top: 30px;
   margin-bottom: 30px;
   font-size: 20px;
   font-weight: bold;
   width: 90%;
+  padding-bottom: 10px;
   
 }
 
