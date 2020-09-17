@@ -26,5 +26,14 @@
 
 .search-btn {
     color: $brown;
-    font-family: $indi-font
+    font-family: $indi-font;
+
+    :hover {
+        color: $dark_green !important;
+    }
+}
+
+
+.btn:hover {
+    color: $brown-black !important;
 }
