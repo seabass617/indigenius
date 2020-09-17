@@ -1,0 +1,38 @@
+
+.payment-card {
+  background-color: rgba(241, 220, 167, 0.25);
+  width: 40%;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.payment-card h1 { 
+  color: $brown;
+}
+
+.payment-card p { 
+  color: $brown;
+}
+
+.payment-content {
+  border: 2px solid $yellow;
+  border-radius: 10px;
+  padding: 10px;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.price-value { 
+  font-size: 30px;
+  color: black;
+}
+
+#pay{
+   margin-bottom: 10px;
+}
+
+.dotted-border {
+  border-top: 1px dashed #997B66;
+  border-bottom: 1px dashed #997B66;
+}

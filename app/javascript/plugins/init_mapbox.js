@@ -15,9 +15,12 @@ const initMapbox = () => {
         mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
         const map = new mapboxgl.Map({
             container: 'map',
-            style: 'mapbox://styles/saraahbikai/ckf4en03a1ktp19o9mgsg72vx'
-            
+            style: 'mapbox://styles/saraahbikai/ckf4en03a1ktp19o9mgsg72vx',
+            zoom: 2
         });
+
+        const nav = new mapboxgl.NavigationControl();
+        map.addControl(nav, 'bottom-right');
 
         map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
             mapboxgl: mapboxgl }));
@@ -25,7 +28,14 @@ const initMapbox = () => {
         const markers = JSON.parse(mapElement.dataset.markers);
         markers.forEach((marker) => {
             const popup = new mapboxgl.Popup({className:"pop-style"}).setHTML(marker.infoWindow);
-            new mapboxgl.Marker()
+            const element = document.createElement('div');
+            element.className = 'marker';
+            element.style.backgroundImage = `url('${marker.image_url}')`;
+            element.style.backgroundSize = 'contain';
+            element.style.width = '10px';
+            element.style.height = '15px';
+
+            new mapboxgl.Marker(element)
                 .setLngLat([marker.lng, marker.lat])
                 .addTo(map)
                 .setPopup(popup);
