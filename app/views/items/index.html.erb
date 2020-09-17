@@ -10,7 +10,7 @@
           placeholder: "Find an item"
         %>
         <%# <%= submit_tag "Search", class: "btn indi-btn" %>
-        <button name="button" type="submit" class="btn indi-btn">
+        <button name="button" type="submit" class="btn btn-search">
           <i class="fas fa-search"></i> Search
         </button>
       </div>
@@ -55,7 +55,7 @@
   </div>
     
   <div class="map-items-index" id="map"
-  style="width: 36%; height: 100vh;"
+  style="width: 45%; height: 100vh;"
   data-markers="<%= @markers.to_json %>"
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
