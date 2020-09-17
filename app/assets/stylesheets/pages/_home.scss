@@ -10,19 +10,9 @@ html {
 }
 
 body {
-  background-color: #fffffa;
+  background-color: $off-white;
   text-align: center;
   font-family: $indi-font;
-}
-
-#arrow {
-  position: fixed;
-  text-align: end;
-  bottom: 0px;
-  right: 20px ;
-  padding: 20px;
-  color: $dark_yellow;
-  font-size: 20px;
 }
 
 .card_img {
@@ -42,3 +32,40 @@ body {
     font-family: $indi-font;
   }
 
+.value-proposition {
+  padding: 30px;
+  // width: 100%;
+  // text-align: justify;
+  text-transform: uppercase;
+  color: $light_yellow;
+
+  background: linear-gradient(to right,
+  $dark_green,
+  $light_green,
+  $pink,
+  $dark_yellow,
+  $light_yellow,
+  $orange,
+  $brown);
+
+  color: #000;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  p {
+    font-size: 2vw;
+  }
+
+  .p-left {
+    text-align: left;
+  }
+
+  .p-midle {
+    text-align: center;
+  }
+
+  .p-right {
+    text-align: right;
+  }
+}
