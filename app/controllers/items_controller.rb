@@ -10,19 +10,18 @@ class ItemsController < ApplicationController
     if params[:format].nil?
       if params[:query].present?
         @items = Item.search_by_name_category_and_description(params[:query]).order('name ASC')
-        
-        @markers = @items.geocoded.map do |item|
-         {
-          lat: item.latitude,
-          lng: item.longitude,
-          infoWindow: render_to_string(partial: "info_window", locals: { item: item }),
-          image_url: helpers.asset_url('location_icon_brown.png')
-          
-         }
-        end
       else
         @items = Item.all.order('name ASC')
       end 
+        
+      @markers = @items.geocoded.map do |item|
+      {
+        lat: item.latitude,
+        lng: item.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { item: item }),
+        image_url: helpers.asset_url('location_icon_brown.png')
+      }
+      end
     else
       if params[:format]
         if params[:query].present?
@@ -32,8 +31,9 @@ class ItemsController < ApplicationController
             @markers = @items.geocoded.map do |item|
             {
             lat: item.latitude,
-            lng: item.longitude
-          
+            lng: item.longitude,
+            infoWindow: render_to_string(partial: "info_window", locals: { item: item }),
+            image_url: helpers.asset_url('location_icon_brown.png')
             }
             end
           # instance variable tracking where or not this is a workshop
@@ -47,8 +47,8 @@ class ItemsController < ApplicationController
             {
             lat: item.latitude,
             lng: item.longitude,
-            infoWindow: render_to_string(partial: "info_window", locals: { item: item })
-          
+            infoWindow: render_to_string(partial: "info_window", locals: { item: item }),
+            image_url: helpers.asset_url('location_icon_brown.png')
             }
           end
         end 
