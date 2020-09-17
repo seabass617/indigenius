@@ -1,0 +1,5 @@
+meta_product_name: "Indigenius"
+meta_title: "Indigenius - Conversation of indigenous savoir faire"
+meta_description: "Indigenius is a platform where indigenous artisans can offer authentic handmade goods and workshops directly to the rest of the world."
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
