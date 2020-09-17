@@ -1,33 +1,25 @@
 .map-window {
  height: 100vh;
+ width: 100%;
+margin-top: 10px;
 }
 
 .word-background {
   background-image: url('background.png');
   background-size: contain;
   border: 2px solid $off-white;
+  margin-top: 10px;
   // opacity: 50%;
 }
 
-.map-title {
-  background-color: rgba(155, 155, 122,1);
-  padding: 10px;
-  font-family: $indi-font;
-  border-radius: 10px;
-  margin:0 auto;
-  margin-top: 75px;
-  margin-bottom: 30px;
-  width: 30%;
-  color: $off-white;
-  font-size: 30px;
-
-}
 
 #map{
+  
 
   max-width: 100%;
   background-color: #fdf2e2;
-  margin: 0 auto;
+  margin:  auto;
+  padding-top: 3px;
 
 }
 
