@@ -1,0 +1,49 @@
+.gradient-animation {
+	background: linear-gradient(to right,
+								$dark_green,
+								$light_green,
+								$pink,
+								$dark_yellow,
+								$light_yellow,
+								$orange,
+								$brown);
+	background-size: 200% auto;
+	
+	color: #000;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	
+	animation: shine 5s linear infinite;
+
+	@keyframes shine {
+		to {
+		background-position: 200% center;
+		}
+	}
+}
+
+.navbar-line {
+	height: 3px;
+
+	background: linear-gradient(to right,
+								$dark_green,
+								$light_green,
+								$pink,
+								$dark_yellow,
+								$light_yellow,
+								$orange,
+								$brown);
+	background-size: 200% auto;
+	-webkit-text-fill-color: transparent;
+	animation: shine 5s linear infinite;
+
+
+	@keyframes shine {
+		to {
+		background-position: 200% center;
+		}
+	}
+}
+
+
