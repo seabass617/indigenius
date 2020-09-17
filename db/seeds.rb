@@ -139,7 +139,7 @@ p '-----------------------------------------------------------------------------
       product = Nokogiri::HTML(open(products.attribute('href').value).read)
       name = product.search('.wt-text-body-03.wt-line-height-tight.wt-break-word.wt-mb-xs-1').text.strip
       description = product.search('.wt-text-body-01.wt-break-word').text.strip
-      price = product.search('#shipping-variant-div > div > div.wt-grid.wt-mb-xs-3 > div:nth-child(3) > div > p > span.currency-value').text.strip
+      price = product.search("div.display-flex-lg.appears-ready > div.pr-xs-0.pl-xs-0.shop-home-wider-items.pb-xs-5 > div.wt-animated > div > ul > li > a > div.v2-listing-card__info > div > span > span.currency-value").text.strip
       imgs = product.search("#listing-right-column > div > div.body-wrap.wt-body-max-width.wt-display-flex-md.wt-flex-direction-column-xs > div.image-col.wt-order-xs-1.wt-mb-lg-6 > div > div > div > div > div.image-carousel-container.wt-position-relative.flex-xs-6.order-xs-2.show-scrollable-thumbnails > ul > li img")
       # address = product.search("#listing-right-column > div > div.body-wrap.wt-body-max-width.wt-display-flex-md.wt-flex-direction-column-xs > div.listing-info.info-col.description-right.wt-order-xs-5 > div > div:nth-child(3) > div.wt-text-caption.wt-text-gray.wt-mt-md-3 > div").text.strip
       
@@ -167,7 +167,7 @@ p '-----------------------------------------------------------------------------
         index += 1
       end
 
-      p "#{category[category_index]} product: #{name} created with location #{new_product.address} and #{imgs.size} photos."
+      p "#{category[category_index]} product: #{name} created with location #{new_product.address}, price #{new_product.price} and #{imgs.size} photos."
 
     end
   end
