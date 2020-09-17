@@ -11,8 +11,10 @@
   padding-bottom: 3rem;
 }
 
-
+// ======================
 // homepage containers
+// ======================
+
 
 .home-container{
   background-color: rgba(155, 155, 122,0.7);
@@ -25,6 +27,7 @@
 .window { 
   align-items: center;
   display: flex;
+  justify-content: center;
 }
 
 .item-window { 
@@ -32,7 +35,9 @@
   width: 100%;
 }
 
-
+// ======================
+// Workshop Panel Containers
+// ======================
 
 .workshop-home-container {
   margin-right: 50px; 
@@ -73,6 +78,10 @@
   top: -50px;
 }
 
+// ======================
+// Product Panel Containers
+// ======================
+
 .product-home-container {
    margin-right: 50px; 
   margin-left: 50px;
@@ -106,6 +115,10 @@
   top: -100px;
 
 }
+
+// ======================
+// Browse Button 
+// ======================
 
 .browse {
   font-size: 18px;
