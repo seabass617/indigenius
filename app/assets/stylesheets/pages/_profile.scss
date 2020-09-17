@@ -15,12 +15,15 @@
   color: $brown;
   background-color: rgba(241, 220, 167, 0.25);
   padding: 10px;
+  border-radius: 10px 0px 0px 10px;
 }
 
 .profile-photo {
   padding: 10px;
   // border: 2px solid red;
   background-color: rgba(241, 220, 167, 0.25);
+  border-radius: 0px 10px 10px 0px;
+
 }
 
 .profile-title {
