@@ -1,17 +1,19 @@
-<div class="container">
+
+<div class="container mt-4">
   <%# Search Bar %>
   <%= form_tag items_path(@item_type), method: :get do %>
-  <div class="search-form-control form-group">
-    <%= text_field_tag :query,
-      params[:query],
-      class: "form-control",
-      placeholder: "Find an item"
-      %>
-    <%# <%= submit_tag "Search", class: "btn indi-btn" %>
-    <button name="button" type="submit" class="btn indi-btn">
-    <i class="fas fa-search"></i> Search
-    </button>
-  </div>
+      <div class="search-form-control form-group">
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find an item"
+        %>
+        <%# <%= submit_tag "Search", class: "btn indi-btn" %>
+        <button name="button" type="submit" class="btn search-btn">
+          <i class="fas fa-search"></i> Search
+        </button>
+      </div>
+
   <% end %>
 </div>
 <div class= "main-container">
@@ -47,14 +49,17 @@
           </div>
         </div>
         <% end %> 
-        <% end %>  
-        <% end %>
-      </div>
-      <div class="map-items-index" id="map"
-        style="width: 36%; height: 100vh;"
-        data-markers="<%= @markers.to_json %>"
-        data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-      </div>
-    </div>
+
+   
+
+      <% end %>  
+    <% end %>
+  </div>
+    
+  <div class="map-items-index" id="map"
+  style="width: 45%; height: 100vh;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+
   </div>
 </div>

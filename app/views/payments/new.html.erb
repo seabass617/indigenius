@@ -1,21 +1,28 @@
-<div class="container">
-  <div class="row py-4">
-    <div class="col-md-3"><%= cl_image_tag @order.order_items.first.item.images.first.key, width: '100%' %></div>
-    <div class="col">
-      <h1>Checkout summary</h1>
-      <p>Purchase of <strong><%= @order.user.first_name %></strong> for <strong><%= humanized_money_with_symbol @order.total_price %></strong></p>
-      <button id="pay" class="btn btn-primary">Pay</button>
-      
-      <script src="https://js.stripe.com/v3/"></script>
-      <script>
-        const paymentButton = document.getElementById('pay');
-        paymentButton.addEventListener('click', () => {
-          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
-          stripe.redirectToCheckout({
-            sessionId: '<%= @order.checkout_session_id %>'
+<div class="container w-80 mt-5 dotted-border pt-5">
+  
+    <%# <div class="col-md-3"><%= cl_image_tag @order.order_items.first.item.images.first.key, width: '100%' %>
+
+    <div class="payment-card">
+    <h1>Order Summary</h1>
+      <div class="payment-content">
+        <p>Order for <strong><%= @order.user.first_name %></strong></p>
+        <p>Total:</p>
+        <p class= "price-value"><strong><%= humanized_money_with_symbol @order.total_price %></strong></p>
+
+        <button id="pay" class="btn indi-btn w-60">Confirm and Pay</button>
+
+        <p>You will be redirected to stripe for payment info</p>
+        
+        <script src="https://js.stripe.com/v3/"></script>
+        <script>
+          const paymentButton = document.getElementById('pay');
+          paymentButton.addEventListener('click', () => {
+            const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+            stripe.redirectToCheckout({
+              sessionId: '<%= @order.checkout_session_id %>'
+            });
           });
-        });
-      </script>
+        </script>
+      </div>
     </div>
-  </div>
 </div>

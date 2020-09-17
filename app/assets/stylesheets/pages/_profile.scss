@@ -1,0 +1,54 @@
+.profile-page-title {
+  margin-top: 15px;
+}
+
+
+.profile-container { 
+  // border: 2px solid red;
+  margin: 0 auto;
+  margin-top: 20px;
+  display: flex; 
+  justify-content:center;
+  padding: 10px; 
+  width: 70%;
+  border-top: 1px dashed #997B66;
+  border-bottom: 1px dashed #997B66;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.profile-content {
+  // border: 2px solid red;
+  width: 50%;
+  color: $brown;
+  background-color: rgba(241, 220, 167, 0.25);
+  padding: 10px;
+  border-radius: 10px 0px 0px 10px;
+}
+
+.profile-photo {
+  padding: 10px;
+  // border: 2px solid red;
+  background-color: rgba(241, 220, 167, 0.25);
+  border-radius: 0px 10px 10px 0px;
+
+}
+
+.profile-title {
+  border-bottom: 1px solid $yellow;
+  margin: 0 auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  width: 90%;
+  padding-bottom: 10px;
+  
+}
+
+.profile-about { 
+  // border: 2px solid red;
+}
+
+
+
