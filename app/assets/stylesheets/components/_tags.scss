@@ -1,27 +1,21 @@
-.workshop-tag {
+.workshop-tag, .product-tag {
   font-size: 0.8rem;
-  width: 86px;
-  padding: 0.2rem 0.8rem;
-  border-radius: 28px;
   font-weight: bold;
+  text-align: left;
+  width: 90px;
+  padding: 0.2rem 0.8rem;
+  border-radius: 28px 0px 0px 28px;
   position: relative;
   bottom: -70px;
-  right: -79px;
+  left: 90px;
   box-shadow: 0px 15px 25px -4px rgba(30, 30, 60, 0.25);
-  background-color: #D9AE94;
-  text-align: left;
+  background-color: $pink;
+}
+
+.workshop-tag {
+  background-color: $pink;
 }
 
 .product-tag {
-  font-size: 0.8rem;
-  width: 86px;
-  padding: 0.2rem 0.8rem;
-  border-radius: 28px;
-  font-weight: bold;
-  position: relative;
-  bottom: -72px;
-  right: -88px;
-  box-shadow: 0px 15px 25px -4px rgba(30, 30, 60, 0.25);
-  background-color: #FFCB69;
-  text-align: left;
+  background-color: $dark_yellow;
 }
