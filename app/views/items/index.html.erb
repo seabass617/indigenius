@@ -15,7 +15,9 @@
         </button>
       </div>
   <% end %>
+</div>
 
+<div class="grid-map-container">
   <%# Items Cards %>
   <div class="items-cards">
     <% @items.each do |item| %>
@@ -37,9 +39,9 @@
         <% else %>
           <div class="items-card yellow">
             <% if item.images.attached? %>
-            <div class="items-card-image" style="background-image: url(<%= cl_image_path(item.images.first.key) %>);">
+              <div class="items-card-image" style="background-image: url(<%= cl_image_path(item.images.first.key) %>);">
             <% else %>
-                <div class="items-card-image" style="background-image: url('')">
+              <div class="items-card-image" style="background-image: url('')">
             <% end %>
             <span class="product-tag">Product</span>
             </div> 
@@ -48,14 +50,13 @@
             </div>
           </div>
         <% end %> 
-         
       <% end %>  
     <% end %>
   </div>
-</div>
-
-<div id="map"
-     style="width: 100%; height: 600px;"
-     data-markers="<%= @markers.to_json %>"
-     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    
+  <div class="map-items-index" id="map"
+  style="width: 36%; height: 100vh;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+  </div>
 </div>
