@@ -27,16 +27,11 @@
     </div>
   </div>
 </div>
-<%# <div class="window vh-100 amazonian-background">
-  <div class="container home-container text-light ml-5 ">
-    <h1>Indigenius is a global community changing the way indigenous cultures are preserved and how artisans are paid for their product</h1>
-  </div>
-</div> %>
 <%# -----------------end------------------- %>
 
 
 <%# --------------------------------------- %>
-<%# Second page showing Workshops & Products %>
+<%# Second page showing Workshops & Products css can be found in _container.scss %>
 <%# --------------------------------------- %>
 <div class="items-window">
   <div class="workshop-home-container">
@@ -76,7 +71,7 @@
       <%=link_to "Browse Products", items_path(false), class: "browse" %>
     </div>
   
-    
+    <%# Carousel css can be found in _image_carousel.scss %>
     <figure class="icon-cards mt-3">
       <div class="icon-cards__content">
         <div class="icon-cards__item d-flex align-items-center justify-content-center">
@@ -96,8 +91,10 @@
 </div>            
 <%# -----------------end------------------- %>
 
+
+
 <%# --------------------------------------- %>
-<%# Third page displaying the map %>
+<%# Third page displaying the map, css can be found in _map.scss %>
 <%# --------------------------------------- %>
 <div class="map-window word-background">
   <div class="map-title">Explore our locations</div>
@@ -105,19 +102,20 @@
      style="width: 80%; height: 600px;"
      data-markers="<%= @markers.to_json %>" 
      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
-</div>
-
+  </div>
 </div>
 <%# -----------------end------------------- %>
 
 <%# --------------------------------------- %>
 <%# Last page with a call to action for vendors%>
 <%# --------------------------------------- %>
-<div class="map-window vh-100">
-  <div class="container home-container">
-    <h1>Do you have a product or workshop you are trying to sell?</h1>
-    <p>Join the largest global community of ethically produced indigenous savoir faire</p>
-  </div>
+<div class="window vh-100">
+  <%= link_to new_user_session_path do %>
+    <div class="container home-container">
+      <h1>Do you have a product or workshop you are trying to sell?</h1>
+      <p>Join the largest global community of ethically produced indigenous savoir faire</p>
+    </div>
+  <%end%>
 </div>
 
 <%# -----------------end------------------- %>
