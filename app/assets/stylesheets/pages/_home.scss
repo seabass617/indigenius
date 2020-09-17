@@ -58,3 +58,21 @@ body {
     color: $pink;
   }
 }
+
+
+.word-background {
+  background-image: linear-gradient(rgba(255,253,252,.8), rgba(255,253,252,.8)), url('background.png');
+  background-size: contain;
+  margin-top: 10px;
+  padding: 100px 0px;
+
+  h1 {
+    font-size: 25px;
+    letter-spacing: 1px;
+    color: $pink;
+    
+    :hover {
+      color: $light_green;
+    }
+  }
+}
