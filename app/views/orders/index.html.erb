@@ -1,23 +1,32 @@
-<div class="container">
+<div class="indigenius-container">
 
-  <%# <div class="indigenius-container"> %>
+  <div class="orders">
 
-    <h1>Here are your Indigenius Orders</h1>
-    <br>
-    <h2>Pending Orders</h2>
-    <%= render 'orders_display', orders: @order_pending %>
-    <br>
-    <br>
-    <h2>Confirmed Orders</h2>
-    <%= render 'orders_display', orders: @order_confirmed %>
-    <br>
-    <br>
-    <h2>Cancelled Orders</h2>
-    <%= render 'orders_display', orders: @order_cancelled%>
-    <br>
-    <br>  
-    <%= link_to "Back to All Items", items_path, class: "btn" %>
-    
-  <%# </div> %>
+    <h3>Here are your Indigenius Orders</h3>
 
+    <div class="orders-listing">
+
+      <div class="orders-pending">
+      <h4>Pending Orders</h4>
+      <%= render 'orders_display', orders: @order_pending %>
+      </div>
+
+      <div class="orders-confirmed">
+        <h4>Confirmed Orders</h4>
+        <%= render 'orders_display', orders: @order_confirmed %>
+      </div>
+
+      <div class="orders-cancelled">
+        <h4>Cancelled Orders</h4>
+        <%= render 'orders_display', orders: @order_cancelled%>
+      </div>
+
+    </div>
+
+    <div class="orders-actions">
+      <%= link_to "Back to All Items", items_path, class: "indi-navegation" %>
+    </div>
+
+  </div>
+  
 </div>

@@ -1,0 +1,35 @@
+.orders {
+    color: $brown;
+    text-align: center;
+    padding-top: 50px;
+    width: 100%;
+
+    h3 {
+        text-align: right;
+        border-bottom: 1px solid $light_yellow;
+        padding-bottom: 10px;
+    }
+}
+
+.orders-listing {
+    padding-top: 20px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid $light_yellow;
+    
+    h4 {
+        color: $dark-green;
+        font-weight: bolder;
+        text-align: left;
+    }
+}
+
+.orders-pending, .orders-confirmed, .orders-cancelled {
+    padding: 20px 30px;
+    border-right: 1px solid $light_yellow;
+    border-left: 1px solid $light_yellow;
+}
+
+.orders-actions {
+    text-align: right;
+    padding-top: 30px;
+}
