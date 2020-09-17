@@ -17,6 +17,11 @@ class ReviewsController < ApplicationController
   def new
     @order = Order.find(params[:format])
     @review = Review.new
+    @user_reviews = []
+    @reviews = Review.where(user_id: current_user)
+    @reviews.each do |review|
+      @user_reviews << review.item_id
+    end
   end
 
   # POST /reviews

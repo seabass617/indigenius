@@ -1,0 +1,49 @@
+.reviews {
+    color: $brown;
+    text-align: center;
+    padding-top: 50px;
+    width: 100%;
+
+    h3 {
+        text-align: right;
+        border-bottom: 1px solid $light_yellow;
+        padding-bottom: 10px;
+    }
+}
+
+.reviews-listing {
+    padding-top: 20px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid $light_yellow;
+    
+    h4 {
+        color: $dark-green;
+        font-weight: bolder;
+        text-align: left;
+    }
+
+    img {
+        box-shadow: 0px 15px 25px -4px rgba(30,30,60,0.25);
+    }
+}
+
+.reviews-item {
+    display: flex;
+    justify-content: center;
+    padding: 20px 30px;
+    border-right: 1px solid $light_yellow;
+    border-left: 1px solid $light_yellow;
+
+    .reviews-info {
+        width: 400px;
+        padding-top: 20px;
+        padding-left: 20px;
+        margin: auto 0px;
+        text-align: left;
+    }
+}
+
+.reviews-actions {
+    text-align: right;
+    padding-top: 30px;
+}
