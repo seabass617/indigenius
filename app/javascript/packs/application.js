@@ -14,6 +14,8 @@ import { previewImageOnFileSelect } from "../components/photo_preview";
 import { initMapbox } from '../plugins/init_mapbox';
 import { curDot }  from '../plugins/curDot';
 import { initCaroussel } from '../plugins/caroussel';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 document.addEventListener('turbolinks:load', () => {
     initStarRating();
@@ -21,7 +23,8 @@ document.addEventListener('turbolinks:load', () => {
     initMapbox();
     //initCaroussel();
     curDot();
-    
+    AOS.init();
+
     // shopping-cart edit button
     document.querySelectorAll('.edit-shopping-cart').forEach((element) => {
         element.addEventListener('click', (event) => {

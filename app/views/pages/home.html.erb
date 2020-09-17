@@ -10,13 +10,20 @@
 <%# ------------value proposition-------------- %>
 
 <div class="value-proposition">
-  <p class="p-left">Indigenius is a <strong>global community</strong> changing the way 
-  <br>indigenous cultures are preserved.
-  <p class="p-midle">Our goal is to help indigenous artisans
-  <br>get the just price for their work</p>
-  <p class="p-right">We value the importance of indigenous <em>savoir-fair</em>
-  <br>And provide the opportunity to <strong>contribute</strong> and <strong>connect</strong>
-  <br>with indigenous artisans all over the world</p>
+
+  <div data-aos="fade-up" data-aos-duration="2000">
+    <p class="p-left">Indigenius is a <strong class ="detail">global community</strong> changing the way 
+    <br>indigenous cultures are preserved.
+  </div>
+  <div data-aos="fade-up" data-aos-duration="2000">
+    <p class="p-midle">Our goal is to help indigenous artisans
+    <br>get the just price for their work</p>
+  </div>
+  <div data-aos="fade-up" data-aos-duration="2000">
+    <p class="p-right">We value the importance of indigenous <em>savoir-fair</em>
+    <br>And provide the opportunity to <strong class ="detail">contribute</strong> and <strong class ="detail">connect</strong>
+    <br>with indigenous artisans all over the world</p>
+  </div>
 </div>
 
 <%# --------------------------------------- %>
@@ -24,21 +31,22 @@
 <%# --------------------------------------- %>
 <div class="items-window">
   <div class="workshop-home-container">
-    <div class="workshop-image">
-    </div>
+
+    <div class="workshop-image"></div>
+
     <div class="workshop-home-blurb">
       <h1>Workshops</h1>
       <br>
-      <p> Get hands on instruction from an
-      Indigenous artisan, learning their
-      craft in a space generating the cross
-      pollenation of cultures.</p>
-      <p> Our workshops are organzied by NGO 
-      and the artisans themselves..</p>
-      <p> All materials are provided.</p>
-      <p> Explore all of our available workshops below</p>
       <br>
-      <%=link_to "Browse Workshops", items_path(true), class: "browse" %>
+      <p> Get hands-on experiences from Indigenous artisans, learning their craft in a space generating the cross-pollination of cultures.</p>
+      <%#<p> Explore all of our available workshops below</p>%>
+      <br>
+      <%=link_to "Explore all of our available workshops", items_path(true), class: "browse" %>
+      <br>
+      <br>
+      <p class="footnote"><em>Our workshops are organized by NGOs and the artisans themselves.
+      <br>All materials are provided.</em></p>
+      <%#=link_to "Browse Workshops", items_path(true), class: "browse" %>
 
     </div>
   </div>
@@ -47,16 +55,14 @@
     <div class="product-home-blurb">
       <h1>Products</h1>
       <br>
-      <p> Purchase products that have been handmade by local Indigenous
-      artisans.</p>
       <br>
-      <p> 100% of proceeds go to the artisans,
-      where money is redistributed through the
-      community.</p>
+      <p>Purchase handmade products that have been selected and offered and by Indigenous artisans themselves.</p>
       <br>
-      <p> Explore all of our available products below</p>
+      <%=link_to "Explore all of our available products", items_path(false), class: "browse" %>
       <br>
-      <%=link_to "Browse Products", items_path(false), class: "browse" %>
+      <br>
+      <p class="footnote"><em>100% of proceeds go directly to the artisans,
+      <br>where it can be redistributed through the local community.</em></p>
     </div>
   
     <%# Carousel css can be found in _image_carousel.scss %>

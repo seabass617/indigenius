@@ -33,28 +33,13 @@ body {
   }
 
 .value-proposition {
-  padding: 30px;
-  // width: 100%;
-  // text-align: justify;
+  padding: 30px 60px;
   text-transform: uppercase;
-  color: $light_yellow;
-
-  background: linear-gradient(to right,
-  $dark_green,
-  $light_green,
-  $pink,
-  $dark_yellow,
-  $light_yellow,
-  $orange,
-  $brown);
-
-  color: #000;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: $dark_yellow;
 
   p {
     font-size: 2vw;
+    padding-bottom: 30px;
   }
 
   .p-left {
@@ -67,5 +52,9 @@ body {
 
   .p-right {
     text-align: right;
+  }
+
+  .detail{
+    color: $pink;
   }
 }
