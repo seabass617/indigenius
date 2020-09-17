@@ -1,0 +1,55 @@
+.amazonian-background { 
+  background-image: url('amazonian_flute.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.masaii-background { 
+  background-image: url('masaii_banner.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.papua-background{ 
+  background-image: url('papua-new-guinea-banner.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.carousel-window { 
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+#caption1 {
+  width: 800px;
+  background-color: rgba(155, 155, 122,0.7);
+  font-family: $indi-font;
+  border-radius: 10px;
+  color: $off-white;
+  padding: 30px;
+  margin-right: 400px;
+  margin-bottom: 350px;
+}
+
+#caption2 {
+  width: 800px;
+  background-color: rgba(155, 155, 122,0.7);
+  font-family: $indi-font;
+  border-radius: 10px;
+  color: $off-white;
+  padding: 30px;
+
+}
+
+#caption3 {
+  width: 800px;
+  background-color: rgba(155, 155, 122,0.7);
+  font-family: $indi-font;
+  border-radius: 10px;
+  color: $off-white;
+  padding: 30px;
+  margin-right: 400px;
+  margin-top: 200px;
+}

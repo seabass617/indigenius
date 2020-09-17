@@ -1,5 +1,4 @@
-import curDot from "cursor-dot";
-
+import curDot from "cursor-dot"
 
 //colors
 // $dark_green: #797D62;

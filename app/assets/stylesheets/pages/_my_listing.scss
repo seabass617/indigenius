@@ -1,0 +1,13 @@
+.listing {
+    color: $brown;
+    display: block;
+    text-align: center;
+    padding-top: 50px;
+    width: 100%;
+
+    h3 {
+        text-align: right;
+        border-bottom: 1px solid $light_yellow;
+        padding-bottom: 10px;
+    }
+}
