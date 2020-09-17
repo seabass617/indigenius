@@ -15,9 +15,12 @@ const initMapbox = () => {
         mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
         const map = new mapboxgl.Map({
             container: 'map',
-            style: 'mapbox://styles/saraahbikai/ckf4en03a1ktp19o9mgsg72vx'
-            
+            style: 'mapbox://styles/saraahbikai/ckf4en03a1ktp19o9mgsg72vx',
+            zoom: 2
         });
+
+        const nav = new mapboxgl.NavigationControl();
+        map.addControl(nav, 'bottom-right');
 
         map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
             mapboxgl: mapboxgl }));

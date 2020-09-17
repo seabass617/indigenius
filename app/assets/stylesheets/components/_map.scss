@@ -66,9 +66,21 @@ border-radius: 30px;
 
 //map on index page
 .map-items-index{
-  width: 36%;
+  width: 40%;
   height: 100vh;
   position: sticky !important;
   top: 0 !important;
   margin-left: 2rem;
+  margin: 0 2rem !important;
+  border-radius: 5px;
+  overflow: hidden;
+  .mapboxgl-marker {
+    
+    width: 30px !important;
+    height: 30px !important;
+    cursor: pointer;
+    background-repeat: no-repeat !important;
+    background-size: contain !important;
+    background-position: center !important;
+    }
 }
