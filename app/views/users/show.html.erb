@@ -1,9 +1,22 @@
-Hi! I'm <%= @user.first_name %> <%= @user.last_name %>.</h1>
 
-<%= @user.about %>
+<div class="profile-container">
 
-<% if current_user.avatar.attached? %>
-    <%= cl_image_tag(@user.avatar.key) %>
-<% else %>
-    <img src="https://res.cloudinary.com/cassiaveliz/image/upload/v1599165302/user_none.png" >
-<% end %>
+    <div class="profile-content">
+        <div class="profile-title">
+            Hi! I'm <%= @user.first_name %> <%= @user.last_name %>.</h1>
+        </div>
+        <div class="profile-about">
+            <%= @user.about %>
+        </div>
+    </div>
+
+    <div class="profile-photo">
+        <% if current_user.avatar.attached? %>
+            <%= cl_image_tag(@user.avatar.key, width: 300, height: 300, crop: :fill, radius: 10) %>
+        <% else %>
+            <img src="https://res.cloudinary.com/cassiaveliz/image/upload/v1599165302/user_none.png" class="profile-photo">
+        <% end %>
+    </div>
+    
+
+</div>
