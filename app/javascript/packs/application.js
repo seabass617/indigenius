@@ -12,7 +12,7 @@ import 'bootstrap';
 import { initStarRating } from '../plugins/init_star_rating';
 import { previewImageOnFileSelect } from "../components/photo_preview";
 import { initMapbox } from '../plugins/init_mapbox';
-import { curDot }  from '../plugins/curDot';
+// import { curDot }  from '../plugins/curDot';
 import { initCaroussel } from '../plugins/caroussel';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
@@ -22,7 +22,7 @@ document.addEventListener('turbolinks:load', () => {
     previewImageOnFileSelect();
     initMapbox();
     //initCaroussel();
-    curDot();
+    // curDot();
     AOS.init();
 
     // shopping-cart edit button
