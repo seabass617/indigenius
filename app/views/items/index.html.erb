@@ -23,10 +23,11 @@
         
         <% if item.workshop %>
           <div class="items-card pink">
-            <div class="items-card-image" 
-                 <% if item.images.attached? %>
-                  style="background-image: url(<%= cl_image_path(item.images.first.key) %>);">
-                  <% end %>
+              <% if item.images.attached? %>
+                <div class="items-card-image" style="background-image: url(<%= cl_image_path(item.images.first.key)%>);">
+              <% else %>
+                <div class="items-card-image" style="background-image: url('')">
+              <% end %>
             </div> 
             <div class="items-card-info">
                 <h6>Workshop</h6>
@@ -36,9 +37,10 @@
         <% else %>
           <div class="items-card yellow">
             <% if item.images.attached? %>
-            <div class="items-card-image" 
-                  style="background-image: url(<%= cl_image_path(item.images.first.key) %>);">
-             <% end %>
+            <div class="items-card-image" style="background-image: url(<%= cl_image_path(item.images.first.key) %>);">
+            <% else %>
+                <div class="items-card-image" style="background-image: url('')">
+            <% end %>
             </div> 
             <div class="items-card-info">
                 <h6>Product</h6>

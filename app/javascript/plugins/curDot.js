@@ -32,6 +32,7 @@ cursor.over(".workshop-image", {
 });
 
 cursor.over("h1", {
+    borderColor: '#D9AE94',
     background: "#fff",
     scale: 3,
 });
