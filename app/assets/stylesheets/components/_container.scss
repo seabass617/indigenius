@@ -35,9 +35,13 @@
   width: 100%;
 }
 
-// ======================
-// Workshop Panel Containers
-// ======================
+
+.amazonian-background { 
+  background-image: url('indibanner.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 
 .workshop-home-container {
   margin-right: 50px; 
@@ -103,14 +107,14 @@
   width: 50%;
   font-size: 20px;
   padding: 20px 40px;
-  margin-right: 30px;
+ margin-right: 200px;
 }
 
 .product-image {
-  background-image: url('Vase.jpg');
+  background-image: url('africanmask.jpg');
   background-size: cover;
-   width: 600px; 
-  height: 800px;
+   width: 400px; 
+  height: 600px;
   position: relative;
   top: -100px;
 
