@@ -1,4 +1,4 @@
-.listing {
+.orders {
     color: $brown;
     text-align: center;
     padding-top: 50px;
@@ -11,8 +11,7 @@
     }
 }
 
-.listing-items {
-    display: flex;
+.orders-listing {
     padding-top: 20px;
     padding-bottom: 30px;
     border-bottom: 1px solid $light_yellow;
@@ -20,21 +19,17 @@
     h4 {
         color: $dark-green;
         font-weight: bolder;
+        text-align: left;
     }
 }
 
-.listing-workshops {
-    padding: 0 30px;
+.orders-pending, .orders-confirmed, .orders-cancelled {
+    padding: 20px 30px;
     border-right: 1px solid $light_yellow;
     border-left: 1px solid $light_yellow;
 }
 
-.listing-products {
-    padding: 0 30px;
-    border-right: 1px solid $light_yellow;
-}
-
-.listing-header {
-    display: flex;
-    justify-content: space-between;
+.orders-actions {
+    text-align: right;
+    padding-top: 30px;
 }

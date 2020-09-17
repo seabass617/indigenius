@@ -11,8 +11,10 @@
   padding-bottom: 3rem;
 }
 
-
+// ======================
 // homepage containers
+// ======================
+
 
 .home-container{
   background-color: rgba(155, 155, 122,0.7);
@@ -25,17 +27,14 @@
 .window { 
   align-items: center;
   display: flex;
+  justify-content: center;
 }
 
 .item-window { 
   height: auto;
   width: 100%;
 }
-.word-background {
-  background-image: url('background.png');
-  background-size: contain;
-  // opacity: 50%;
-}
+
 
 .amazonian-background { 
   background-image: url('indibanner.jpg');
@@ -80,8 +79,12 @@
   width: 600px; 
   height: 800px;
   position: relative;
-  top: -100px;
+  top: -50px;
 }
+
+// ======================
+// Product Panel Containers
+// ======================
 
 .product-home-container {
    margin-right: 50px; 
@@ -94,7 +97,7 @@
   height: 550px;
   padding: 20px;
   margin: 0 auto;
-  margin-top: 250px;
+  margin-top: 450px;
   margin-bottom: 300px;
 }
 
@@ -116,6 +119,10 @@
   top: -100px;
 
 }
+
+// ======================
+// Browse Button 
+// ======================
 
 .browse {
   font-size: 18px;
