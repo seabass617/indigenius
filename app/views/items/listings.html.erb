@@ -9,7 +9,7 @@
       <div class="listing-workshops">
         <div class="listing-header">
           <h4>Worskshops</h4>
-          <span><%= link_to 'Add New Worshop', new_item_path(true), class: "indi-navegation" %></span>
+          <p><%= link_to 'Add New Workshop', new_item_path(true), class: "indi-navegation" %></p>
         </div>
         <%= render 'listing_display', items: @workshops %>
       </div>
@@ -17,7 +17,7 @@
       <div class="listing-products">
         <div class="listing-header">
           <h4>Products</h4>
-          <span><%= link_to 'Add New Product', new_item_path(false), class: "indi-navegation" %></span>
+          <p><%= link_to 'Add New Product', new_item_path(false), class: "indi-navegation" %></p>
         </div>
         <%= render 'listing_display', items: @products %>
       </div>
