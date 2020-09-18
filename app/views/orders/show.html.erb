@@ -31,7 +31,12 @@
             <br>
             <% @order_items.each do |order_item| %>
                 <div class="cart-item">
-                    <%= cl_image_tag order_item.item.images.first.key%>
+                    <% if order_item.item.images.attached? %>
+                        <%= cl_image_tag order_item.item.images.first.key%>
+                    <% else %>
+                        <%= image_tag "no_image.jpg" %>
+                    <% end %>
+                    
                     <div class="info">
                         <div>
                             <p><strong><%= order_item.item.name %></strong></p>
