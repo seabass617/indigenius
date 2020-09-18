@@ -39,6 +39,10 @@
                     placeholder: "00",
                     input_html: { autocomplete: "quantity" } %>
       <%end%>
+      <%= f.input :price,
+                    required: true,
+                    placeholder: "00",
+                    input_html: { autocomplete: "price" } %>
 
       <%# <%= f.input :images, 
                   as: :file, 
