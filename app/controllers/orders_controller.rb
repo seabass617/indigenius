@@ -37,7 +37,7 @@ class OrdersController < ApplicationController
         currency: 'usd',
         quantity: 1
       }],
-      success_url: orders_url(@order),
+      success_url: "https://www.indigenius.space/orders",
       cancel_url: order_url(@order)
     )
 
