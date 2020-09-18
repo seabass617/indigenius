@@ -16,6 +16,7 @@
     padding-top: 20px;
     padding-bottom: 30px;
     border-bottom: 1px solid $light_yellow;
+    justify-content: space-around;
     
     h4 {
         color: $dark-green;
@@ -35,6 +36,6 @@
 }
 
 .listing-header {
-    display: flex;
-    justify-content: space-between;
+    // display: flex;
+    // justify-content: space-between;
 }
